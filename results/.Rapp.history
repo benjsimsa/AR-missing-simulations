@@ -1,0 +1,3 @@
+load("/Users/benjs/thesis/AR-missing-simulations/results/mcar_03_04_20_20.rds")
+load("/Users/benjs/thesis/AR-missing-simulations/results/mcar_03_04_20_50.rds")
+load("/Users/benjs/thesis/AR-missing-simulations/results/mcar_03_04_20_100.rds")

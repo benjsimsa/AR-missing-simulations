@@ -22,7 +22,7 @@ library(dplyr)
 ###################### Sim.AR.Model
 
 Sim.AR.Model.mcar = function(N,T.obs,Ylag.center,
-                        b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean = 0.85, compliance_sd = 0.12){
+                        b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean = 0.85){
   
   # Create number of observations: T.obs + T.burning
   T.burning = 1000
@@ -70,7 +70,7 @@ Sim.AR.Model.mcar = function(N,T.obs,Ylag.center,
   for (i in n.ID){
     T.obs.i = which(data.Y$subjno==i) 
     
-    compliance[i] = sample(rtruncnorm(a = 0, b = 1, mean = compliance_mean, sd = compliance_sd, n = 1), size = 1) # sample the individual participant's compliance from a distribution
+    compliance[i] = compliance_mean
     missing[i] = 1 - compliance[i]
     
     # Initial value
@@ -172,11 +172,11 @@ Power.Estimates.Sim.r.mcar = function(data,N,T.obs,Ylag.center,
 
 Power.Sim.Estimates.mcar = function(N,T.obs,Ylag.center,
                                b00, b10,  sigma, rho, sigma.v0, sigma.v1,
-                               rho.v, alpha, R, compliance_mean, compliance_sd){
+                               rho.v, alpha, R, compliance_mean){
   
   # Simulate data from the linear mixed-effects model
   data.list = lapply(1:R, function(r) Sim.AR.Model.mcar(N,T.obs,Ylag.center,
-                                                   b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean, compliance_sd))
+                                                   b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean))
   
   fit.list.sim = lapply(1:R, function(r) Power.Estimates.Sim.r.mcar(data.list[[r]]$data,N,T.obs,Ylag.center,
                                                                b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha))
@@ -225,5 +225,6 @@ Power.Sim.Estimates.mcar = function(N,T.obs,Ylag.center,
               RE.hat.lme=RE.hat.lme,
               RE.hat=RE.hat,
               model_observations = model_observations,
-              bias_mean = bias_mean
+              bias_mean = bias_mean,
+              missing_type = "mcar"
               ))}
