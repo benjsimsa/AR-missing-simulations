@@ -223,6 +223,7 @@ Power.Sim.Estimates_block = function(N,T.obs,Ylag.center,
               RE.hat.lme=RE.hat.lme,
               RE.hat=RE.hat,
               bias_mean = bias_mean,
-              model_observations = model_observations))}
+              model_observations = model_observations,
+              missing_type = "block"))}
 
 
