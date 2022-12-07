@@ -27,6 +27,7 @@ require(missMethods)
 ```{r }
 source(here::here("code_custom_functions", "simulation_functions_missing_mcar.R"))
 ```
+
 # Data missing completely at random 
 
 
@@ -324,31 +325,291 @@ saveRDS(mcar_03_06_100_100, file = here::here("results", "mcar_03_06_100_100.rds
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_03_08_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_03_08_20_20, file = here::here("results", "mcar_03_08_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_03_08_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_03_08_20_50, file = here::here("results", "mcar_03_08_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_03_08_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_03_08_20_100, file = here::here("results", "mcar_03_08_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_03_08_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_03_08_100_20, file = here::here("results", "mcar_03_08_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_03_08_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_03_08_100_50, file = here::here("results", "mcar_03_08_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+mcar_03_08_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_03_08_100_100, file = here::here("results", "mcar_03_08_100_100.rds"))
+```
+
 
 
 ### Compliance = 1 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_03_10_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_03_10_20_20, file = here::here("results", "mcar_03_10_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_03_10_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_03_10_20_50, file = here::here("results", "mcar_03_10_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_03_10_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_03_10_20_100, file = here::here("results", "mcar_03_10_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_03_10_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_03_10_100_20, file = here::here("results", "mcar_03_10_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_03_10_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_03_10_100_50, file = here::here("results", "mcar_03_10_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_03_10_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_03_10_100_100, file = here::here("results", "mcar_03_10_100_100.rds"))
+```
 
 ## AR = 0.5
 
@@ -356,61 +617,579 @@ saveRDS(mcar_03_06_100_100, file = here::here("results", "mcar_03_06_100_100.rds
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_05_04_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_05_04_20_20, file = here::here("results", "mcar_05_04_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_05_04_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_05_04_20_50, file = here::here("results", "mcar_05_04_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_05_04_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_05_04_20_100, file = here::here("results", "mcar_05_04_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_05_04_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_05_04_100_20, file = here::here("results", "mcar_05_04_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_05_04_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_05_04_100_50, file = here::here("results", "mcar_05_04_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_05_04_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_05_04_100_100, file = here::here("results", "mcar_05_04_100_100.rds"))
+```
 
 ### Compliance = 0.6 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_05_06_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_05_06_20_20, file = here::here("results", "mcar_05_06_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_05_06_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_05_06_20_50, file = here::here("results", "mcar_05_06_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_05_06_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_05_06_20_100, file = here::here("results", "mcar_05_06_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_05_06_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_05_06_100_20, file = here::here("results", "mcar_05_06_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_05_06_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_05_06_100_50, file = here::here("results", "mcar_05_06_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_05_06_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_05_06_100_100, file = here::here("results", "mcar_05_06_100_100.rds"))
+```
 
 ### Compliance = 0.8 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_05_08_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_05_08_20_20, file = here::here("results", "mcar_05_08_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_05_08_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_05_08_20_50, file = here::here("results", "mcar_05_08_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_05_08_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_05_08_20_100, file = here::here("results", "mcar_05_08_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_05_08_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_05_08_100_20, file = here::here("results", "mcar_05_08_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_05_08_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_05_08_100_50, file = here::here("results", "mcar_05_08_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+mcar_05_08_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_05_08_100_100, file = here::here("results", "mcar_05_08_100_100.rds"))
+```
+
 
 
 ### Compliance = 1 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_05_10_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_05_10_20_20, file = here::here("results", "mcar_05_10_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_05_10_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_05_10_20_50, file = here::here("results", "mcar_05_10_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_05_10_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_05_10_20_100, file = here::here("results", "mcar_05_10_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_05_10_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_05_10_100_20, file = here::here("results", "mcar_05_10_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_05_10_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_05_10_100_50, file = here::here("results", "mcar_05_10_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_05_10_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_05_10_100_100, file = here::here("results", "mcar_05_10_100_100.rds"))
+```
 
 ## AR = 0.7
 
@@ -418,65 +1197,587 @@ saveRDS(mcar_03_06_100_100, file = here::here("results", "mcar_03_06_100_100.rds
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_07_04_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_07_04_20_20, file = here::here("results", "mcar_07_04_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_07_04_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_07_04_20_50, file = here::here("results", "mcar_07_04_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_07_04_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_07_04_20_100, file = here::here("results", "mcar_07_04_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_07_04_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_07_04_100_20, file = here::here("results", "mcar_07_04_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_07_04_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_07_04_100_50, file = here::here("results", "mcar_07_04_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_07_04_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(mcar_07_04_100_100, file = here::here("results", "mcar_07_04_100_100.rds"))
+```
 
 ### Compliance = 0.6 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_07_06_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_07_06_20_20, file = here::here("results", "mcar_07_06_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_07_06_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_07_06_20_50, file = here::here("results", "mcar_07_06_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_07_06_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_07_06_20_100, file = here::here("results", "mcar_07_06_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_07_06_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_07_06_100_20, file = here::here("results", "mcar_07_06_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_07_06_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_07_06_100_50, file = here::here("results", "mcar_07_06_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_07_06_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(mcar_07_06_100_100, file = here::here("results", "mcar_07_06_100_100.rds"))
+```
 
 ### Compliance = 0.8 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_07_08_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_07_08_20_20, file = here::here("results", "mcar_07_08_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_07_08_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_07_08_20_50, file = here::here("results", "mcar_07_08_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_07_08_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_07_08_20_100, file = here::here("results", "mcar_07_08_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_07_08_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_07_08_100_20, file = here::here("results", "mcar_07_08_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_07_08_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_07_08_100_50, file = here::here("results", "mcar_07_08_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+mcar_07_08_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(mcar_07_08_100_100, file = here::here("results", "mcar_07_08_100_100.rds"))
+```
+
 
 
 ### Compliance = 1 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+mcar_07_10_20_20 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_07_10_20_20, file = here::here("results", "mcar_07_10_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+mcar_07_10_20_50 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_07_10_20_50, file = here::here("results", "mcar_07_10_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_07_10_20_100 = Power.Sim.Estimates.mcar(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_07_10_20_100, file = here::here("results", "mcar_07_10_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+mcar_07_10_100_20 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_07_10_100_20, file = here::here("results", "mcar_07_10_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+mcar_07_10_100_50 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_07_10_100_50, file = here::here("results", "mcar_07_10_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+mcar_07_10_100_100 = Power.Sim.Estimates.mcar(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(mcar_07_10_100_100, file = here::here("results", "mcar_07_10_100_100.rds"))
+```
 
 
 
-# Data missing in a block 
+
+
+
+
+# Data missing in blocks
 
 
 ## AR = 0.3 
@@ -485,61 +1786,579 @@ saveRDS(mcar_03_06_100_100, file = here::here("results", "mcar_03_06_100_100.rds
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_03_04_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_03_04_20_20, file = here::here("results", "block_03_04_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_03_04_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_03_04_20_50, file = here::here("results", "block_03_04_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_03_04_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_03_04_20_100, file = here::here("results", "block_03_04_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_03_04_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_03_04_100_20, file = here::here("results", "block_03_04_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_03_04_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_03_04_100_50, file = here::here("results", "block_03_04_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_03_04_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_03_04_100_100, file = here::here("results", "block_03_04_100_100.rds"))
+```
 
 ### Compliance = 0.6 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_03_06_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_03_06_20_20, file = here::here("results", "block_03_06_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_03_06_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_03_06_20_50, file = here::here("results", "block_03_06_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_03_06_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_03_06_20_100, file = here::here("results", "block_03_06_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_03_06_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_03_06_100_20, file = here::here("results", "block_03_06_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_03_06_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_03_06_100_50, file = here::here("results", "block_03_06_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_03_06_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_03_06_100_100, file = here::here("results", "block_03_06_100_100.rds"))
+```
 
 ### Compliance = 0.8 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_03_08_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_03_08_20_20, file = here::here("results", "block_03_08_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_03_08_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_03_08_20_50, file = here::here("results", "block_03_08_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_03_08_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_03_08_20_100, file = here::here("results", "block_03_08_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_03_08_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_03_08_100_20, file = here::here("results", "block_03_08_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_03_08_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_03_08_100_50, file = here::here("results", "block_03_08_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+block_03_08_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_03_08_100_100, file = here::here("results", "block_03_08_100_100.rds"))
+```
+
 
 
 ### Compliance = 1 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_03_10_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_03_10_20_20, file = here::here("results", "block_03_10_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_03_10_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_03_10_20_50, file = here::here("results", "block_03_10_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_03_10_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_03_10_20_100, file = here::here("results", "block_03_10_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_03_10_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_03_10_100_20, file = here::here("results", "block_03_10_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_03_10_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_03_10_100_50, file = here::here("results", "block_03_10_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_03_10_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_03_10_100_100, file = here::here("results", "block_03_10_100_100.rds"))
+```
 
 ## AR = 0.5
 
@@ -547,61 +2366,579 @@ saveRDS(mcar_03_06_100_100, file = here::here("results", "mcar_03_06_100_100.rds
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_05_04_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_05_04_20_20, file = here::here("results", "block_05_04_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_05_04_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_05_04_20_50, file = here::here("results", "block_05_04_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_05_04_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_05_04_20_100, file = here::here("results", "block_05_04_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_05_04_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_05_04_100_20, file = here::here("results", "block_05_04_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_05_04_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_05_04_100_50, file = here::here("results", "block_05_04_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_05_04_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_05_04_100_100, file = here::here("results", "block_05_04_100_100.rds"))
+```
 
 ### Compliance = 0.6 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_05_06_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_05_06_20_20, file = here::here("results", "block_05_06_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_05_06_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_05_06_20_50, file = here::here("results", "block_05_06_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_05_06_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_05_06_20_100, file = here::here("results", "block_05_06_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_05_06_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_05_06_100_20, file = here::here("results", "block_05_06_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_05_06_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_05_06_100_50, file = here::here("results", "block_05_06_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_05_06_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_05_06_100_100, file = here::here("results", "block_05_06_100_100.rds"))
+```
 
 ### Compliance = 0.8 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_05_08_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_05_08_20_20, file = here::here("results", "block_05_08_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_05_08_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_05_08_20_50, file = here::here("results", "block_05_08_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_05_08_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_05_08_20_100, file = here::here("results", "block_05_08_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_05_08_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_05_08_100_20, file = here::here("results", "block_05_08_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_05_08_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_05_08_100_50, file = here::here("results", "block_05_08_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+block_05_08_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_05_08_100_100, file = here::here("results", "block_05_08_100_100.rds"))
+```
+
 
 
 ### Compliance = 1 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_05_10_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_05_10_20_20, file = here::here("results", "block_05_10_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_05_10_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_05_10_20_50, file = here::here("results", "block_05_10_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_05_10_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_05_10_20_100, file = here::here("results", "block_05_10_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_05_10_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_05_10_100_20, file = here::here("results", "block_05_10_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_05_10_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_05_10_100_50, file = here::here("results", "block_05_10_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_05_10_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_05_10_100_100, file = here::here("results", "block_05_10_100_100.rds"))
+```
 
 ## AR = 0.7
 
@@ -609,59 +2946,576 @@ saveRDS(mcar_03_06_100_100, file = here::here("results", "mcar_03_06_100_100.rds
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_07_04_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_07_04_20_20, file = here::here("results", "block_07_04_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_07_04_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_07_04_20_50, file = here::here("results", "block_07_04_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_07_04_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_07_04_20_100, file = here::here("results", "block_07_04_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_07_04_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_07_04_100_20, file = here::here("results", "block_07_04_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_07_04_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_07_04_100_50, file = here::here("results", "block_07_04_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_07_04_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(block_07_04_100_100, file = here::here("results", "block_07_04_100_100.rds"))
+```
 
 ### Compliance = 0.6 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_07_06_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_07_06_20_20, file = here::here("results", "block_07_06_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_07_06_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_07_06_20_50, file = here::here("results", "block_07_06_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_07_06_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_07_06_20_100, file = here::here("results", "block_07_06_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_07_06_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_07_06_100_20, file = here::here("results", "block_07_06_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_07_06_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_07_06_100_50, file = here::here("results", "block_07_06_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
+
+block_07_06_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(block_07_06_100_100, file = here::here("results", "block_07_06_100_100.rds"))
+```
 
 ### Compliance = 0.8 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_07_08_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_07_08_20_20, file = here::here("results", "block_07_08_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_07_08_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_07_08_20_50, file = here::here("results", "block_07_08_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_07_08_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_07_08_20_100, file = here::here("results", "block_07_08_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_07_08_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_07_08_100_20, file = here::here("results", "block_07_08_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_07_08_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_07_08_100_50, file = here::here("results", "block_07_08_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+block_07_08_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(block_07_08_100_100, file = here::here("results", "block_07_08_100_100.rds"))
+```
+
 
 
 ### Compliance = 1 
 
 #### N = 20, T = 20 
 
+```{r}
+set.seed(4)
+
+block_07_10_20_20 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_07_10_20_20, file = here::here("results", "block_07_10_20_20.rds"))
+```
+
 #### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+block_07_10_20_50 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_07_10_20_50, file = here::here("results", "block_07_10_20_50.rds"))
+```
 
 #### N = 20, T = 100
 
+```{r}
+set.seed(4)
+
+block_07_10_20_100 = Power.Sim.Estimates_block(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_07_10_20_100, file = here::here("results", "block_07_10_20_100.rds"))
+```
+
 #### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+block_07_10_100_20 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_07_10_100_20, file = here::here("results", "block_07_10_100_20.rds"))
+```
+
 
 #### N = 100, T = 50
 
+```{r}
+set.seed(4)
+
+block_07_10_100_50 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_07_10_100_50, file = here::here("results", "block_07_10_100_50.rds"))
+```
+
+
+
 #### N = 100, T = 100
 
+```{r}
+set.seed(4)
 
+block_07_10_100_100 = Power.Sim.Estimates_block(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(block_07_10_100_100, file = here::here("results", "block_07_10_100_100.rds"))
+```
