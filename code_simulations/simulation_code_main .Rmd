@@ -3526,6 +3526,7 @@ saveRDS(block_07_10_100_100, file = here::here("results", "block_07_10_100_100.r
 
 
 
+
 # (1-compliance) lowest values set as missing (most extreme - one-sided)
 
 
@@ -3538,7 +3539,7 @@ saveRDS(block_07_10_100_100, file = here::here("results", "block_07_10_100_100.r
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_04_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_04_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3561,7 +3562,7 @@ saveRDS(extreme_oneside_03_04_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_04_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_04_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3584,7 +3585,7 @@ saveRDS(extreme_oneside_03_04_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_04_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_04_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3608,7 +3609,7 @@ saveRDS(extreme_oneside_03_04_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_04_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_04_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3632,7 +3633,7 @@ saveRDS(extreme_oneside_03_04_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_04_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_04_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3657,7 +3658,7 @@ saveRDS(extreme_oneside_03_04_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_04_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_04_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3682,7 +3683,7 @@ saveRDS(extreme_oneside_03_04_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_06_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_06_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3705,7 +3706,7 @@ saveRDS(extreme_oneside_03_06_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_06_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_06_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3728,7 +3729,7 @@ saveRDS(extreme_oneside_03_06_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_06_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_06_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3752,7 +3753,7 @@ saveRDS(extreme_oneside_03_06_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_06_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_06_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3776,7 +3777,7 @@ saveRDS(extreme_oneside_03_06_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_06_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_06_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3801,7 +3802,7 @@ saveRDS(extreme_oneside_03_06_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_06_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_06_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3826,7 +3827,7 @@ saveRDS(extreme_oneside_03_06_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_08_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_08_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3849,7 +3850,7 @@ saveRDS(extreme_oneside_03_08_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_08_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_08_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3872,7 +3873,7 @@ saveRDS(extreme_oneside_03_08_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_08_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_08_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3896,7 +3897,7 @@ saveRDS(extreme_oneside_03_08_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_08_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_08_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3920,7 +3921,7 @@ saveRDS(extreme_oneside_03_08_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_08_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_08_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3945,7 +3946,7 @@ saveRDS(extreme_oneside_03_08_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_08_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_08_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3972,7 +3973,7 @@ saveRDS(extreme_oneside_03_08_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_10_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_10_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -3995,7 +3996,7 @@ saveRDS(extreme_oneside_03_10_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_10_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_10_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4018,7 +4019,7 @@ saveRDS(extreme_oneside_03_10_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_10_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_03_10_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4042,7 +4043,7 @@ saveRDS(extreme_oneside_03_10_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_10_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_10_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4066,7 +4067,7 @@ saveRDS(extreme_oneside_03_10_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_10_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_10_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4091,7 +4092,7 @@ saveRDS(extreme_oneside_03_10_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_03_10_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_03_10_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4118,7 +4119,7 @@ saveRDS(extreme_oneside_03_10_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_04_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_04_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4141,7 +4142,7 @@ saveRDS(extreme_oneside_05_04_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_04_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_04_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4164,7 +4165,7 @@ saveRDS(extreme_oneside_05_04_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_04_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_04_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4188,7 +4189,7 @@ saveRDS(extreme_oneside_05_04_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_04_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_04_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4212,7 +4213,7 @@ saveRDS(extreme_oneside_05_04_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_04_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_04_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4237,7 +4238,7 @@ saveRDS(extreme_oneside_05_04_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_04_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_04_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4262,7 +4263,7 @@ saveRDS(extreme_oneside_05_04_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_06_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_06_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4285,7 +4286,7 @@ saveRDS(extreme_oneside_05_06_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_06_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_06_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4308,7 +4309,7 @@ saveRDS(extreme_oneside_05_06_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_06_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_06_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4332,7 +4333,7 @@ saveRDS(extreme_oneside_05_06_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_06_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_06_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4356,7 +4357,7 @@ saveRDS(extreme_oneside_05_06_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_06_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_06_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4381,7 +4382,7 @@ saveRDS(extreme_oneside_05_06_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_06_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_06_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4406,7 +4407,7 @@ saveRDS(extreme_oneside_05_06_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_08_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_08_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4429,7 +4430,7 @@ saveRDS(extreme_oneside_05_08_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_08_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_08_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4452,7 +4453,7 @@ saveRDS(extreme_oneside_05_08_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_08_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_08_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4476,7 +4477,7 @@ saveRDS(extreme_oneside_05_08_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_08_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_08_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4500,7 +4501,7 @@ saveRDS(extreme_oneside_05_08_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_08_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_08_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4525,7 +4526,7 @@ saveRDS(extreme_oneside_05_08_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_08_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_08_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4552,7 +4553,7 @@ saveRDS(extreme_oneside_05_08_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_10_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_10_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4575,7 +4576,7 @@ saveRDS(extreme_oneside_05_10_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_10_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_10_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4598,7 +4599,7 @@ saveRDS(extreme_oneside_05_10_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_10_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_05_10_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4622,7 +4623,7 @@ saveRDS(extreme_oneside_05_10_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_10_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_10_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4646,7 +4647,7 @@ saveRDS(extreme_oneside_05_10_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_10_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_10_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4671,7 +4672,7 @@ saveRDS(extreme_oneside_05_10_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_05_10_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_05_10_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4698,7 +4699,7 @@ saveRDS(extreme_oneside_05_10_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_04_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_04_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4721,7 +4722,7 @@ saveRDS(extreme_oneside_07_04_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_04_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_04_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4744,7 +4745,7 @@ saveRDS(extreme_oneside_07_04_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_04_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_04_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4768,7 +4769,7 @@ saveRDS(extreme_oneside_07_04_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_04_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_04_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4792,7 +4793,7 @@ saveRDS(extreme_oneside_07_04_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_04_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_04_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4817,7 +4818,7 @@ saveRDS(extreme_oneside_07_04_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_04_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_04_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4842,7 +4843,7 @@ saveRDS(extreme_oneside_07_04_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_06_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_06_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4865,7 +4866,7 @@ saveRDS(extreme_oneside_07_06_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_06_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_06_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4888,7 +4889,7 @@ saveRDS(extreme_oneside_07_06_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_06_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_06_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4912,7 +4913,7 @@ saveRDS(extreme_oneside_07_06_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_06_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_06_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4936,7 +4937,7 @@ saveRDS(extreme_oneside_07_06_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_06_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_06_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4961,7 +4962,7 @@ saveRDS(extreme_oneside_07_06_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_06_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_06_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -4986,7 +4987,7 @@ saveRDS(extreme_oneside_07_06_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_08_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_08_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5009,7 +5010,7 @@ saveRDS(extreme_oneside_07_08_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_08_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_08_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5032,7 +5033,7 @@ saveRDS(extreme_oneside_07_08_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_08_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_08_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5056,7 +5057,7 @@ saveRDS(extreme_oneside_07_08_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_08_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_08_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5080,7 +5081,7 @@ saveRDS(extreme_oneside_07_08_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_08_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_08_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5105,7 +5106,7 @@ saveRDS(extreme_oneside_07_08_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_08_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_08_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5132,7 +5133,7 @@ saveRDS(extreme_oneside_07_08_100_100, file = here::here("results", "extreme_one
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_10_20_20 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_10_20_20 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5155,7 +5156,7 @@ saveRDS(extreme_oneside_07_10_20_20, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_10_20_50 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_10_20_50 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5178,7 +5179,7 @@ saveRDS(extreme_oneside_07_10_20_50, file = here::here("results", "extreme_onesi
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_10_20_100 = Power.Sim.Estimates_extreme_oneside(N = 20,
+extreme_oneside_07_10_20_100 = Power.Sim.Estimates.extreme_oneside(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5202,7 +5203,7 @@ saveRDS(extreme_oneside_07_10_20_100, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_10_100_20 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_10_100_20 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5226,7 +5227,7 @@ saveRDS(extreme_oneside_07_10_100_20, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_10_100_50 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_10_100_50 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5251,7 +5252,7 @@ saveRDS(extreme_oneside_07_10_100_50, file = here::here("results", "extreme_ones
 ```{r}
 set.seed(4)
 
-extreme_oneside_07_10_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
+extreme_oneside_07_10_100_100 = Power.Sim.Estimates.extreme_oneside(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0,
@@ -5267,4 +5268,1748 @@ extreme_oneside_07_10_100_100 = Power.Sim.Estimates_extreme_oneside(N = 100,
 
 
 saveRDS(extreme_oneside_07_10_100_100, file = here::here("results", "extreme_oneside_07_10_100_100.rds"))
+```
+
+
+# (1-compliance)/2 lowest and highest values of each participant's process set as missing (most extreme -two-sided)
+
+
+## AR = 0.3 
+
+### Compliance = 0.4 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_04_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_03_04_20_20, file = here::here("results", "extreme_twosided_03_04_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_04_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_03_04_20_50, file = here::here("results", "extreme_twosided_03_04_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_04_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_03_04_20_100, file = here::here("results", "extreme_twosided_03_04_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_04_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_03_04_100_20, file = here::here("results", "extreme_twosided_03_04_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_04_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_03_04_100_50, file = here::here("results", "extreme_twosided_03_04_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_04_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_03_04_100_100, file = here::here("results", "extreme_twosided_03_04_100_100.rds"))
+```
+
+### Compliance = 0.6 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_06_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_03_06_20_20, file = here::here("results", "extreme_twosided_03_06_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_06_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_03_06_20_50, file = here::here("results", "extreme_twosided_03_06_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_06_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_03_06_20_100, file = here::here("results", "extreme_twosided_03_06_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_06_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_03_06_100_20, file = here::here("results", "extreme_twosided_03_06_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_06_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_03_06_100_50, file = here::here("results", "extreme_twosided_03_06_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_06_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_03_06_100_100, file = here::here("results", "extreme_twosided_03_06_100_100.rds"))
+```
+
+### Compliance = 0.8 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_08_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_03_08_20_20, file = here::here("results", "extreme_twosided_03_08_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_08_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_03_08_20_50, file = here::here("results", "extreme_twosided_03_08_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_08_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_03_08_20_100, file = here::here("results", "extreme_twosided_03_08_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_08_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_03_08_100_20, file = here::here("results", "extreme_twosided_03_08_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_08_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_03_08_100_50, file = here::here("results", "extreme_twosided_03_08_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_08_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_03_08_100_100, file = here::here("results", "extreme_twosided_03_08_100_100.rds"))
+```
+
+
+
+### Compliance = 1 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_10_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_03_10_20_20, file = here::here("results", "extreme_twosided_03_10_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_10_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_03_10_20_50, file = here::here("results", "extreme_twosided_03_10_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_10_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_03_10_20_100, file = here::here("results", "extreme_twosided_03_10_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_10_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_03_10_100_20, file = here::here("results", "extreme_twosided_03_10_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_10_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_03_10_100_50, file = here::here("results", "extreme_twosided_03_10_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_03_10_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_03_10_100_100, file = here::here("results", "extreme_twosided_03_10_100_100.rds"))
+```
+
+## AR = 0.5
+
+### Compliance = 0.4 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_04_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_05_04_20_20, file = here::here("results", "extreme_twosided_05_04_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_04_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_05_04_20_50, file = here::here("results", "extreme_twosided_05_04_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_04_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_05_04_20_100, file = here::here("results", "extreme_twosided_05_04_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_04_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_05_04_100_20, file = here::here("results", "extreme_twosided_05_04_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_04_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_05_04_100_50, file = here::here("results", "extreme_twosided_05_04_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_04_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_05_04_100_100, file = here::here("results", "extreme_twosided_05_04_100_100.rds"))
+```
+
+### Compliance = 0.6 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_06_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_05_06_20_20, file = here::here("results", "extreme_twosided_05_06_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_06_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_05_06_20_50, file = here::here("results", "extreme_twosided_05_06_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_06_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_05_06_20_100, file = here::here("results", "extreme_twosided_05_06_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_06_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_05_06_100_20, file = here::here("results", "extreme_twosided_05_06_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_06_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_05_06_100_50, file = here::here("results", "extreme_twosided_05_06_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_06_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_05_06_100_100, file = here::here("results", "extreme_twosided_05_06_100_100.rds"))
+```
+
+### Compliance = 0.8 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_08_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_05_08_20_20, file = here::here("results", "extreme_twosided_05_08_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_08_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_05_08_20_50, file = here::here("results", "extreme_twosided_05_08_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_08_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_05_08_20_100, file = here::here("results", "extreme_twosided_05_08_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_08_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_05_08_100_20, file = here::here("results", "extreme_twosided_05_08_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_08_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_05_08_100_50, file = here::here("results", "extreme_twosided_05_08_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_08_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_05_08_100_100, file = here::here("results", "extreme_twosided_05_08_100_100.rds"))
+```
+
+
+
+### Compliance = 1 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_10_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_05_10_20_20, file = here::here("results", "extreme_twosided_05_10_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_10_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_05_10_20_50, file = here::here("results", "extreme_twosided_05_10_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_10_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_05_10_20_100, file = here::here("results", "extreme_twosided_05_10_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_10_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_05_10_100_20, file = here::here("results", "extreme_twosided_05_10_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_10_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_05_10_100_50, file = here::here("results", "extreme_twosided_05_10_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_05_10_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.5,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_05_10_100_100, file = here::here("results", "extreme_twosided_05_10_100_100.rds"))
+```
+
+## AR = 0.7
+
+### Compliance = 0.4 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_04_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_07_04_20_20, file = here::here("results", "extreme_twosided_07_04_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_04_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_07_04_20_50, file = here::here("results", "extreme_twosided_07_04_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_04_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_07_04_20_100, file = here::here("results", "extreme_twosided_07_04_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_04_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_07_04_100_20, file = here::here("results", "extreme_twosided_07_04_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_04_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_07_04_100_50, file = here::here("results", "extreme_twosided_07_04_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_04_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(extreme_twosided_07_04_100_100, file = here::here("results", "extreme_twosided_07_04_100_100.rds"))
+```
+
+### Compliance = 0.6 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_06_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_07_06_20_20, file = here::here("results", "extreme_twosided_07_06_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_06_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_07_06_20_50, file = here::here("results", "extreme_twosided_07_06_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_06_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_07_06_20_100, file = here::here("results", "extreme_twosided_07_06_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_06_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_07_06_100_20, file = here::here("results", "extreme_twosided_07_06_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_06_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_07_06_100_50, file = here::here("results", "extreme_twosided_07_06_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_06_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(extreme_twosided_07_06_100_100, file = here::here("results", "extreme_twosided_07_06_100_100.rds"))
+```
+
+### Compliance = 0.8 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_08_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_07_08_20_20, file = here::here("results", "extreme_twosided_07_08_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_08_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_07_08_20_50, file = here::here("results", "extreme_twosided_07_08_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_08_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_07_08_20_100, file = here::here("results", "extreme_twosided_07_08_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_08_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_07_08_100_20, file = here::here("results", "extreme_twosided_07_08_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_08_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_07_08_100_50, file = here::here("results", "extreme_twosided_07_08_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_08_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(extreme_twosided_07_08_100_100, file = here::here("results", "extreme_twosided_07_08_100_100.rds"))
+```
+
+
+
+### Compliance = 1 
+
+#### N = 20, T = 20 
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_10_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_07_10_20_20, file = here::here("results", "extreme_twosided_07_10_20_20.rds"))
+```
+
+#### N = 20, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_10_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_07_10_20_50, file = here::here("results", "extreme_twosided_07_10_20_50.rds"))
+```
+
+#### N = 20, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_10_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_07_10_20_100, file = here::here("results", "extreme_twosided_07_10_20_100.rds"))
+```
+
+#### N = 100, T = 20 
+
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_10_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 20,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_07_10_100_20, file = here::here("results", "extreme_twosided_07_10_100_20.rds"))
+```
+
+
+#### N = 100, T = 50
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_10_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_07_10_100_50, file = here::here("results", "extreme_twosided_07_10_100_50.rds"))
+```
+
+
+
+#### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+extreme_twosided_07_10_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = 0, 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(extreme_twosided_07_10_100_100, file = here::here("results", "extreme_twosided_07_10_100_100.rds"))
 ```
