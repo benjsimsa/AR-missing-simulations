@@ -231,7 +231,7 @@ overall_by_NT = overall_df_reordered %>%
 ### SE 
 
 ```{r }
-(se_avg_sd = ggplot(data = overall_by_NT,
+(se_avg = ggplot(data = overall_by_NT,
                   mapping = aes(x = comp_mean,
                                 y = B1_se)) + 
                   geom_line(aes(colour = as.factor(miss_type),
@@ -246,14 +246,14 @@ overall_by_NT = overall_df_reordered %>%
                   facet_grid(~ B1_sim)
 )
 
-se_avg_sd = ggplotly(se_avg_sd)
+se_avg = ggplotly(se_avg)
 
 ```
 
 
 ### Power 
 ```{r }
-(pow_avg_sd = ggplot(data = overall_by_NT,
+(pow_avg = ggplot(data = overall_by_NT,
                   mapping = aes(x = comp_mean,
                                 y = B1_pow)) + 
                   geom_line(aes(colour = as.factor(miss_type),
@@ -268,32 +268,29 @@ se_avg_sd = ggplotly(se_avg_sd)
                   facet_grid(~ B1_sim)
 )
 
-pow_avg_sd = ggplotly(pow_avg_sd)
+pow_avg = ggplotly(pow_avg)
 
 ```
 
 
 ### Fixed AR estimate 
 ```{r }
-(b1_avg_sd = ggplot(data = mcar_df_NT,
+(b1_est_avg = ggplot(data = overall_by_NT,
                   mapping = aes(x = comp_mean,
-                                y = B1_est, 
-                                group = comp_sd)) + 
-                  geom_line(aes(linetype = comp_sd,
-                                  colour = comp_sd)) +
+                                y = B1_est)) + 
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type))) +
                   geom_point() + 
                   theme_minimal() +
-                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) + 
-                  ylab("B1 estimate") + 
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  ylab("Power to detect the B1 estimate") + 
                   xlab("Mean compliance") + 
-                  labs(colour = "Compliance SD",
-                       linetype = "Compliance SD") + 
-                  geom_hline(yintercept = 0.20, 
-                        linetype = "dashed") + 
-                  ggtitle("Real fixed AR(1) effect = 0.2")
+                  labs(colour = "Missingness type",
+                       linetype = "Missingness type") +
+                  facet_grid(~ B1_sim)
 )
 
-b1_avg_sd = ggplotly(b1_avg_sd)
+b1_est_avg = ggplotly(b1_est_avg)
 ```
 
 ### Convergence
