@@ -212,7 +212,9 @@ Power.Sim.Estimates_block = function(N,T.obs,Ylag.center,
   # Get the simulated random effects for each replicate
   RE.hat = lapply(R.converge, function(r) data.list[[r]]$RE)
   
-  return(list(beta.hat.lme=beta.hat.lme,
+  return(list(b10 = b10,
+              sigma.v1 = sigma.v1,
+              beta.hat.lme=beta.hat.lme,
               power.hat.lme=power.hat.lme,
               StdError.beta.hat.lme=StdError.beta.hat.lme,
               n.R=n.R,

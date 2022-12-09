@@ -1,0 +1,959 @@
+---
+title: 'Plots and tables: Study A (no random slopes)'
+author: "benjamin simsa"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: readable
+---
+# Import packages and data, preprocess results
+
+```{r importing packages}
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(gridExtra)
+library(patchwork)
+library(DT)
+library(here)
+```
+
+Combine the results into a table where each N/T/comp_dist combination is one line 
+
+```{r Preprocessing results}
+ # set the working directory to the folder containing simulation results - One Rds file for each simulation condition, 63 files in total.
+
+rdslist = list.files(path = here::here("results", "sim_a_norandomslopes"), pattern='*.rds') # get all the data files in a list
+  
+overall_df = data.frame(matrix(ncol = 14)) # prepare the data frame 
+names = c("B0_est",
+          "B1_est",
+          "B0_pow",
+          "B1_pow",
+          "B0_se",
+          "B1_se",
+          "conv",
+          "N",
+          "T.obs",
+          "comp_mean",
+          "miss_type",
+          "bias_mean",
+          "model_observations",
+          "B1_sim")
+colnames(overall_df) = names
+
+
+
+for (i in length(rdslist):1){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_a_norandomslopes", rdslist[i]))
+  overall_df[i, 1] = as.numeric(res$beta.hat.lme[1])
+  overall_df[i, 2] = as.numeric(res$beta.hat.lme[2])
+  overall_df[i, 3] = as.numeric(res$power.hat.lme[1])
+  overall_df[i, 4] = as.numeric(res$power.hat.lme[2])
+  overall_df[i, 5] = as.numeric(res$StdError.beta.hat.lme[1])
+  overall_df[i, 6] = as.numeric(res$StdError.beta.hat.lme[2])
+  overall_df[i, 7] = as.numeric(res$n.R)
+  overall_df[i, 8] = as.numeric(res$N)
+  overall_df[i, 9] = as.numeric(res$T.obs)
+  overall_df[i, 10] = as.numeric(res$comp_mean)
+  overall_df[i, 11] = (res$missing_type)
+  overall_df[i, 12] = as.numeric(res$bias_mean)
+  overall_df[i, 13] = as.numeric(res$model_observations)
+  overall_df[i, 14] = as.numeric(res$b10)
+}
+
+# reorder the rows and columns  
+overall_df = overall_df %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
+```
+# Tables 
+
+## General table with all the results 
+
+```{r table_all}
+overall_df_reordered = overall_df[, c(11, 14, 10, 8, 9, 2, 4, 1, 3, 6, 5, 7, 12, 13)] # reordering the dataframe so that the order of columns makes more sense 
+
+table_all = overall_df_reordered %>% 
+  mutate_all(funs(round(.,3))) # round the reordered dataframe, so that it makes a nice table 
+
+table_all = datatable(overall_df_reordered)
+```
+
+## Estimates / SE/ power/ convergence / bias in estimation of mean for each missingness type (grouped by the value of simulated B1)
+
+```{r}
+
+
+overall_missing_type = overall_df_reordered %>% 
+  group_by(miss_type, B1_sim) %>% 
+  summarise(B1_estimate = round(mean(B1_est), 3),
+            B1_power = round(mean(B1_pow), 3), 
+            B1_SE = round(mean(B1_se), 3),
+            Convergence = round(mean(conv),3),
+            bias_mean = round(mean(bias_mean), 3),
+            model_observations = round(mean(model_observations), 3))
+
+names = c("Missingness type",
+          "Simulated B1",
+          "B1 estimate",
+          "B1 power",
+          "B1 SE",
+          "Convergence",
+          "Bias in mean estimation",
+          "Used observations")
+
+colnames(overall_missing_type) = names
+
+table_missing_type = datatable(overall_missing_type,
+          class = 'cell-border stripe',
+          caption = "Table 1: Results for each combination of real B1 and missingness type, averaged over all values of N, T and compliances",
+options = list(searching = FALSE,
+               lengthChange = FALSE,
+               paging = FALSE))
+```
+
+
+## Estimates / SE / power / convergence for each missingness type / N combination
+```{r table_N}
+overall_N = overall_df_reordered %>% 
+  group_by(miss_type, B1_sim, N) %>% 
+  summarise(B1_estimate = round(mean(B1_est), 3),
+            B1_power = round(mean(B1_pow), 3), 
+            B1_SE = round(mean(B1_se), 3),
+            Convergence = round(mean(conv),3),
+            bias_mean = round(mean(bias_mean), 3),
+            model_observations = round(mean(model_observations), 3))
+
+names = c("Missingness type",
+          "Simulated B1",
+          "N participants",
+          "B1 estimate",
+          "B1 power",
+          "B1 SE",
+          "Convergence",
+          "Bias in mean estimation",
+          "Used observations")
+
+colnames(overall_N) = names
+
+table_N = datatable(overall_N,
+          class = 'cell-border stripe',
+          caption = "Table 2: Results for each combination of N and missingness type, averaged over all values of T and compliances",
+options = list(searching = FALSE,
+               lengthChange = FALSE,
+               paging = FALSE))
+```
+
+## Estimates / SE / power / convergence for each missingness type / T combination
+
+```{r table_T}
+overall_T = overall_df_reordered %>% 
+  group_by(miss_type, B1_sim, T.obs) %>% 
+  summarise(B1_estimate = round(mean(B1_est), 3),
+            B1_power = round(mean(B1_pow), 3), 
+            B1_SE = round(mean(B1_se), 3),
+            Convergence = round(mean(conv),3),
+            bias_mean = round(mean(bias_mean), 3),
+            model_observations = round(mean(model_observations), 3))
+
+names = c("Missingness type",
+          "Simulated B1",
+          "T series length",
+          "B1 estimate",
+          "B1 power",
+          "B1 SE",
+          "Convergence",
+          "Bias in mean estimation",
+          "Used observations")
+
+colnames(overall_T) = names
+
+table_T = datatable(overall_T,
+          class = 'cell-border stripe',
+          caption = "Table 3 Results for each combination of T and missingness type, averaged over all values of N and compliances",
+options = list(searching = FALSE,
+               lengthChange = FALSE,
+               paging = FALSE))
+```
+
+## Estimates / SE / power / convergence / bias for each compliance/missingness type combination
+
+```{r table_compliance}
+overall_compliance =  overall_df_reordered %>% 
+  group_by(miss_type, B1_sim, comp_mean) %>% 
+    summarise(B1_estimate = round(mean(B1_est), 3),
+            B1_power = round(mean(B1_pow), 3), 
+            B1_SE = round(mean(B1_se), 3),
+            Convergence = round(mean(conv),3),
+            bias_mean = round(mean(bias_mean), 3),
+            model_observations = round(mean(model_observations), 3))
+
+names = c("Missingness type",
+          "Simulated B1",
+          "Mean compliance",
+          "B1 estimate",
+          "B1 power",
+          "B1 SE",
+          "Convergence",
+          "Bias in mean estimation",
+          "Used observations")
+
+
+colnames(overall_compliance) = names
+
+table_compliance = datatable(mcar_df_compl,
+          class = 'cell-border stripe')
+
+table_compliance = datatable(mcar_df_compl,
+          class = 'cell-border stripe',
+          caption = "Table 4: Results for each combination of mean compliance and compliance SD averaged over all values of N (participants) and T (timepoints)",
+options = list(searching = FALSE,
+               lengthChange = FALSE,
+               paging = FALSE))
+
+
+```
+
+
+# Plots 
+
+## Results across T and N - between compliance means and SDs 
+
+```{r }
+overall_by_NT = overall_df_reordered %>% 
+   group_by(miss_type, B1_sim, comp_mean) %>% 
+   summarise(across(everything(), mean))
+
+```
+
+### SE 
+
+```{r }
+(se_avg_sd = ggplot(data = overall_by_NT,
+                  mapping = aes(x = comp_mean,
+                                y = B1_se)) + 
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type))) +
+                  geom_point() + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  ylab("SE of the B1 estimate") + 
+                  xlab("Mean compliance") + 
+                  labs(colour = "Missingness type",
+                       linetype = "Missingness type") +
+                  facet_grid(~ B1_sim)
+)
+
+se_avg_sd = ggplotly(se_avg_sd)
+
+```
+
+
+### Power 
+```{r }
+(pow_avg_sd = ggplot(data = overall_by_NT,
+                  mapping = aes(x = comp_mean,
+                                y = B1_pow)) + 
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type))) +
+                  geom_point() + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  ylab("Power to detect the B1 estimate") + 
+                  xlab("Mean compliance") + 
+                  labs(colour = "Missingness type",
+                       linetype = "Missingness type") +
+                  facet_grid(~ B1_sim)
+)
+
+pow_avg_sd = ggplotly(pow_avg_sd)
+
+```
+
+
+### Fixed AR estimate 
+```{r }
+(b1_avg_sd = ggplot(data = mcar_df_NT,
+                  mapping = aes(x = comp_mean,
+                                y = B1_est, 
+                                group = comp_sd)) + 
+                  geom_line(aes(linetype = comp_sd,
+                                  colour = comp_sd)) +
+                  geom_point() + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) + 
+                  ylab("B1 estimate") + 
+                  xlab("Mean compliance") + 
+                  labs(colour = "Compliance SD",
+                       linetype = "Compliance SD") + 
+                  geom_hline(yintercept = 0.20, 
+                        linetype = "dashed") + 
+                  ggtitle("Real fixed AR(1) effect = 0.2")
+)
+
+b1_avg_sd = ggplotly(b1_avg_sd)
+```
+
+### Convergence
+```{r }
+(conv_avg_sd = ggplot(data = mcar_df_NT,
+                  mapping = aes(x = comp_mean,
+                                y = conv, 
+                                group = comp_sd)) + 
+                  geom_line(aes(linetype = comp_sd,
+                                  colour = comp_sd)) +
+                  geom_point() + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) + 
+                  ylab("Average convergence rate") + 
+                  xlab("Mean compliance") + 
+                  labs(colour = "Compliance SD",
+                       linetype = "Compliance SD") + 
+                  ylim(800, 1000) + 
+                  ggtitle("True fixed AR(1) effect = 0.2")
+)
+
+conv_avg_sd = ggplotly(conv_avg_sd)
+```
+
+
+## Visualising power 
+
+```{r viz pow function}
+viz_NT_pow = function(N_select, T.obs_select, data = mcar_df){
+  # Get subset of the data that has the particulaR N/T combination 
+  d = data %>% 
+   filter(data$N == N_select & data$T.obs == T.obs_select)
+  
+  d[7,11] = 0.06
+  d[8, ] = d[7, ]
+  d[8, 11] = 0.12
+  d$comp_sd = as.factor(d$comp_sd)
+  
+  # Visualise the data
+  pow_avg = ggplot( data = d,
+                        mapping = aes(x = comp_mean,
+                                      y = B1_pow, 
+                                      group = comp_sd)) +
+                  geom_line(aes(linetype = comp_sd,
+                                  colour = comp_sd),
+                            size = 1) + 
+                  geom_point(size = 2) + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
+                  ylim(0.65, 1) + #setting the y-limits manually          
+    theme(legend.position = "none") +
+    theme(axis.title = element_blank())
+                  
+
+  plot = ggplotly(pow_avg)
+  return(plot)
+}
+
+```
+
+### Power for all N/T combinations 
+```{r }
+Ns = c(20, 50, 100)
+Ts = c(20, 50, 100)
+plotlist = list()
+
+for (n in 1:length(Ns)){
+  for (t in 1:length(Ts)){
+    plot = viz_NT_pow(Ns[n], Ts[t])
+    plotlist = c(plotlist, list(plot))
+  }
+}
+
+annotations = list(
+  list(x = 0.15,
+       y = -0.09,
+       text = "T = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = 0.49,
+       y = -0.09,
+       text = "T = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = 0.84,
+       y = -0.09,
+       text = "T = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.15,
+       text = "N = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.49,
+       text = "N = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = -0.08,
+       y = 0.85,
+       text = "N = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE)
+  
+)
+
+power_NT_nolayout = subplot(plotlist, 
+                 nrows = 3,
+                 shareX = TRUE,
+                 shareY = FALSE)
+
+
+(power_NT  = power_NT_nolayout %>% 
+  layout(annotations = annotations,
+         margin = list(l = 100, t = 40),
+        plot.margin = unit(c(2, 2, 2, 2), "cm")))
+
+
+```
+
+```{r }
+Ns = c(20, 50, 100)
+Ts = c(20, 50, 100)
+plotlist = list()
+
+for (n in 1:length(Ns)){
+  for (t in 1:length(Ts)){
+    plot = viz_NT_pow(Ns[n], Ts[t])
+    plotlist = c(plotlist, list(plot))
+  }
+}
+
+
+
+ d = data %>% 
+   filter(data$N == N_select & data$T.obs == T.obs_select)
+  
+  d[7,11] = 0.06
+  d[8, ] = d[7, ]
+  d[8, 11] = 0.12
+  d$comp_sd = as.factor(d$comp_sd)
+  
+  # Visualise the data
+  pow_avg = ggplot( data = d,
+                        mapping = aes(x = comp_mean,
+                                      y = B1_pow, 
+                                      group = comp_sd)) +
+                  geom_line(aes(linetype = comp_sd,
+                                  colour = comp_sd),
+                            size = 1) + 
+                  geom_point(size = 2) + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
+                  ylim(0.65, 1) + #setting the y-limits manually          
+    theme(legend.position = "none") +
+    theme(axis.title = element_blank())
+                  
+
+  plot = ggplotly(pow_avg)
+  return(plot)
+```
+
+## Visualising B1 estimates 
+
+```{r viz estimate function}
+viz_NT_est = function(N_select, T.obs_select, data = mcar_df){
+  # Get subset of the data that has the particulaR N/T combination 
+  d = data %>% 
+   filter(data$N == N_select & data$T.obs == T.obs_select)
+  
+  d[7,11] = 0.06
+  d[8, ] = d[7, ]
+  d[8, 11] = 0.12
+  d$comp_sd = as.factor(d$comp_sd)
+  
+  # Visualise the data
+  est_avg = ggplot( data = d,
+                        mapping = aes(x = comp_mean,
+                                      y = B1_est, 
+                                      group = comp_sd)) +
+                  geom_line(aes(linetype = comp_sd,
+                                  colour = comp_sd)) + 
+                  geom_point(size = 1.5) + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
+                  geom_hline(yintercept = 0.2, 
+                        linetype = "dashed") +
+                  theme(axis.title = element_blank(),
+                        legend.position = "none") + 
+                  ylim(0.18, 0.38) # setting the ylim manually
+
+  plot = ggplotly(est_avg)
+  return(plot)
+}
+
+
+```
+
+### Estimate for all N/T combinations 
+```{r }
+Ns = c(20, 50, 100)
+Ts = c(20, 50, 100)
+plotlist = list()
+
+for (n in 1:length(Ns)){
+  for (t in 1:length(Ts)){
+    plot = viz_NT_est(Ns[n], Ts[t])
+    plotlist = c(plotlist, list(plot))
+  }
+}
+
+#q = grid.arrange(grobs = plotlist,
+#                 ncol = 3)
+
+annotations = list(
+  list(x = 0.15,
+       y = -0.09,
+       text = "T = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = 0.49,
+       y = -0.09,
+       text = "T = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = 0.84,
+       y = -0.09,
+       text = "T = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.15,
+       text = "N = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.49,
+       text = "N = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = -0.08,
+       y = 0.85,
+       text = "N = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE)
+  
+)
+
+B1_NT_nolayout = subplot(plotlist, 
+             nrows = 3,
+             shareX = TRUE,
+             shareY = FALSE)
+
+(B1_NT = B1_NT_nolayout %>% 
+  layout(annotations = annotations,
+         margin = list(l = 100, 
+                       t = 40)))
+
+
+```
+
+
+## Visualising SE 
+```{r viz SE function}
+
+viz_NT_SE = function(N_select, T.obs_select, data = mcar_df){
+  # Get subset of the data that has the particulaR N/T combination 
+  d = data %>% 
+   filter(data$N == N_select & data$T.obs == T.obs_select)
+  
+  d[7,11] = 0.06
+  d[8, ] = d[7, ]
+  d[8, 11] = 0.12
+  d$comp_sd = as.factor(d$comp_sd)
+  
+  # Visualise the data
+  SE_avg = ggplot( data = d,
+                        mapping = aes(x = comp_mean,
+                                      y = B1_se, 
+                                      group = comp_sd)) +
+                  geom_line(aes(linetype = comp_sd,
+                                  colour = comp_sd)) + 
+                  geom_point(size = 1.5) + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
+                  theme(axis.title = element_blank(),
+                        legend.position = "none") + 
+                  ylim(0, 0.15)
+
+  plot = ggplotly(SE_avg)
+  return(plot)
+}
+```
+
+
+### B1_SE for all N/T combinations 
+
+
+```{r }
+Ns = c(20, 50, 100)
+Ts = c(20, 50, 100)
+plotlist = list()
+
+for (n in 1:length(Ns)){
+  for (t in 1:length(Ts)){
+    plot = viz_NT_SE(Ns[n], Ts[t])
+    plotlist = c(plotlist, list(plot))
+  }
+}
+
+#q = grid.arrange(grobs = plotlist,
+#                 ncol = 3)
+
+annotations = list(
+  list(x = 0.15,
+       y = -0.09,
+       text = "T = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = 0.49,
+       y = -0.09,
+       text = "T = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = 0.84,
+       y = -0.09,
+       text = "T = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.15,
+       text = "N = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.49,
+       text = "N = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = -0.08,
+       y = 0.85,
+       text = "N = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE)
+  
+)
+
+SE_NT_nolayout = subplot(plotlist, 
+             nrows = 3,
+             shareX = TRUE,
+             shareY = FALSE)
+
+(SE_NT = SE_NT_nolayout %>% 
+  layout(annotations = annotations,
+         margin = list(l = 100, t = 40))
+)
+
+```
+
+## Both B1 and B0 estimates for all combinations 
+
+
+```{r B1_B0 function}
+
+viz_NT_B1_B0 = function(N_select, T.obs_select, data = mcar_df){
+  # Get subset of the data that has the particulaR N/T combination 
+  d = data %>% 
+   filter(data$N == N_select & data$T.obs == T.obs_select)
+  
+  d[7,11] = 0.06
+  d[8, ] = d[7, ]
+  d[8, 11] = 0.12
+  d$comp_sd = as.factor(d$comp_sd)
+  
+  coeff = 100
+  # Visualise the data
+  B1_B0_avg = ggplot(data = d,
+                        mapping = aes(x = comp_mean,
+                                      group = comp_sd)) +
+                  geom_line(aes(y = B1_est,
+                                linetype = comp_sd)) +
+                  geom_line(aes(y = B0_est / coeff, 
+                                linetype = comp_sd,
+                                colour = "red")) + 
+                  geom_point(aes(y = B1_est),
+                             size = 1.5) + 
+                  geom_point(aes(y = B0_est / coeff),
+                             size = 1.5) +
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
+                  scale_y_continuous(name = "B1 estimate",
+                                     sec.axis = sec_axis(trans=~.*coeff, name = "B0 Estimate")) +
+                  theme(axis.title.x = element_blank(),
+                        legend.position = "none") +
+                  ylim(0.19, 0.38)
+  
+
+
+  plot = ggplotly(B1_B0_avg)
+  return(plot)
+}
+```
+
+### B1 _and_ B0 for all N/T combinations 
+
+```{r }
+Ns = c(20, 50, 100)
+Ts = c(20, 50, 100)
+plotlist = list()
+
+for (n in 1:length(Ns)){
+  for (t in 1:length(Ts)){
+    plot = viz_NT_B1_B0(Ns[n], Ts[t])
+    plotlist = c(plotlist, list(plot))
+  }
+}
+
+#q = grid.arrange(grobs = plotlist,
+#                 ncol = 3)
+
+annotations = list(
+  list(x = 0.15,
+       y = -0.09,
+       text = "T = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = 0.49,
+       y = -0.09,
+       text = "T = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = 0.84,
+       y = -0.09,
+       text = "T = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.15,
+       text = "N = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.49,
+       text = "N = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = -0.08,
+       y = 0.85,
+       text = "N = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE)
+  
+)
+
+B1_B0_NT_nolayout = subplot(plotlist, 
+             nrows = 3,
+             shareX = TRUE,
+             shareY = FALSE)
+
+(B1_B0_NT = B1_B0_NT_nolayout %>% 
+  layout(annotations = annotations,
+         margin = list(l = 100, t = 40),
+         title = list(text = "AR (black) and intercept (red) estimates "))
+)
+
+```
+
+## Convergence 
+
+```{r viz convergence function}
+
+viz_NT_conv = function(N_select, T.obs_select, data = mcar_df){
+  # Get subset of the data that has the particulaR N/T combination 
+  d = data %>% 
+   filter(data$N == N_select & data$T.obs == T.obs_select)
+  
+  d[7,11] = 0.06
+  d[8, ] = d[7, ]
+  d[8, 11] = 0.12
+  d$comp_sd = as.factor(d$comp_sd)
+  
+  # Visualise the data
+  conv_avg = ggplot( data = d,
+                        mapping = aes(x = comp_mean,
+                                      y = conv, 
+                                      group = comp_sd)) +
+                  geom_line(aes(linetype = comp_sd,
+                                  colour = comp_sd)) + 
+                  geom_point(size = 1.5) + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
+                  theme(axis.title = element_blank(),
+                        legend.position = "none") + 
+                  ylim(800, 1000)
+
+  plot = ggplotly(conv_avg)
+  return(plot)
+}
+```
+
+
+```{r }
+Ns = c(20, 50, 100)
+Ts = c(20, 50, 100)
+plotlist = list()
+
+for (n in 1:length(Ns)){
+  for (t in 1:length(Ts)){
+    plot = viz_NT_conv(Ns[n], Ts[t])
+    plotlist = c(plotlist, list(plot))
+  }
+}
+
+#q = grid.arrange(grobs = plotlist,
+#                 ncol = 3)
+
+annotations = list(
+  list(x = 0.15,
+       y = -0.09,
+       text = "T = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = 0.49,
+       y = -0.09,
+       text = "T = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = 0.84,
+       y = -0.09,
+       text = "T = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.15,
+       text = "N = 100",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+  list(x = -0.08,
+       y = 0.49,
+       text = "N = 50",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE),
+   list(x = -0.08,
+       y = 0.85,
+       text = "N = 20",
+       xref = "paper",
+       yref = "paper",
+       xanchor = "center",
+       yanchor = "bottom",
+       showarrow = FALSE)
+  
+)
+
+conv_NT_nolayout = subplot(plotlist, 
+             nrows = 3,
+             shareX = TRUE,
+             shareY = FALSE)
+
+(conv_NT = conv_NT_nolayout %>% 
+  layout(annotations = annotations,
+         margin = list(l = 100, t = 40))
+)
+
+```
+
+
+# Save the workspace image so that I can use the objects in the report 
+```{r }
+save.image (file = "plots_tables_missing_1_mcar.RData")
+```
+
+_______ 
+# NOTES 
+
+Weird thing happening here: the lower the N/T, the more overestimated is the AR effect => the power remains high, because the effect is overestimated. 
