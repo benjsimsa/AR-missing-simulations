@@ -11,9 +11,9 @@ library(dplyr)
 
 
 # Three function follow: 
-# 1) Sim.AR.Model.extreme_oneside = Data generation function. Creates a single dataset, introduces missingness
-# 2) Power.Estimates.Sim.r.extreme_oneside = Function that fits the models and extracts relevant information
-# 3) Power.Estimates.extreme_oneside
+# 1) AR_simulate_data_extreme_onesided = Data generation function. Creates a single dataset, introduces missingness
+# 2) AR_fit_model_extreme_onesidedd = Function that fits the models and extracts relevant information
+# 3) AR_simulate_missing_extreme_onesided
 
 # This is the non-simplified version of the functions. This means that each participants can have a different compliance, which is sampled from a distribution defined by arguments compliance_mean and compliance_sd
 
@@ -21,8 +21,8 @@ library(dplyr)
 
 ###################### Sim.AR.Model
 
-Sim.AR.Model.extreme_oneside = function(N,T.obs,Ylag.center,
-                        b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean = 0.85){
+AR_simulate_data_extreme_onesided = function(N,T.obs,Ylag.center,
+                        b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean = 0.85, estimate_randomslopes = TRUE){
   
   # Create number of observations: T.obs + T.burning
   T.burning = 1000
@@ -121,8 +121,8 @@ Sim.AR.Model.extreme_oneside = function(N,T.obs,Ylag.center,
 ###################### 
 ###################### Power.Estimates.Sim.r
 
-Power.Estimates.Sim.r.extreme_oneside = function(data,N,T.obs,Ylag.center,
-                                 b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha){
+AR_fit_model_extreme_onesided = function(data,N,T.obs,Ylag.center,
+                                 b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha, estimate_randomslopes = TRUE){
 
   if (Ylag.center==TRUE){
     # If Ylag.center is TRUE Mean centered lag varying variable per-individual
@@ -132,8 +132,13 @@ Power.Estimates.Sim.r.extreme_oneside = function(data,N,T.obs,Ylag.center,
       data$Ylag[which(data$subjno==i)] = data$Ylag[which(data$subjno==i)] - mean(data$Y[which(data$subjno==i)],na.rm=TRUE)
     }}
   
-  # Fit linear mixed-effects models
-  fit.lme = try(lme(Y ~ Ylag, random = ~ Ylag|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)
+  # Fit linear mixed-effects models 
+  if (estimate_randomslopes == TRUE){ # estimates both random slopes and intercepts
+    fit.lme = try(lme(Y ~ Ylag, random = ~ 1 + Ylag|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)}
+  
+  if (estimate_randomslopes == FALSE){ # estimates random intercepts only
+    fit.lme = try(lme(Y ~ Ylag, random = ~ 1|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)}
+  
   
   if (length(fit.lme)>1){
     
@@ -169,15 +174,15 @@ Power.Estimates.Sim.r.extreme_oneside = function(data,N,T.obs,Ylag.center,
 ###################### Power.Sim.Estimates
 ###########################################
 
-Power.Sim.Estimates.extreme_oneside = function(N,T.obs,Ylag.center,
+AR_simulate_missing_extreme_onesided = function(N,T.obs,Ylag.center,
                                b00, b10,  sigma, rho, sigma.v0, sigma.v1,
-                               rho.v, alpha, R, compliance_mean){
+                               rho.v, alpha, R, compliance_mean, estimate_randomslopes = TRUE){
   
   # Simulate data from the linear mixed-effects model
-  data.list = lapply(1:R, function(r) Sim.AR.Model.extreme_oneside(N,T.obs,Ylag.center,
+  data.list = lapply(1:R, function(r) AR_simulate_data_extreme_onesided(N,T.obs,Ylag.center,
                                                    b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean))
   
-  fit.list.sim = lapply(1:R, function(r) Power.Estimates.Sim.r.extreme_oneside(data.list[[r]]$data,N,T.obs,Ylag.center,
+  fit.list.sim = lapply(1:R, function(r) AR_fit_model_extreme_onesided(data.list[[r]]$data,N,T.obs,Ylag.center,
                                                                b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha))
   
   # Get a vector with the iterations that converge
