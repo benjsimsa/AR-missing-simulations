@@ -19,6 +19,7 @@ library(gridExtra)
 library(patchwork)
 library(DT)
 library(here)
+library(grid)
 ```
 
 Combine the results into a table where each N/T/comp_dist combination is one line 
@@ -283,7 +284,7 @@ pow_avg = ggplotly(pow_avg)
                   geom_point() + 
                   theme_minimal() +
                   scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
-                  ylab("Power to detect the B1 estimate") + 
+                  ylab("B1 estimate") + 
                   xlab("Mean compliance") + 
                   labs(colour = "Missingness type",
                        linetype = "Missingness type") +
@@ -295,52 +296,87 @@ b1_est_avg = ggplotly(b1_est_avg)
 
 ### Convergence
 ```{r }
-(conv_avg_sd = ggplot(data = mcar_df_NT,
+(conv_avg = ggplot(data = overall_by_NT,
                   mapping = aes(x = comp_mean,
-                                y = conv, 
-                                group = comp_sd)) + 
-                  geom_line(aes(linetype = comp_sd,
-                                  colour = comp_sd)) +
+                                y = conv)) + 
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type))) +
                   geom_point() + 
                   theme_minimal() +
-                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) + 
-                  ylab("Average convergence rate") + 
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  ylab("Proportion of converged models") + 
                   xlab("Mean compliance") + 
-                  labs(colour = "Compliance SD",
-                       linetype = "Compliance SD") + 
-                  ylim(800, 1000) + 
-                  ggtitle("True fixed AR(1) effect = 0.2")
+                  labs(colour = "Missingness type",
+                       linetype = "Missingness type") +
+                  facet_grid(~ B1_sim)
 )
 
-conv_avg_sd = ggplotly(conv_avg_sd)
+conv_avg = ggplotly(conv_avg)
+```
+
+### Number of effective observation-pairs 
+
+```{r }
+
+
+(obs_avg = ggplot(data = overall_by_NT,
+                  mapping = aes(x = comp_mean,
+                                y = model_observations)) + 
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type))) +
+                  geom_point() + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  ylab("Number of effective observation-pairs") + 
+                  xlab("Mean compliance") + 
+                  labs(colour = "Missingness type",
+                       linetype = "Missingness type") +
+                  facet_grid(~ B1_sim)
+)
+
+obs_avg = ggplotly(obs_avg)
+```
+
+### Bias in the estimation of individual means
+
+```{r }
+(bias_mean_avg = ggplot(data = overall_by_NT,
+                  mapping = aes(x = comp_mean,
+                                y = bias_mean)) + 
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type))) +
+                  geom_point() + 
+                  theme_minimal() +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  ylab("Bias in estimation of individual means") + 
+                  xlab("Mean compliance") + 
+                  labs(colour = "Missingness type",
+                       linetype = "Missingness type") +
+                  facet_grid(~ B1_sim)
+)
+
+bias_mean_avg = ggplotly(bias_mean_avg)
 ```
 
 
 ## Visualising power 
 
 ```{r viz pow function}
-viz_NT_pow = function(N_select, T.obs_select, data = mcar_df){
+viz_NT_pow = function(N_select, T.obs_select, data = overall_df, B10 = 0.3){
   # Get subset of the data that has the particulaR N/T combination 
   d = data %>% 
-   filter(data$N == N_select & data$T.obs == T.obs_select)
-  
-  d[7,11] = 0.06
-  d[8, ] = d[7, ]
-  d[8, 11] = 0.12
-  d$comp_sd = as.factor(d$comp_sd)
-  
+   filter(data$N == N_select & data$T.obs == T.obs_select & data$B1_sim == B10)
   # Visualise the data
   pow_avg = ggplot( data = d,
                         mapping = aes(x = comp_mean,
-                                      y = B1_pow, 
-                                      group = comp_sd)) +
-                  geom_line(aes(linetype = comp_sd,
-                                  colour = comp_sd),
+                                      y = B1_pow)) +
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type)),
                             size = 1) + 
                   geom_point(size = 2) + 
                   theme_minimal() +
-                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
-                  ylim(0.65, 1) + #setting the y-limits manually          
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) +
+                  ylim(0.1, 1) + #setting the y-limits manually          
     theme(legend.position = "none") +
     theme(axis.title = element_blank())
                   
@@ -352,15 +388,16 @@ viz_NT_pow = function(N_select, T.obs_select, data = mcar_df){
 ```
 
 ### Power for all N/T combinations 
+TODO: make it make sense.
 ```{r }
-Ns = c(20, 50, 100)
+Ns = c(20, 100)
 Ts = c(20, 50, 100)
-plotlist = list()
+plotlist_03 = list()
 
 for (n in 1:length(Ns)){
   for (t in 1:length(Ts)){
-    plot = viz_NT_pow(Ns[n], Ts[t])
-    plotlist = c(plotlist, list(plot))
+    plot = viz_NT_pow(Ns[n], Ts[t], B1 = 0.3)
+    plotlist_03 = c(plotlist_03, list(plot))
   }
 }
 
@@ -373,15 +410,7 @@ annotations = list(
        xanchor = "center",
        yanchor = "bottom",
        showarrow = FALSE),
-  list(x = 0.49,
-       y = -0.09,
-       text = "T = 50",
-       xref = "paper",
-       yref = "paper",
-       xanchor = "center",
-       yanchor = "bottom",
-       showarrow = FALSE),
-   list(x = 0.84,
+  list(x = 0.79,
        y = -0.09,
        text = "T = 100",
        xref = "paper",
@@ -430,112 +459,54 @@ power_NT_nolayout = subplot(plotlist,
 
 ```
 
-```{r }
-Ns = c(20, 50, 100)
-Ts = c(20, 50, 100)
-plotlist = list()
 
-for (n in 1:length(Ns)){
-  for (t in 1:length(Ts)){
-    plot = viz_NT_pow(Ns[n], Ts[t])
-    plotlist = c(plotlist, list(plot))
-  }
-}
-
-
-
- d = data %>% 
-   filter(data$N == N_select & data$T.obs == T.obs_select)
-  
-  d[7,11] = 0.06
-  d[8, ] = d[7, ]
-  d[8, 11] = 0.12
-  d$comp_sd = as.factor(d$comp_sd)
-  
-  # Visualise the data
-  pow_avg = ggplot( data = d,
-                        mapping = aes(x = comp_mean,
-                                      y = B1_pow, 
-                                      group = comp_sd)) +
-                  geom_line(aes(linetype = comp_sd,
-                                  colour = comp_sd),
-                            size = 1) + 
-                  geom_point(size = 2) + 
-                  theme_minimal() +
-                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
-                  ylim(0.65, 1) + #setting the y-limits manually          
-    theme(legend.position = "none") +
-    theme(axis.title = element_blank())
-                  
-
-  plot = ggplotly(pow_avg)
-  return(plot)
-```
 
 ## Visualising B1 estimates 
 
 ```{r viz estimate function}
-viz_NT_est = function(N_select, T.obs_select, data = mcar_df){
+viz_NT_est = function(N_select, T.obs_select, data = overall_df, B10 = 0.3){
   # Get subset of the data that has the particulaR N/T combination 
   d = data %>% 
-   filter(data$N == N_select & data$T.obs == T.obs_select)
-  
-  d[7,11] = 0.06
-  d[8, ] = d[7, ]
-  d[8, 11] = 0.12
-  d$comp_sd = as.factor(d$comp_sd)
-  
+   filter(data$N == N_select & data$T.obs == T.obs_select & data$B1_sim == B10)
   # Visualise the data
-  est_avg = ggplot( data = d,
+  plot = ggplot(data = d,
                         mapping = aes(x = comp_mean,
-                                      y = B1_est, 
-                                      group = comp_sd)) +
-                  geom_line(aes(linetype = comp_sd,
-                                  colour = comp_sd)) + 
-                  geom_point(size = 1.5) + 
+                                      y = B1_est)) +
+                  geom_line(aes(colour = as.factor(miss_type),
+                                linetype = as.factor(miss_type)),
+                            size = 1) + 
+                  geom_point(size = 2) + 
                   theme_minimal() +
-                  scale_x_continuous(breaks = c(0.4, 0.7, 0.9, 1)) +
-                  geom_hline(yintercept = 0.2, 
-                        linetype = "dashed") +
-                  theme(axis.title = element_blank(),
-                        legend.position = "none") + 
-                  ylim(0.18, 0.38) # setting the ylim manually
-
-  plot = ggplotly(est_avg)
-  return(plot)
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) +
+                  ylim(-0.1, 0.4) + #setting the y-limits manually          
+    theme(legend.position = "none") +
+    theme(axis.title = element_blank())
+    return(plot)
 }
-
-
 ```
 
 ### Estimate for all N/T combinations 
 ```{r }
-Ns = c(20, 50, 100)
-Ts = c(20, 50, 100)
-plotlist = list()
 
-for (n in 1:length(Ns)){
-  for (t in 1:length(Ts)){
-    plot = viz_NT_est(Ns[n], Ts[t])
-    plotlist = c(plotlist, list(plot))
-  }
-}
+plotlist = list(
+  plot1 = viz_NT_est(20, 20),
+  plot2 = viz_NT_est(20 ,50),
+  plot3 = viz_NT_est(20, 100),
+  plot4 = viz_NT_est(100, 20),
+  plot5 = viz_NT_est(100 ,50),
+  plot6 = viz_NT_est(100, 100)
+)
 
-#q = grid.arrange(grobs = plotlist,
-#                 ncol = 3)
+  
+plot_grid(plotlist = plotlist)
+
+q = grid.arrange(grobs = plotlist,
+          ncol = 2)
 
 annotations = list(
   list(x = 0.15,
        y = -0.09,
        text = "T = 20",
-       xref = "paper",
-       yref = "paper",
-       xanchor = "center",
-       yanchor = "bottom",
-       showarrow = FALSE),
-  list(x = 0.49,
-       y = -0.09,
-       text = "T = 50",
        xref = "paper",
        yref = "paper",
        xanchor = "center",
