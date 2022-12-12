@@ -133,10 +133,9 @@ AR_fit_model_extreme_onesided = function(data,N,T.obs,Ylag.center,
     }}
   
   # Fit linear mixed-effects models 
-  if (estimate_randomslopes == TRUE){ # estimates both random slopes and intercepts
-    fit.lme = try(lme(Y ~ Ylag, random = ~ 1 + Ylag|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)}
-  
-  if (estimate_randomslopes == FALSE){ # estimates random intercepts only
+  if ( estimate_randomslopes == TRUE) {
+    fit.lme = try(lme(Y ~ Ylag, random = ~ 1 + Ylag|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)
+  } else if (estimate_randomslopes == FALSE) {
     fit.lme = try(lme(Y ~ Ylag, random = ~ 1|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)}
   
   

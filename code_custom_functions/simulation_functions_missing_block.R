@@ -21,7 +21,7 @@ library(dplyr)
 # The functions are a modified version of code initially written by Ginette Lafit 
 
 #####################################################
-###################### Sim.AR.Model
+###################### AR_simulate_data_block
 #####################################################
 
 AR_simulate_data_block = function(N,T.obs,Ylag.center,
@@ -120,7 +120,7 @@ AR_simulate_data_block = function(N,T.obs,Ylag.center,
 
 
 #####################################################
-###################### Power.Estimates.Sim 
+###################### AR_fit_model_block 
 #####################################################
 
 
@@ -134,11 +134,10 @@ AR_fit_model_block = function(data,N,T.obs,Ylag.center,
     }}
   
   # Fit linear mixed-effects models 
-  if (estimate_randomslopes == TRUE){ # estimates both random slopes and intercepts
-  fit.lme = try(lme(Y ~ Ylag, random = ~ 1 + Ylag|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)}
-  
-  if (estimate_randomslopes == FALSE){ # estimates random intercepts only
-  fit.lme = try(lme(Y ~ Ylag, random = ~ 1|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)}
+  if ( estimate_randomslopes == TRUE) {
+    fit.lme = try(lme(Y ~ Ylag, random = ~ 1 + Ylag|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)
+  } else if (estimate_randomslopes == FALSE) {
+    fit.lme = try(lme(Y ~ Ylag, random = ~ 1|subjno,data=data,na.action=na.omit,control=lmeControl(opt='optim')), silent = FALSE)}
   
   
   if (length(fit.lme)>1){
@@ -170,7 +169,7 @@ AR_fit_model_block = function(data,N,T.obs,Ylag.center,
 
 
 #####################################################
-###################### Power.Sim.Estimates 
+###################### AR_simulate_missing_block 
 #####################################################
 
 AR_simulate_missing_block = function(N,T.obs,Ylag.center,

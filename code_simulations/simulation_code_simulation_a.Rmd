@@ -5285,7 +5285,7 @@ saveRDS(extreme_oneside_07_10_100_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_04_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_04_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5308,7 +5308,7 @@ saveRDS(extreme_twosided_03_04_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_04_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_04_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5331,7 +5331,7 @@ saveRDS(extreme_twosided_03_04_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_04_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_04_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5355,7 +5355,7 @@ saveRDS(extreme_twosided_03_04_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_04_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_04_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5379,7 +5379,7 @@ saveRDS(extreme_twosided_03_04_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_04_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_04_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5404,7 +5404,7 @@ saveRDS(extreme_twosided_03_04_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_04_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_04_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5429,7 +5429,7 @@ saveRDS(extreme_twosided_03_04_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_06_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_06_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5452,7 +5452,7 @@ saveRDS(extreme_twosided_03_06_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_06_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_06_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5475,7 +5475,7 @@ saveRDS(extreme_twosided_03_06_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_06_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_06_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5499,7 +5499,7 @@ saveRDS(extreme_twosided_03_06_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_06_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_06_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5523,7 +5523,7 @@ saveRDS(extreme_twosided_03_06_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_06_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_06_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5548,7 +5548,7 @@ saveRDS(extreme_twosided_03_06_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_06_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_06_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5573,7 +5573,7 @@ saveRDS(extreme_twosided_03_06_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_08_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_08_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5596,7 +5596,7 @@ saveRDS(extreme_twosided_03_08_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_08_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_08_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5619,7 +5619,7 @@ saveRDS(extreme_twosided_03_08_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_08_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_08_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5643,7 +5643,7 @@ saveRDS(extreme_twosided_03_08_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_08_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_08_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5667,7 +5667,7 @@ saveRDS(extreme_twosided_03_08_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_08_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_08_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5692,7 +5692,7 @@ saveRDS(extreme_twosided_03_08_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_08_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_08_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5719,7 +5719,7 @@ saveRDS(extreme_twosided_03_08_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_10_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_10_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5742,7 +5742,7 @@ saveRDS(extreme_twosided_03_10_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_10_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_10_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5765,7 +5765,7 @@ saveRDS(extreme_twosided_03_10_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_10_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_03_10_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5789,7 +5789,7 @@ saveRDS(extreme_twosided_03_10_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_10_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_10_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5813,7 +5813,7 @@ saveRDS(extreme_twosided_03_10_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_10_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_10_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5838,7 +5838,7 @@ saveRDS(extreme_twosided_03_10_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_03_10_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_03_10_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5865,7 +5865,7 @@ saveRDS(extreme_twosided_03_10_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_04_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_04_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5888,7 +5888,7 @@ saveRDS(extreme_twosided_05_04_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_04_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_04_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5911,7 +5911,7 @@ saveRDS(extreme_twosided_05_04_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_04_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_04_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5935,7 +5935,7 @@ saveRDS(extreme_twosided_05_04_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_04_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_04_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5959,7 +5959,7 @@ saveRDS(extreme_twosided_05_04_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_04_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_04_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -5984,7 +5984,7 @@ saveRDS(extreme_twosided_05_04_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_04_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_04_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6009,7 +6009,7 @@ saveRDS(extreme_twosided_05_04_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_06_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_06_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6032,7 +6032,7 @@ saveRDS(extreme_twosided_05_06_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_06_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_06_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6055,7 +6055,7 @@ saveRDS(extreme_twosided_05_06_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_06_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_06_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6079,7 +6079,7 @@ saveRDS(extreme_twosided_05_06_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_06_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_06_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6103,7 +6103,7 @@ saveRDS(extreme_twosided_05_06_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_06_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_06_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6128,7 +6128,7 @@ saveRDS(extreme_twosided_05_06_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_06_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_06_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6153,7 +6153,7 @@ saveRDS(extreme_twosided_05_06_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_08_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_08_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6176,7 +6176,7 @@ saveRDS(extreme_twosided_05_08_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_08_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_08_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6199,7 +6199,7 @@ saveRDS(extreme_twosided_05_08_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_08_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_08_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6223,7 +6223,7 @@ saveRDS(extreme_twosided_05_08_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_08_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_08_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6247,7 +6247,7 @@ saveRDS(extreme_twosided_05_08_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_08_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_08_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6272,7 +6272,7 @@ saveRDS(extreme_twosided_05_08_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_08_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_08_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6299,7 +6299,7 @@ saveRDS(extreme_twosided_05_08_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_10_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_10_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6322,7 +6322,7 @@ saveRDS(extreme_twosided_05_10_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_10_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_10_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6345,7 +6345,7 @@ saveRDS(extreme_twosided_05_10_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_10_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_05_10_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6369,7 +6369,7 @@ saveRDS(extreme_twosided_05_10_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_10_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_10_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6393,7 +6393,7 @@ saveRDS(extreme_twosided_05_10_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_10_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_10_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6418,7 +6418,7 @@ saveRDS(extreme_twosided_05_10_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_05_10_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_05_10_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6445,7 +6445,7 @@ saveRDS(extreme_twosided_05_10_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_04_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_04_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6468,7 +6468,7 @@ saveRDS(extreme_twosided_07_04_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_04_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_04_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6491,7 +6491,7 @@ saveRDS(extreme_twosided_07_04_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_04_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_04_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6515,7 +6515,7 @@ saveRDS(extreme_twosided_07_04_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_04_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_04_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6539,7 +6539,7 @@ saveRDS(extreme_twosided_07_04_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_04_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_04_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6564,7 +6564,7 @@ saveRDS(extreme_twosided_07_04_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_04_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_04_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6589,7 +6589,7 @@ saveRDS(extreme_twosided_07_04_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_06_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_06_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6612,7 +6612,7 @@ saveRDS(extreme_twosided_07_06_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_06_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_06_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6635,7 +6635,7 @@ saveRDS(extreme_twosided_07_06_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_06_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_06_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6659,7 +6659,7 @@ saveRDS(extreme_twosided_07_06_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_06_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_06_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6683,7 +6683,7 @@ saveRDS(extreme_twosided_07_06_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_06_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_06_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6708,7 +6708,7 @@ saveRDS(extreme_twosided_07_06_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_06_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_06_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6733,7 +6733,7 @@ saveRDS(extreme_twosided_07_06_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_08_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_08_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6756,7 +6756,7 @@ saveRDS(extreme_twosided_07_08_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_08_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_08_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6779,7 +6779,7 @@ saveRDS(extreme_twosided_07_08_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_08_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_08_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6803,7 +6803,7 @@ saveRDS(extreme_twosided_07_08_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_08_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_08_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6827,7 +6827,7 @@ saveRDS(extreme_twosided_07_08_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_08_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_08_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6852,7 +6852,7 @@ saveRDS(extreme_twosided_07_08_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_08_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_08_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6879,7 +6879,7 @@ saveRDS(extreme_twosided_07_08_100_100, file = here::here("results", "sim_a_nora
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_10_20_20 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_10_20_20 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6902,7 +6902,7 @@ saveRDS(extreme_twosided_07_10_20_20, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_10_20_50 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_10_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6925,7 +6925,7 @@ saveRDS(extreme_twosided_07_10_20_50, file = here::here("results", "sim_a_norand
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_10_20_100 = Power.Sim.Estimates.extreme_twosided(N = 20,
+extreme_twosided_07_10_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6949,7 +6949,7 @@ saveRDS(extreme_twosided_07_10_20_100, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_10_100_20 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_10_100_20 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 20,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6973,7 +6973,7 @@ saveRDS(extreme_twosided_07_10_100_20, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_10_100_50 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_10_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 50,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
@@ -6998,7 +6998,7 @@ saveRDS(extreme_twosided_07_10_100_50, file = here::here("results", "sim_a_noran
 ```{r}
 set.seed(4)
 
-extreme_twosided_07_10_100_100 = Power.Sim.Estimates.extreme_twosided(N = 100,
+extreme_twosided_07_10_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
                     T.obs = 100,
                     Ylag.center = TRUE,
                     b00 = 0, estimate_randomslopes = FALSE,
