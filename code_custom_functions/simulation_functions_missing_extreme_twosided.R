@@ -175,7 +175,7 @@ AR_fit_model_extreme_twosided = function(data,N,T.obs,Ylag.center,
 
 AR_simulate_missing_extreme_twosided = function(N,T.obs,Ylag.center,
                                b00, b10,  sigma, rho, sigma.v0, sigma.v1,
-                               rho.v, alpha, R, compliance_mean){
+                               rho.v, alpha, R, compliance_mean, estimate_randomslopes = TRUE){
   
   # Simulate data from the linear mixed-effects model
   data.list = lapply(1:R, function(r) AR_simulate_data_extreme_twosided(N,T.obs,Ylag.center,

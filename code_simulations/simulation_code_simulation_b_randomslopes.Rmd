@@ -2285,3 +2285,750 @@ saveRDS(randslopes_extreme_oneside_05_07_10_100_100, file = here::here("results"
 
 ## (1-compliance)/2 lowest and highest values of each participant's process set as missing (most extreme -two-sided)
 
+### AR = 0.3
+
+#### Compliance = 0.4
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_100_100.rds"))
+```
+
+
+#### Compliance = 0.6
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_06_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_06_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_06_100_100.rds"))
+```
+
+
+#### Compliance = 0.8
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_08_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_08_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_08_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_08_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_08_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_08_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_08_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_08_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_08_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_08_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_08_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_08_100_100.rds"))
+```
+
+#### Compliance = 1
+
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_10_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_10_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_10_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_10_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_10_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_10_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_10_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_10_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_10_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_03_10_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.3,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_03_10_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_03_10_100_100.rds"))
+```
+
+
+### AR = 0.7
+
+#### Compliance = 0.4
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.4)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_100_100.rds"))
+```
+
+
+#### Compliance = 0.6
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_06_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.6)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_06_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_06_100_100.rds"))
+```
+
+
+#### Compliance = 0.8
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_08_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_08_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_08_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_08_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_08_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_08_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_08_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_08_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_08_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_08_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 0.8)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_08_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_08_100_100.rds"))
+```
+
+#### Compliance = 1
+
+
+##### N = 20, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_10_20_50 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_10_20_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_10_20_50.rds"))
+```
+
+##### N = 20, T = 100
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_10_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_10_20_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_10_20_100.rds"))
+```
+
+##### N = 100, T = 50
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_10_100_50 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 50,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_10_100_50, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_10_100_50.rds"))
+```
+
+
+##### N = 100, T = 100
+
+```{r}
+set.seed(4)
+
+randslopes_extreme_twosided_05_07_10_100_100 = AR_simulate_missing_extreme_twosided(N = 100,
+                    T.obs = 100,
+                    Ylag.center = TRUE,
+                    b00 = 0,
+                    b10 = 0.7,
+                    sigma = sqrt(3), 
+                    rho = 0, 
+                    sigma.v0 = sqrt(3), 
+                    sigma.v1 = sqrt(0.05), 
+                    rho.v = 0, 
+                    alpha = 0.05, 
+                    R = 1000, 
+                    compliance_mean = 1)
+
+
+saveRDS(randslopes_extreme_twosided_05_07_10_100_100, file = here::here("results", "sim_b_randomslopes", "randslopes_extreme_twosided_05_07_10_100_100.rds"))
+```
+
