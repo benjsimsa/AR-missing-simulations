@@ -472,8 +472,7 @@ viz_NT_est = function(N_select, T.obs_select, data = overall_df, B10 = 0.3){
   plot = ggplot(data = d,
                         mapping = aes(x = comp_mean,
                                       y = B1_est)) +
-                  geom_line(aes(colour = as.factor(miss_type),
-                                linetype = as.factor(miss_type)),
+                  geom_line(aes(colour = as.factor(miss_type)),
                             size = 1) + 
                   geom_point(size = 2) + 
                   theme_minimal() +

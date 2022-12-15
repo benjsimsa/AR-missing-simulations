@@ -15,8 +15,6 @@ library(dplyr)
 # 2) AR_fit_model_mcar = Function that fits the models and extracts relevant information
 # 3) AR_simulate_missing_mcar
 
-# This is the non-simplified version of the functions. This means that each participants can have a different compliance, which is sampled from a distribution defined by arguments compliance_mean and compliance_sd
-
 # The functions are a modified version of code initially written by Ginette Lafit 
 
 ###################### AR_simulate_data_mcar

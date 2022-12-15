@@ -15,8 +15,6 @@ library(dplyr)
 # 2) AR_fit_model_block = Function that fits the models and extracts relevant information
 # 3) AR_simulate_missing_block
 
-# This is the simplified function. 
-# In the case of data missing in blocks, this means that each participant in a simulation condition has the same compliance (i.e., the compliance for each participant is not sampled from a distribution)
 
 # The functions are a modified version of code initially written by Ginette Lafit 
 
@@ -115,7 +113,7 @@ AR_simulate_data_block = function(N,T.obs,Ylag.center,
            bias_mean = abs(true_mean - observed_mean)) # compute bias of the person-mean estimation = the absolute value of the difference between the true and observed person-mean
            
   
-  return(list(data = data)) # this is the simplified version, so I'm not using  RE = V.j
+  return(list(data = data, RE = V.j)) 
 }
 
 
