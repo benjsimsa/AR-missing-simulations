@@ -72,8 +72,6 @@ AR_simulate_data_block = function(N,T.obs,Ylag.center,
     T.obs.i = which(data.Y$subjno==i)
     
     compliance[i] = compliance_mean
-    missing[i] = 1 - compliance[i]
-    
     # Initial value
     Y[T.obs.i[1]] = b00 + V[T.obs.i[1],'V.0'] + E[T.obs.i[1]]
     
@@ -123,7 +121,7 @@ AR_simulate_data_block = function(N,T.obs,Ylag.center,
 
 
 AR_fit_model_block = function(data,N,T.obs,Ylag.center,
-                                       b00, b10, sigma, rho, sigma.v0, sigma.v1, estimate_randomslopes = TRUE, alpha){
+                                       b00, b10, sigma, rho, sigma.v0, sigma.v1, alpha, estimate_randomslopes = TRUE){
   if (Ylag.center==TRUE){
     # If Ylag.center is TRUE Mean centered lag varying variable per-individual
     N.subject = unique(data$subjno)
