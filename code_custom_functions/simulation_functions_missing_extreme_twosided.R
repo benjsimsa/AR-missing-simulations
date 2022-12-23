@@ -122,7 +122,7 @@ AR_simulate_data_extreme_twosided = function(N,T.obs,Ylag.center,
 ###################### AR_fit_model_extreme_twosided
 
 AR_fit_model_extreme_twosided = function(data,N,T.obs,Ylag.center,
-                                 b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha){
+                                 b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha, estimate_randomslopes){
 
   if (Ylag.center==TRUE){
     # If Ylag.center is TRUE Mean centered lag varying variable per-individual
@@ -174,14 +174,14 @@ AR_fit_model_extreme_twosided = function(data,N,T.obs,Ylag.center,
 
 AR_simulate_missing_extreme_twosided = function(N,T.obs,Ylag.center,
                                b00, b10,  sigma, rho, sigma.v0, sigma.v1,
-                               rho.v, alpha, R, compliance_mean, estimate_randomslopes = TRUE){
+                               rho.v, alpha, R, compliance_mean, estimate_randomslopes){
   
   # Simulate data from the linear mixed-effects model
   data.list = lapply(1:R, function(r) AR_simulate_data_extreme_twosided(N,T.obs,Ylag.center,
                                                    b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean))
   
   fit.list.sim = lapply(1:R, function(r) AR_fit_model_extreme_twosided(data.list[[r]]$data,N,T.obs,Ylag.center,
-                                                               b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha))
+                                                               b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha, estimate_randomslopes))
   
   # Get a vector with the iterations that converge
   errors = rep(0,R)

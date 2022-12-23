@@ -23,7 +23,7 @@ library(dplyr)
 #####################################################
 
 AR_simulate_data_block = function(N,T.obs,Ylag.center,
-                              b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean = 0.85, estimate_randomslopes = TRUE){
+                              b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean = 0.85){
   
   # Create number of observations: T.obs + T.burning
   T.burning = 1000
@@ -121,7 +121,7 @@ AR_simulate_data_block = function(N,T.obs,Ylag.center,
 
 
 AR_fit_model_block = function(data,N,T.obs,Ylag.center,
-                                       b00, b10, sigma, rho, sigma.v0, sigma.v1, alpha, estimate_randomslopes = TRUE){
+                                       b00, b10, sigma, rho, sigma.v0, sigma.v1, alpha, estimate_randomslopes){
   if (Ylag.center==TRUE){
     # If Ylag.center is TRUE Mean centered lag varying variable per-individual
     N.subject = unique(data$subjno)
@@ -170,14 +170,14 @@ AR_fit_model_block = function(data,N,T.obs,Ylag.center,
 
 AR_simulate_missing_block = function(N,T.obs,Ylag.center,
                                      b00, b10,  sigma, rho, sigma.v0, sigma.v1,
-                                     rho.v, alpha, R, estimate_randomslopes = TRUE, compliance_mean){
+                                     rho.v, alpha, R, compliance_mean, estimate_randomslopes){
   
   # Simulate data from the linear mixed-effects model
   data.list = lapply(1:R, function(r) AR_simulate_data_block(N,T.obs,Ylag.center,
                                                          b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean))
   
   fit.list.sim = lapply(1:R, function(r) AR_fit_model_block(data.list[[r]]$data,N,T.obs,Ylag.center,
-                                                                     b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha))
+                                                                     b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha, estimate_randomslopes))
   
   # Get a vector with the iterations that converge
   errors = rep(0,R)
