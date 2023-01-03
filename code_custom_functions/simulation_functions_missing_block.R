@@ -99,7 +99,8 @@ AR_simulate_data_block = function(N,T.obs,Ylag.center,
   for(subjno in 1:N){
     data_participant = data.Y[data.Y$subjno == subjno,]
     block_length = T.obs * (1 - compliance_mean)
-    data_participant$Y[5:(5+block_length)] = NA
+    if(compliance_mean !=1) {
+       data_participant$Y[5:(5+block_length)] = NA}
     data = rbind(data, data_participant)
   }
   

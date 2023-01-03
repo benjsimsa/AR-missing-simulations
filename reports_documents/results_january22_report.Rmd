@@ -1,0 +1,203 @@
+---
+title: "Results - report January "
+author: "b s"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: true 
+    toc_float: true 
+    theme: readable
+    highlight: tango
+    fig_retina: true
+    df_print: kable
+    code_folding: hide
+---
+
+# Results: Study A
+
+## Simulation design
+
+In study A, only fixed slopes and random and fixed intercepts were simulated and analysed.
+
+Study A followed a 4 × 2 × 3 × 4 × 3 factorial design (yielding 288 simulations in total):
+
+-   4 missingness patterns:
+
+    -   data missing completely at random *(mcar)*
+
+    -   data missing in blocks of consecutive observations *(block)*
+
+    -   lowest (100%-compliance) observations set as missing
+
+    -   highest and lowest (100%-compliance)/2 observations set as missing
+
+-   2 values of N (number of participants): 20, 100
+
+-   3 values of T.obs (number of datapoints per participant): 20, 50, 100
+
+-   4 values of compliance: 0.4, 0.6, 0.8, 1
+
+-   3 values of real (simulated) fixed autoregressive effect: 0.3, 0.5, 0.7
+
+As focal simulation outcomes, we evaluated the precision, power and standard error of the fixed autoregressive effect estimates. Additionally, we assessed the proportion of models that successfully converged, and the bias in person-mean estimation (i.e., the difference between the real and observed person-mean).
+
+## Results: Estimation precision
+
+First, we conducted an ANOVA to assess which of the 5 manipulated factors have an effect on the estimation bias and whether there is an interaction between these effects. Given the large sample size and the fact that we were not testing any a priori hypotheses, we did not use p-values or significance thresholds for statistical inferences; instead, we used the effect size of 0.06 as a cut-off for partial omega squared of each of the effects.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+library(effectsize)
+library(ggplot2)
+library(tidyverse)
+
+anova_bias_df = readRDS(here::here("anova_bias_df.rds"))
+# for some reason, the first row is all NAs, let's remove it: 
+anova_bias_df = anova_bias_df[-1, ]
+
+
+```
+
+### Estimation precision ANOVA results
+
+```{r }
+anova_bias = aov(formula = B1_bias ~ N * T.obs * miss_type * compliance * B1_sim, 
+                 data = anova_bias_df)
+
+(anova_bias_results = summary(anova_bias))
+```
+
+### Estimation precision ANOVA effect sizes
+
+```{r}
+omega_squared(anova_bias)
+```
+
+The only manipulated parameter that seems to not influence estimation precision is the number of participants. Meanwhile missingness type, compliance, number of observations per participant and the true fixed AR effect value all appear to have an influence on the estimation precision.
+
+Furthermore, the following interactions have a partial omega-squared above the cut-off of 0.06:
+
+-   number of timepoints per participant and missingness type
+
+-   missingness type and the true fixed AR effect
+
+-   compliance and the true fixed AR effect
+
+*note: I use causal language here ("have an influence on") - is that a correct thing to do (given that the simulation is basically an experiment), or should I stay with "is associated with"?*
+
+### Estimation precision: mean comparisons
+
+-   TODO: what cutoff do we use here? do we even want to run
+
+#### Missingness type
+
+```{r message=FALSE, warning=FALSE}
+library(ggdist)
+# set a colorblind-friendly color pallete 
+cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+
+
+(boxplot_precision_type = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(miss_type), y = B1_bias, fill = as.factor(miss_type), group = as.factor(miss_type))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Missingness type") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Compliance
+
+```{r}
+(boxplot_precision_compliance = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(compliance), y = B1_bias, fill = as.factor(compliance), group = as.factor(compliance))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Compliance") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Number of timepoints per participant
+
+The effect of the number of timepoints per participant on estimation bias (averaged over the other manipulated parameters)
+
+```{r}
+
+(boxplot_precision_t = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(T.obs), y = B1_bias, fill = as.factor(T.obs), group = as.factor(T.obs))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Timepoints per participant") + 
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  theme(legend.position = "none")
+  )
+```
+
+#### Real fixed AR effect 
+
+```{r}
+(boxplot_precision_ar = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(B1_sim), y = B1_bias, fill = as.factor(B1_sim), group = as.factor(B1_sim))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Real fixed AR effect") + 
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  theme(legend.position = "none")
+  )
+```
+
+### Interactions
+
+#### Number of timepoints per participant \* Missingness type 
+
+```{r}
+
+(boxplot_precision_t_misstype = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(T.obs), y = B1_bias, fill = as.factor(miss_type)))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Timepoints per participant") + 
+  geom_hline(yintercept = 0, linetype = "dashed") 
+  )
+```
+
+```{r}
+(boxplot_precision_t_misstype = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(T.obs), y = B1_bias, fill = as.factor(miss_type)))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Timepoints per participant") + 
+  geom_hline(yintercept = 0, linetype = "dashed") 
+  )
+```
+
+TODO
+
+-   correlation between estimation bias and bias in the estimation of
+
+-   check assumptions?
+
+-   go bayesian?
+
+-   missingness type and the true fixed AR effect
+
+-   compliance and the true fixed AR effect
