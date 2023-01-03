@@ -179,7 +179,7 @@ AR_simulate_missing_mcar = function(N,T.obs,Ylag.center,
   data.list = lapply(1:R, function(r) AR_simulate_data_mcar(N,T.obs,Ylag.center,
                                                    b00, b10, sigma, rho.v, sigma.v0, sigma.v1, compliance_mean))
   
-  fit.list.sim = lapply(1:R, function(r) AR_fit_model_mcar(data.list[[r]]$data,N,T.obs,Ylag.center,
+  fit.list.sim = lapply(1:R, function(r) AR_fit_model_mcar(data = data.list[[r]]$data,N,T.obs,Ylag.center,
                                                                b00, b10, sigma, rho, sigma.v0, sigma.v1,alpha, estimate_randomslopes))
   
   # Get a vector with the iterations that converge
