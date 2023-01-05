@@ -45,13 +45,31 @@ As focal simulation outcomes, we evaluated the precision, power and standard err
 
 First, we conducted an ANOVA to assess which of the 5 manipulated factors have an effect on the estimation bias and whether there is an interaction between these effects. Given the large sample size and the fact that we were not testing any a priori hypotheses, we did not use p-values or significance thresholds for statistical inferences; instead, we used the effect size of 0.06 as a cut-off for partial omega squared of each of the effects.
 
-```{r message=FALSE, warning=FALSE, echo = FALSE}
+```{r message=FALSE, warning=FALSE}
 library(effectsize)
 library(ggplot2)
 library(tidyverse)
 
-anova_bias_df = readRDS(here::here("anova_bias_df.rds"))
-# for some reason, the first row is all NAs, let's remove it: 
+rdslist = list.files(path = here::here("results", "sim_a_norandomslopes"), pattern='*.rds') # put all the data files with results in a list
+
+
+anova_bias_df = data.frame(matrix(ncol = 6))
+colnames(anova_bias_df) = c("B1_bias", "B1_sim", "N", "T.obs", "miss_type", "compliance")
+                  
+for (i in 1:length(rdslist)){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_a_norandomslopes", rdslist[i]))
+  B1_bias = res$beta.hat.lme.list[, 2] - res$b10
+  B1_sim = res$b10
+  N = res$N
+  T.obs = res$T.obs
+  miss_type = res$missing_type
+  compliance = res$comp_mean 
+  results = data.frame(B1_bias, B1_sim, N, T.obs, miss_type, compliance)
+  
+  anova_bias_df = rbind(anova_bias_df, results)
+}
+
+# for some reason, the first row is empty, remove it: 
 anova_bias_df = anova_bias_df[-1, ]
 
 
@@ -79,6 +97,8 @@ Furthermore, the following interactions have a partial omega-squared above the c
 -   number of timepoints per participant and missingness type
 
 -   missingness type and the true fixed AR effect
+
+-   missingness type and compliance
 
 -   compliance and the true fixed AR effect
 
@@ -145,7 +165,7 @@ The effect of the number of timepoints per participant on estimation bias (avera
   )
 ```
 
-#### Real fixed AR effect 
+#### Real fixed AR effect
 
 ```{r}
 (boxplot_precision_ar = anova_bias_df %>% 
@@ -163,32 +183,82 @@ The effect of the number of timepoints per participant on estimation bias (avera
 
 ### Interactions
 
-#### Number of timepoints per participant \* Missingness type 
+#### Number of timepoints per participant \* Missingness type
 
 ```{r}
 
 (boxplot_precision_t_misstype = anova_bias_df %>% 
-  ggplot(aes(x = as.factor(T.obs), y = B1_bias, fill = as.factor(miss_type)))) + 
-  geom_boxplot(width = 0.7, alpha = 0.9) +
+  ggplot(aes(x = as.factor(T.obs), y = B1_bias, fill = as.factor(miss_type))) + 
+  geom_boxplot(width = 0.7, alpha = 0.8) +
   theme_minimal() + 
   scale_fill_manual(values = cbPalette) + 
   ylab("Bias in estimation of fixed AR effect") + 
   xlab("Timepoints per participant") + 
+  geom_hline(yintercept = 0, linetype = "dashed"))
+  
+```
+
+#### Missingness type \* True fixed AR effect
+
+```{r}
+(boxplot_precision_ar_misstype = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(B1_sim), y = B1_bias, fill = as.factor(miss_type))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Real AR effect") + 
   geom_hline(yintercept = 0, linetype = "dashed") 
   )
 ```
 
+#### Compliance \* True fixed AR effect
+
 ```{r}
-(boxplot_precision_t_misstype = anova_bias_df %>% 
-  ggplot(aes(x = as.factor(T.obs), y = B1_bias, fill = as.factor(miss_type)))) + 
+(boxplot_precision_ar_compliance = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(B1_sim), y = B1_bias, fill = as.factor(compliance)))) + 
   geom_boxplot(width = 0.7, alpha = 0.9) +
   theme_minimal() + 
   scale_fill_manual(values = cbPalette) + 
   ylab("Bias in estimation of fixed AR effect") + 
-  xlab("Timepoints per participant") + 
+  xlab("Real AR effect") + 
+  geom_hline(yintercept = 0, linetype = "dashed") 
+  
+```
+
+#### Compliance \* Missingness type
+
+```{r}
+(boxplot_precision_compliance_misstype = anova_bias_df %>% 
+  ggplot(aes(x = as.factor(compliance), y = B1_bias, fill = as.factor(miss_type))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Compliance") + 
   geom_hline(yintercept = 0, linetype = "dashed") 
   )
 ```
+
+### Bias in AR effect estimation and bias in person-mean estimation
+
+```{r}
+overall_df = readRDS(here::here("overall_df.rds"))
+
+overall_df %>% 
+  ggplot(aes(x = scale(bias_mean), y = scale(B1_bias))) + 
+  geom_smooth(method = 'lm') + 
+  geom_point()
+  
+
+lm(B1_bias~bias_mean, data = overall_df)
+```
+
+## Results: Statistical power
+
+## Results: MSE
+
+## 
 
 TODO
 
@@ -197,7 +267,5 @@ TODO
 -   check assumptions?
 
 -   go bayesian?
-
--   missingness type and the true fixed AR effect
 
 -   compliance and the true fixed AR effect

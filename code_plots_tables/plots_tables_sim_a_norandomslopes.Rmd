@@ -9,6 +9,7 @@ output:
     number_sections: true
     theme: readable
 ---
+
 # Import packages and data, preprocess results
 
 ```{r importing packages}
@@ -20,16 +21,19 @@ library(patchwork)
 library(DT)
 library(here)
 library(grid)
+library(sjPlot)
+library(kableExtra)
 ```
 
-Combine the results into a table where each N/T/comp_dist combination is one line 
+# Descriptive plots and tables
+
+Combine the results into a table where each N/T/comp_dist combination is one line
 
 ```{r Preprocessing results}
- # set the working directory to the folder containing simulation results - One Rds file for each simulation condition, 63 files in total.
 
 rdslist = list.files(path = here::here("results", "sim_a_norandomslopes"), pattern='*.rds') # get all the data files in a list
   
-overall_df = data.frame(matrix(ncol = 14)) # prepare the data frame 
+overall_df = data.frame(matrix(ncol = 15)) # prepare the data frame 
 names = c("B0_est",
           "B1_est",
           "B0_pow",
@@ -43,7 +47,8 @@ names = c("B0_est",
           "miss_type",
           "bias_mean",
           "model_observations",
-          "B1_sim")
+          "B1_sim",
+          "B1_bias")
 colnames(overall_df) = names
 
 
@@ -64,29 +69,32 @@ for (i in length(rdslist):1){ # for-loop that connects all files from rdslist in
   overall_df[i, 12] = as.numeric(res$bias_mean)
   overall_df[i, 13] = as.numeric(res$model_observations)
   overall_df[i, 14] = as.numeric(res$b10)
+  overall_df[i, 15] = as.numeric(res$beta.hat.lme[2] - res$b10)
 }
 
 # reorder the rows and columns  
 overall_df = overall_df %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
 ```
-# Tables 
 
-## General table with all the results 
+# Tables
+
+## General table with all the results
 
 ```{r table_all}
-overall_df_reordered = overall_df[, c(11, 14, 10, 8, 9, 2, 4, 1, 3, 6, 5, 7, 12, 13)] # reordering the dataframe so that the order of columns makes more sense 
+overall_df_reordered = overall_df[, c(11, 14, 10, 8, 9, 2, 4, 1, 3, 6, 5, 7, 12, 13, 15)] # reordering the dataframe so that the order of columns makes more sense 
 
 table_all = overall_df_reordered %>% 
-  mutate_all(funs(round(.,3))) # round the reordered dataframe, so that it makes a nice table 
+  mutate(across(!miss_type, round, 3)) # round the reordered dataframe, so that it makes a nice table 
 
-table_all = datatable(overall_df_reordered)
+table_all = data.table(table_all, 
+                      options = list(searching = FALSE,
+               lengthChange = FALSE,
+               paging = FALSE))
 ```
 
 ## Estimates / SE/ power/ convergence / bias in estimation of mean for each missingness type (grouped by the value of simulated B1)
 
 ```{r}
-
-
 overall_missing_type = overall_df_reordered %>% 
   group_by(miss_type, B1_sim) %>% 
   summarise(B1_estimate = round(mean(B1_est), 3),
@@ -94,11 +102,13 @@ overall_missing_type = overall_df_reordered %>%
             B1_SE = round(mean(B1_se), 3),
             Convergence = round(mean(conv),3),
             bias_mean = round(mean(bias_mean), 3),
-            model_observations = round(mean(model_observations), 3))
+            model_observations = round(mean(model_observations), 3), 
+            B1_bias = round(mean(B1_bias), 3))
 
 names = c("Missingness type",
           "Simulated B1",
           "B1 estimate",
+          "B1 estimation bias",
           "B1 power",
           "B1 SE",
           "Convergence",
@@ -113,10 +123,15 @@ table_missing_type = datatable(overall_missing_type,
 options = list(searching = FALSE,
                lengthChange = FALSE,
                paging = FALSE))
+
+# uncomment the following line to export the table to docx 
+tab_df(overall_missing_type, file = here::here("plots_tables", "a_overall_missing_type.doc"))
 ```
 
+Interesting things here: - for all conditions except for MCAR, the bias gets worse with increasing real fixed AR - bias is smallest for mcar, worst for twosided extreme
 
 ## Estimates / SE / power / convergence for each missingness type / N combination
+
 ```{r table_N}
 overall_N = overall_df_reordered %>% 
   group_by(miss_type, B1_sim, N) %>% 
@@ -217,10 +232,9 @@ options = list(searching = FALSE,
 
 ```
 
+# Plots
 
-# Plots 
-
-## Results across T and N - between compliance means and SDs 
+## Results across T and N - between compliance means and SDs
 
 ```{r }
 overall_by_NT = overall_df_reordered %>% 
@@ -229,7 +243,7 @@ overall_by_NT = overall_df_reordered %>%
 
 ```
 
-### SE 
+### SE
 
 ```{r }
 (se_avg = ggplot(data = overall_by_NT,
@@ -251,8 +265,8 @@ se_avg = ggplotly(se_avg)
 
 ```
 
+### Power
 
-### Power 
 ```{r }
 (pow_avg = ggplot(data = overall_by_NT,
                   mapping = aes(x = comp_mean,
@@ -273,8 +287,8 @@ pow_avg = ggplotly(pow_avg)
 
 ```
 
+### Fixed AR estimate
 
-### Fixed AR estimate 
 ```{r }
 (b1_est_avg = ggplot(data = overall_by_NT,
                   mapping = aes(x = comp_mean,
@@ -295,6 +309,7 @@ b1_est_avg = ggplotly(b1_est_avg)
 ```
 
 ### Convergence
+
 ```{r }
 (conv_avg = ggplot(data = overall_by_NT,
                   mapping = aes(x = comp_mean,
@@ -314,7 +329,7 @@ b1_est_avg = ggplotly(b1_est_avg)
 conv_avg = ggplotly(conv_avg)
 ```
 
-### Number of effective observation-pairs 
+### Number of effective observation-pairs
 
 ```{r }
 
@@ -358,8 +373,7 @@ obs_avg = ggplotly(obs_avg)
 bias_mean_avg = ggplotly(bias_mean_avg)
 ```
 
-
-## Visualising power 
+## Visualising power
 
 ```{r viz pow function}
 viz_NT_pow = function(N_select, T.obs_select, data = overall_df, B10 = 0.3){
@@ -387,8 +401,10 @@ viz_NT_pow = function(N_select, T.obs_select, data = overall_df, B10 = 0.3){
 
 ```
 
-### Power for all N/T combinations 
+### Power for all N/T combinations
+
 TODO: make it make sense.
+
 ```{r }
 Ns = c(20, 100)
 Ts = c(20, 50, 100)
@@ -459,9 +475,7 @@ power_NT_nolayout = subplot(plotlist,
 
 ```
 
-
-
-## Visualising B1 estimates 
+## Visualising B1 estimates
 
 ```{r viz estimate function}
 viz_NT_est = function(N_select, T.obs_select, data = overall_df, B10 = 0.3){
@@ -484,7 +498,8 @@ viz_NT_est = function(N_select, T.obs_select, data = overall_df, B10 = 0.3){
 }
 ```
 
-### Estimate for all N/T combinations 
+### Estimate for all N/T combinations
+
 ```{r }
 
 plotlist = list(
@@ -559,8 +574,8 @@ B1_NT_nolayout = subplot(plotlist,
 
 ```
 
+## Visualising SE
 
-## Visualising SE 
 ```{r viz SE function}
 
 viz_NT_SE = function(N_select, T.obs_select, data = mcar_df){
@@ -592,9 +607,7 @@ viz_NT_SE = function(N_select, T.obs_select, data = mcar_df){
 }
 ```
 
-
-### B1_SE for all N/T combinations 
-
+### B1_SE for all N/T combinations
 
 ```{r }
 Ns = c(20, 50, 100)
@@ -675,8 +688,7 @@ SE_NT_nolayout = subplot(plotlist,
 
 ```
 
-## Both B1 and B0 estimates for all combinations 
-
+## Both B1 and B0 estimates for all combinations
 
 ```{r B1_B0 function}
 
@@ -719,7 +731,7 @@ viz_NT_B1_B0 = function(N_select, T.obs_select, data = mcar_df){
 }
 ```
 
-### B1 _and_ B0 for all N/T combinations 
+### B1 *and* B0 for all N/T combinations
 
 ```{r }
 Ns = c(20, 50, 100)
@@ -801,7 +813,7 @@ B1_B0_NT_nolayout = subplot(plotlist,
 
 ```
 
-## Convergence 
+## Convergence
 
 ```{r viz convergence function}
 
@@ -833,7 +845,6 @@ viz_NT_conv = function(N_select, T.obs_select, data = mcar_df){
   return(plot)
 }
 ```
-
 
 ```{r }
 Ns = c(20, 50, 100)
@@ -914,13 +925,59 @@ conv_NT_nolayout = subplot(plotlist,
 
 ```
 
+# ANOVA for estimation performance
 
-# Save the workspace image so that I can use the objects in the report 
+Get the 1000 estimated fixed effects from each condition
+
+```{r}
+rdslist = list.files(path = here::here("results", "sim_a_norandomslopes"), pattern='*.rds') # get all the data files in a list
+
+
+anova_bias_df = data.frame(matrix(ncol = 6))
+colnames(anova_bias_df) = c("B1_bias", "B1_sim", "N", "T.obs", "miss_type", "compliance")
+                  
+for (i in 1:length(rdslist)){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_a_norandomslopes", rdslist[i]))
+  B1_bias = res$beta.hat.lme.list[, 2] - res$b10
+  B1_sim = res$b10
+  N = res$N
+  T.obs = res$T.obs
+  miss_type = res$missing_type
+  compliance = res$comp_mean 
+  results = data.frame(B1_bias, B1_sim, N, T.obs, miss_type, compliance)
+  
+  anova_bias_df = rbind(anova_bias_df, results)
+  }
+
+```
+
+Run an ANOVA on the big dataset
+
+TODO: get omega-squared
+
+```{r}
+anova = aov(B1_bias ~ B1_sim * N * T.obs * miss_type * compliance, data = anova_df)
+
+summary(anova)
+
+omega_squared(
+  anova,
+  partial = TRUE,
+  ci = 0.95)
+
+```
+
+``` {)}
+```
+
+# Save the workspace image so that I can use the objects in the report
+
 ```{r }
 save.image (file = "plots_tables_missing_1_mcar.RData")
 ```
 
-_______ 
-# NOTES 
+------------------------------------------------------------------------
 
-Weird thing happening here: the lower the N/T, the more overestimated is the AR effect => the power remains high, because the effect is overestimated. 
+# NOTES
+
+Weird thing happening here: the lower the N/T, the more overestimated is the AR effect =\> the power remains high, because the effect is overestimated.

@@ -106,7 +106,7 @@ AR_simulate_data_block = function(N,T.obs,Ylag.center,
   
   # Create the lag variable
   data = data %>%
-    group_by({{subjno}}) %>% 
+    group_by(subjno) %>% 
     mutate(Ylag = dplyr::lag(Y, n = 1, default = NA),
            observed_mean = mean(Y, na.rm = TRUE), # compute the observed mean in the time-series with missing data
            bias_mean = abs(true_mean - observed_mean)) # compute bias of the person-mean estimation = the absolute value of the difference between the true and observed person-mean
