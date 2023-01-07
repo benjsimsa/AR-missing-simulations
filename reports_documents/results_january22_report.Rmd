@@ -22,26 +22,18 @@ In study A, only fixed slopes and random and fixed intercepts were simulated and
 Study A followed a 4 × 2 × 3 × 4 × 3 factorial design (yielding 288 simulations in total):
 
 -   4 missingness patterns:
-
     -   data missing completely at random *(mcar)*
-
     -   data missing in blocks of consecutive observations *(block)*
-
     -   lowest (100%-compliance) observations set as missing
-
     -   highest and lowest (100%-compliance)/2 observations set as missing
-
 -   2 values of N (number of participants): 20, 100
-
 -   3 values of T.obs (number of datapoints per participant): 20, 50, 100
-
 -   4 values of compliance: 0.4, 0.6, 0.8, 1
-
 -   3 values of real (simulated) fixed autoregressive effect: 0.3, 0.5, 0.7
 
 As focal simulation outcomes, we evaluated the precision, power and standard error of the fixed autoregressive effect estimates. Additionally, we assessed the proportion of models that successfully converged, and the bias in person-mean estimation (i.e., the difference between the real and observed person-mean).
 
-## Results: Estimation precision
+## Outcome: Estimation precision
 
 First, we conducted an ANOVA to assess which of the 5 manipulated factors have an effect on the estimation bias and whether there is an interaction between these effects. Given the large sample size and the fact that we were not testing any a priori hypotheses, we did not use p-values or significance thresholds for statistical inferences; instead, we used the effect size of 0.06 as a cut-off for partial omega squared of each of the effects.
 
@@ -53,8 +45,8 @@ library(tidyverse)
 rdslist = list.files(path = here::here("results", "sim_a_norandomslopes"), pattern='*.rds') # put all the data files with results in a list
 
 
-anova_bias_df = data.frame(matrix(ncol = 6))
-colnames(anova_bias_df) = c("B1_bias", "B1_sim", "N", "T.obs", "miss_type", "compliance")
+anova_bias_df = data.frame(matrix(ncol = 7))
+colnames(anova_bias_df) = c("B1_bias", "B1_sim", "N", "T.obs", "miss_type", "compliance", "model_observations")
                   
 for (i in 1:length(rdslist)){ # for-loop that connects all files from rdslist into one file 
   res = readRDS(here::here("results", "sim_a_norandomslopes", rdslist[i]))
@@ -64,12 +56,13 @@ for (i in 1:length(rdslist)){ # for-loop that connects all files from rdslist in
   T.obs = res$T.obs
   miss_type = res$missing_type
   compliance = res$comp_mean 
-  results = data.frame(B1_bias, B1_sim, N, T.obs, miss_type, compliance)
+  model_observations = res$model_observations
+  results = data.frame(B1_bias, B1_sim, N, T.obs, miss_type, compliance, model_observations)
   
   anova_bias_df = rbind(anova_bias_df, results)
 }
 
-# for some reason, the first row is empty, remove it: 
+# for some reason, the first row is only NAs, remove it: 
 anova_bias_df = anova_bias_df[-1, ]
 
 
@@ -87,7 +80,7 @@ anova_bias = aov(formula = B1_bias ~ N * T.obs * miss_type * compliance * B1_sim
 ### Estimation precision ANOVA effect sizes
 
 ```{r}
-omega_squared(anova_bias)
+omega_squared(anova_bias, partial = TRUE)
 ```
 
 The only manipulated parameter that seems to not influence estimation precision is the number of participants. Meanwhile missingness type, compliance, number of observations per participant and the true fixed AR effect value all appear to have an influence on the estimation precision.
@@ -113,13 +106,15 @@ Furthermore, the following interactions have a partial omega-squared above the c
 ```{r message=FALSE, warning=FALSE}
 library(ggdist)
 # set a colorblind-friendly color pallete 
-cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+cbPalette = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+cbPalette_other = c("#0072B2", "#D55E00", "#CC79A7", "#000000")
 
 
 
 (boxplot_precision_type = anova_bias_df %>% 
   ggplot(aes(x = as.factor(miss_type), y = B1_bias, fill = as.factor(miss_type), group = as.factor(miss_type))) + 
-  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
   geom_boxplot(width = 0.3, alpha = 0.9) + 
   theme_minimal() + 
   scale_fill_manual(values = cbPalette) + 
@@ -130,6 +125,8 @@ cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00",
   )
 ```
 
+Why are the distributions kind-of normal for block and mcar, but tri-modal in the 'extreme' conditions? In my opinion, it's because the bias is (more) dependent on the true effect size in the extreme conditions (the bigger the true AR, the bigger the bias), which causes 3 different values of bias (because we simulated 3 values of true AR)
+
 #### Compliance
 
 ```{r}
@@ -138,7 +135,7 @@ cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00",
   stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
   geom_boxplot(width = 0.3, alpha = 0.9) +
   theme_minimal() + 
-  scale_fill_manual(values = cbPalette) + 
+  scale_fill_manual(values = cbPalette_other) + 
   ylab("Bias in estimation of fixed AR effect") + 
   xlab("Compliance") + 
   theme(legend.position = "none") + 
@@ -157,7 +154,7 @@ The effect of the number of timepoints per participant on estimation bias (avera
   stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
   geom_boxplot(width = 0.3, alpha = 0.9) +
   theme_minimal() + 
-  scale_fill_manual(values = cbPalette) + 
+  scale_fill_manual(values = cbPalette_other) + 
   ylab("Bias in estimation of fixed AR effect") + 
   xlab("Timepoints per participant") + 
   geom_hline(yintercept = 0, linetype = "dashed") + 
@@ -173,7 +170,7 @@ The effect of the number of timepoints per participant on estimation bias (avera
   stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
   geom_boxplot(width = 0.3, alpha = 0.9) +
   theme_minimal() + 
-  scale_fill_manual(values = cbPalette) + 
+  scale_fill_manual(values = cbPalette_other) + 
   ylab("Bias in estimation of fixed AR effect") + 
   xlab("Real fixed AR effect") + 
   geom_hline(yintercept = 0, linetype = "dashed") + 
@@ -236,29 +233,408 @@ The effect of the number of timepoints per participant on estimation bias (avera
   scale_fill_manual(values = cbPalette) + 
   ylab("Bias in estimation of fixed AR effect") + 
   xlab("Compliance") + 
-  geom_hline(yintercept = 0, linetype = "dashed") 
+  geom_hline(yintercept = 0, linetype = "dashed"))
+  
+```
+
+## Outcome: MSE
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# create dataframe with overall results from each condition (i.e., 288 rows instead of 288,000)
+
+  
+overall_df = data.frame(matrix(ncol = 15)) # prepare the data frame 
+names = c("B0_est",
+          "B1_est",
+          "B0_pow",
+          "B1_pow",
+          "B0_se",
+          "B1_se",
+          "conv",
+          "N",
+          "T.obs",
+          "comp_mean",
+          "miss_type",
+          "bias_mean",
+          "model_observations",
+          "B1_sim",
+          "B1_bias")
+colnames(overall_df) = names
+
+
+
+for (i in length(rdslist):1){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_a_norandomslopes", rdslist[i]))
+  overall_df[i, 1] = as.numeric(res$beta.hat.lme[1])
+  overall_df[i, 2] = as.numeric(res$beta.hat.lme[2])
+  overall_df[i, 3] = as.numeric(res$power.hat.lme[1])
+  overall_df[i, 4] = as.numeric(res$power.hat.lme[2])
+  overall_df[i, 5] = as.numeric(res$StdError.beta.hat.lme[1])
+  overall_df[i, 6] = as.numeric(res$StdError.beta.hat.lme[2])
+  overall_df[i, 7] = as.numeric(res$n.R)
+  overall_df[i, 8] = as.numeric(res$N)
+  overall_df[i, 9] = as.numeric(res$T.obs)
+  overall_df[i, 10] = as.numeric(res$comp_mean)
+  overall_df[i, 11] = (res$missing_type)
+  overall_df[i, 12] = as.numeric(res$bias_mean)
+  overall_df[i, 13] = as.numeric(res$model_observations)
+  overall_df[i, 14] = as.numeric(res$b10)
+  overall_df[i, 15] = as.numeric(res$beta.hat.lme[2] - res$b10)
+}
+
+# reorder the rows and columns  
+overall_df = overall_df %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
+```
+
+### MSE ANOVA 
+
+```{r}
+anova_mse = aov(formula = B1_se ~ N * T.obs * miss_type * comp_mean * B1_sim, 
+                 data = overall_df)
+
+(anova_mse_results = summary(anova_mse))
+```
+
+### MSE ANOVA effect sizes 
+
+```{r}
+omega_squared(anova_mse, partial = TRUE)
+```
+
+**Main effects**:
+
+-   Number of participants (partial ω2 = 0.67)
+-   Number of timepoints (partial ω2 = 0.67)
+-   Compliance (partial ω2 = 0.65)
+
+**Interactions**:
+
+-   Time-series length and compliance (partial ω2 = 0.28)
+-   Number of participants and compliance (partial ω2 = 0.21)
+
+### MSE: mean comparisons 
+
+#### Number of participants 
+
+```{r}
+(boxplot_mse_n = overall_df %>% 
+  ggplot(aes(x = as.factor(N), y = B1_se, fill = as.factor(N), group = as.factor(N))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Bias in estimation of the person-mean") + 
+  xlab("Number of participants") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
   )
 ```
+
+#### Time-series length
+
+```{r}
+(boxplot_mse_t = overall_df %>% 
+  ggplot(aes(x = as.factor(T.obs), y = B1_se, fill = as.factor(T.obs), group = as.factor(T.obs))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9, outlier.size = 1) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Mean squared error") + 
+  xlab("Time-series length") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Compliance
+
+```{r}
+(boxplot_mse_compliance = overall_df %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = B1_se, fill = as.factor(comp_mean), group = as.factor(comp_mean))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9, outlier.size = 1) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Mean squared error") + 
+  xlab("Compliance") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Interaction: Time-series length and compliance 
+
+```{r}
+(boxplot_mse_compliance_t = overall_df %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = B1_se, fill = as.factor(T.obs))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Mean squared error") + 
+  xlab("Compliance") + 
+  geom_hline(yintercept = 0, linetype = "dashed"))
+  
+```
+
+#### Interaction: Number of participants and compliance
+
+```{r}
+(boxplot_mse_compliance_n = overall_df %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = B1_se, fill = as.factor(N))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Mean squared error") + 
+  xlab("Compliance") + 
+  geom_hline(yintercept = 0, linetype = "dashed"))
+  
+```
+
+## Outcome: Statistical power
+
+### Power ANOVA 
+
+```{r}
+anova_power = aov(formula = B1_pow ~ N * T.obs * miss_type * comp_mean * B1_sim, 
+                 data = overall_df)
+
+(anova_power_results = summary(anova_power))
+```
+
+### Power ANOVA effect sizes 
+
+```{r}
+omega_squared(anova_power, partial = TRUE)
+```
+
+**Main effects:**
+
+-   Compliance (partial ω2 = 0.45)
+-   Missingness type (partial ω2 = 0.36)
+-   SImulated fixed AR effect (partial ω2 = 0.23)
+-   Number of timepoints (partial ω2 = 0.18)
+
+**Interactions:**
+
+-   Missingness type and compliance (partial ω2 = 0.34)
+
+### Power: mean comparisons
+
+#### Compliance
+
+```{r}
+(boxplot_power_compliance = overall_df %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = B1_pow, fill = as.factor(comp_mean), group = as.factor(comp_mean))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9, outlier.size = 1) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Power to detect the fixed AR effect") + 
+  xlab("Compliance") + 
+  theme(legend.position = "none") 
+  )
+```
+
+#### Missingness type
+
+```{r}
+(boxplot_power_miss_type = overall_df %>% 
+  ggplot(aes(x = as.factor(miss_type), y = B1_pow, fill = as.factor(miss_type), group = as.factor(miss_type))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9, outlier.size = 1) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Power to detect the fixed AR effect") + 
+  xlab("Missingness type") + 
+  theme(legend.position = "none")
+  )
+```
+
+#### Simulated fixed AR effect 
+
+```{r}
+(boxplot_power_ar = overall_df %>% 
+  ggplot(aes(x = as.factor(B1_sim), y = B1_pow, fill = as.factor(B1_sim), group = as.factor(B1_sim))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9, outlier.size = 1) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Power to detect the fixed AR effect") + 
+  xlab("Simulated fixed AR effect") + 
+  theme(legend.position = "none")
+  )
+```
+
+#### Number of timepoints 
+
+```{r}
+(boxplot_power_t = overall_df %>% 
+  ggplot(aes(x = as.factor(T.obs), y = B1_pow, fill = as.factor(T.obs), group = as.factor(T.obs))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7) + 
+  geom_boxplot(width = 0.3, alpha = 0.9, outlier.size = 1) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Power to detect the fixed AR effect") + 
+  xlab("Number of timepoints") + 
+  theme(legend.position = "none") 
+  )
+```
+
+#### Interaction: Missingness type and compliance 
+
+```{r}
+(boxplot_power_compliance_miss_type = overall_df %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = B1_pow, fill = as.factor(miss_type))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Mean squared error") + 
+  xlab("Compliance") )
+  
+```
+
+Interestingly, the effect of compliance and missingness type is much larger than the effect of the number of timepoints / participants.
+
+## Outcome: Bias in person-mean estimation
 
 ### Bias in AR effect estimation and bias in person-mean estimation
 
 ```{r}
-overall_df = readRDS(here::here("overall_df.rds"))
 
 overall_df %>% 
   ggplot(aes(x = scale(bias_mean), y = scale(B1_bias))) + 
   geom_smooth(method = 'lm') + 
-  geom_point()
+  geom_point() + theme_minimal()
   
 
-lm(B1_bias~bias_mean, data = overall_df)
+summary(lm(B1_bias~bias_mean, data = overall_df))
 ```
 
-## Results: Statistical power
+### Person-mean bias ANOVA
 
-## Results: MSE
+```{r}
 
-## 
+anova_personmean = aov(formula = bias_mean ~ N * T.obs * miss_type * comp_mean * B1_sim, 
+                 data = overall_df)
+
+(anova_personmean_results = summary(anova_personmean))
+```
+
+### Person-mean bias ANOVA effect sizes
+
+```{r}
+
+omega_squared(anova_personmean, partial = TRUE)
+```
+
+**Main effects**:
+
+-   Missingness type (partial ω2 = 0.93)
+-   Mean compliance (partial ω2 = 0.83)
+-   Real fixed AR effect (partial ω2 = 0.76)
+-   Time-series length (partial ω2 = 0.66).
+
+**Interactions**:
+
+-   Missingness type and mean compliance (partial ω2 = 0.89)
+-   Missingness type and time-series length (partial ω2 = 0.28)
+
+### Person-mean bias: mean comparisons 
+
+#### Missingness type
+
+```{r}
+
+(boxplot_personmean_type = overall_df %>% 
+  ggplot(aes(x = as.factor(miss_type), y = bias_mean, fill = as.factor(miss_type), group = as.factor(miss_type))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of the person-mean") + 
+  xlab("Missingness type") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Mean compliance 
+
+```{r}
+
+(boxplot_personmean_compliance = overall_df %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = bias_mean, fill = as.factor(comp_mean), group = as.factor(comp_mean))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Bias in estimation of the person-mean") + 
+  xlab("Compliance") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Real fixed AR effect 
+
+```{r}
+
+(boxplot_personmean_ar = overall_df %>% 
+  ggplot(aes(x = as.factor(B1_sim), y = bias_mean, fill = as.factor(B1_sim), group = as.factor(B1_sim))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Bias in estimation of the person-mean") + 
+  xlab("Simulated fixed AR parameter") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Time-series length 
+
+```{r}
+(boxplot_personmean_t = overall_df %>% 
+  ggplot(aes(x = as.factor(T.obs), y = bias_mean, fill = as.factor(T.obs), group = as.factor(T.obs))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Bias in estimation of the person-mean") + 
+  xlab("Time-series length") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed")
+  )
+```
+
+#### Interaction: Missingness type \* Compliance
+
+```{r}
+(boxplot_personmean_compliance_misstype = overall_df %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = bias_mean, fill = as.factor(miss_type))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of the person-mean") + 
+  xlab("Compliance") + 
+  geom_hline(yintercept = 0, linetype = "dashed") 
+  )
+```
+
+#### Interaction: Missingness type and time-series length 
+
+```{r}
+(boxplot_personmean_compliance_misstype = overall_df %>% 
+  ggplot(aes(x = as.factor(T.obs), y = bias_mean, fill = as.factor(miss_type))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_minimal() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of the person-mean") + 
+  xlab("Time-series length") + 
+  geom_hline(yintercept = 0, linetype = "dashed") 
+  )
+```
 
 TODO
 

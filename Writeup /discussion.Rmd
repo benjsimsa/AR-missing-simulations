@@ -1,0 +1,10 @@
+---
+title: "Discussion"
+output: pdf_document
+---
+
+# We proved stuff
+
+yes. 
+
+## Or did we 
