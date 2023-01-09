@@ -1,6 +1,0 @@
----
-title: "Introduction"
-output: pdf_document
----
-
-# Introduction 

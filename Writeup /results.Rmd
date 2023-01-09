@@ -1,5 +1,0 @@
----
-title: "Results"
-output: pdf_document
----
-

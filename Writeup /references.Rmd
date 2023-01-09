@@ -1,8 +1,0 @@
----
-title: "References"
-output: pdf_document
----
-
-# References
-
-\bibliography{references}
