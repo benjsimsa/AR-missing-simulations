@@ -45,6 +45,7 @@ The dataset used for this analysis has 288,000 observations (1,000 observations 
 library(effectsize)
 library(ggplot2)
 library(tidyverse)
+library(apa)
 
 rdslist = list.files(path = here::here("results", "sim_a_norandomslopes"), pattern='*.rds') # put all the data files with results in a list
 
@@ -82,7 +83,15 @@ Let's te
 anova_bias = aov(formula = B1_bias ~ N * T.obs * miss_type * compliance * B1_sim, 
                  data = anova_bias_df)
 
-(anova_bias_results = summary(anova_bias))
+anova_apa(anova_bias, format = "latex", print = TRUE)
+
+report(anova_bias)
+report_table(anova_bias)
+report_effectsize(anova_bias)
+
+anova_bias %>% 
+  report() %>% 
+  to_table()
 ```
 
 ### Estimation precision ANOVA effect sizes
@@ -122,7 +131,7 @@ cbPalette_other = c("#0072B2", "#D55E00", "#CC79A7", "#000000")
   ggplot(aes(x = as.factor(miss_type), y = B1_bias, fill = as.factor(miss_type), group = as.factor(miss_type))) + 
   stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
   geom_boxplot(width = 0.3, alpha = 0.9) + 
-  theme_minimal() + 
+  theme_apa() + 
   scale_fill_manual(values = cbPalette) + 
   ylab("Bias in estimation of fixed AR effect") + 
   xlab("Missingness type") + 
@@ -247,7 +256,7 @@ The effect of the number of timepoints per participant on estimation bias (avera
 
 For all following analyses, a dataset with only 288 rows (one per simulation condition), instead of 228,000, was used.
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r message=FALSE, warning=FALSE, cache=TRUE, include=FALSE}
 # create dataframe with overall results from each condition (i.e., 288 rows instead of 288,000)
 
   
@@ -272,7 +281,6 @@ colnames(overall_df) = names
 
 
 for (i in length(rdslist):1){ # for-loop that connects all files from rdslist into one file 
-  res = readRDS(here::here("results", "sim_a_norandomslopes", rdslist[i]))
   overall_df[i, 1] = as.numeric(res$beta.hat.lme[1])
   overall_df[i, 2] = as.numeric(res$beta.hat.lme[2])
   overall_df[i, 3] = as.numeric(res$power.hat.lme[1])
@@ -290,7 +298,10 @@ for (i in length(rdslist):1){ # for-loop that connects all files from rdslist in
   overall_df[i, 15] = as.numeric(res$beta.hat.lme[2] - res$b10)
 }
 
-# reorder the rows and columns  
+
+```
+
+```{r}
 
 ```
 
@@ -376,7 +387,7 @@ omega_squared(anova_mse, partial = TRUE)
 (boxplot_mse_compliance_t = overall_df %>% 
   ggplot(aes(x = as.factor(comp_mean), y = B1_se, fill = as.factor(T.obs))) + 
   geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
-  theme_minimal() + 
+  theme_apa() + 
   scale_fill_manual(values = cbPalette_other) + 
   ylab("Mean squared error") + 
   xlab("Compliance") + 

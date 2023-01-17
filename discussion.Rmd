@@ -1,0 +1,12 @@
+---
+title: "Discussion"
+output: pdf_document
+bibliography: references.bib
+---
+
+\newpage
+
+# Discussion
+
+-   while the previous research suggested that increasing T is very effective (and this is true), it is very important to keep compliance as high as possible
+-   consequences of misestimation: could this be one of the reasons why the inertia of NA/PA does not predict psychopathology/well-being [@dejonckheere2019]?

@@ -1,0 +1,10 @@
+---
+title: "Methods"
+output: pdf_document
+---
+
+# Methods
+
+## Multilevel AR(1) model
+
+
