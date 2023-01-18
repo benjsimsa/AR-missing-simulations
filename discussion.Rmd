@@ -8,5 +8,24 @@ bibliography: references.bib
 
 # Discussion
 
+-   The effect of compliance on all 3 outcomes is quite high, and it largely depends on the missingness pattern.
+
+<!-- -->
+
 -   while the previous research suggested that increasing T is very effective (and this is true), it is very important to keep compliance as high as possible
 -   consequences of misestimation: could this be one of the reasons why the inertia of NA/PA does not predict psychopathology/well-being [@dejonckheere2019]?
+-   in studies estimating inertia, there might be some individual differences in inertia estimates that are due to different missingness patterns, not due to changes in real inertia (i. e., two participants with the same real inertia but different missingness patterns could have different inertia estimates)
+-   also, this makes computing power a bit less straightforward (ideally, to get realistic estimates of power, one should have an idea about what the average compliance could be and what missingness patterns might be present in the data - of course, in real life, we can expect there to be a mix of missing data patterns in every dataset).
+-   of course, not entirely realistic - real life data will likely have a mixture of missing data patterns at both the within- and between-person level.
+
+## Limitations
+
+-   focused on normally distributed processes. a normal dist can be assumed for positive affective proceses, however, negative affective processes are usually heavily right-skewed in the general population [@haslbeck2022].
+
+-   o We assumed that the analysed time-series is measured without any error; this is not the case in real-world research [@dejonckheere2022, @schuurman2019] . Also, this unreliability can lead to further attenuation of the estimated parameters [@wenzel2022].
+
+o The person-mean centering was carried out using observed means. However, using latent means might be more appropriate; they describe this in [@gistelinck2021].
+
+-   o Only used very specific combination of parameters, BUT I provide a framework for people to reproduce the study
+
+-   Limitation-code: Although I took steps to maximise reproducibility of the simulations (shared all code and results, made a package containing the custom functions, used packages here() and renv(), and reported the sessionInfo for every simulation), I also used quite a lot of packages with many dependencies, which might be detrimental to reproducibility

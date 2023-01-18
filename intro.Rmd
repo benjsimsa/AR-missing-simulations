@@ -1,0 +1,17 @@
+---
+title: "Introduction"
+output: pdf_document
+bibliography: references.bib
+---
+
+# Introduction
+
+## Compliance and missing data in ESM studies
+
+-   Missing data happen quite often in intensive longitudinal designs. Average com
+
+**Average compliance in ESM studies.**
+
+**Factors associated with compliance.**
+
+TODO

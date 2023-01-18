@@ -2,7 +2,7 @@
     bibliography: references.bib
     output: pdf_document
     geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm
-    fontsize: 10pt
+    fontsize: 11pt
     csl: apa.csl
     indent: true
     header-includes:
@@ -16,8 +16,8 @@
     - \usepackage{natbib}\bibliographystyle{agsm}
     - \usepackage[nottoc, numbib]{tocbibind}
     - \usepackage{indentfirst}
+    - \usepackage{amsmath}
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -89,6 +89,11 @@ Co-supervisors: Dr. Ginette Lafit, Jordan Revol
 \setlength\parindent{24pt}
 ```
 \pagenumbering{arabic}
+
+\newpage
+
+```{r introduction, child = 'intro.Rmd'}
+```
 
 \newpage
 

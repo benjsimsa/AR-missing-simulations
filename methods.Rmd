@@ -1,10 +1,284 @@
 ---
 title: "Methods"
 output: pdf_document
+bibliography: references.bib
+header-includes:
+  - \usepackage{amsmath}
 ---
 
 # Methods
 
 ## Multilevel AR(1) model
 
+In this subchapter, I will describe the mathematical basis, assumptions and estimation procedures of the first-order multilevel autoregressive (MLAR(1)) model with random intercepts and random autoregressive effects, which is the focus of the simulation part of the thesis. While the notation for the model varies across different papers, the notation used by Lafit et al. [-@lafit2020] will be adhered to throughout the thesis.
 
+The MLAR model consists of two levels: the within-person Level 1 and the between-person Level 2. At level 1, described by Equation \eqref{eq:level1} [@lafit2020], each participant's first-order autoregressive process is modelled: The person-specific autoregressive parameter (inertia) $\gamma_{1i}$ quantifies to what degree the process value $esm_{it}$ of participant *i* at time *t* depends on the lagged process value $esm_{i, t-1}$. The person-specific intercept $\gamma_{0i}$ represents the expected process value $esm_{it}$ when the lagged variable $esm_{i, t-1}$ equals 0 [@jongerling2015]. Following the recommendations by [@hamaker2015], the predictor (lagged variable) was person-mean centered. The innovation $\epsilon_{it}$ (i.e., residuals, the part of the variance that is not explained by the lagged variable $esm_{i, t-1}$) is assumed to be independent and coming from a normal distribution with mean of 0 and variance $\sigma^2_e$ (Lafit et al., 2020). The model used in the present thesis assumes that the innovation variance is identical for all participants.
+
+```{=tex}
+\begin{equation}\label{eq:level1}
+    esm_{it}= \gamma_{0i} + \gamma_{1i} * esm_{i, t-1} + \epsilon_{it}
+\end{equation}
+```
+In the multilevel AR(1) model, the person-specific autoregressive effects 1i and the person-specific intercepts 0i are allowed to vary between participants. The Level 2 of the MLAR(1) model describes this between-person variability. The Level 2 is defined in Equation \eqref{eq:level2}). Each person-specific autoregressive effect $\gamma_{1i}$ is a sum of a fixed effect $\beta_{10}$ and a person-specific random effect $\nu_{1i}$. The random effects $\nu_{1i}$ themselves come from a normal distribution with mean of 0 and variance $\sigma^2_{\nu1}$ (Lafit et al., 2020). The same holds for the person-specific intercepts $\gamma_{0i}$: they are a sum of a fixed effect $\beta_{00}$ and a random effect $\nu_{0i}$ that comes from *N*(0, $\sigma^2_{\nu0}$).
+
+```{=tex}
+\begin{equation}\label{eq:level2}
+\begin{aligned}
+    \gamma_{0i} = \beta_{00} +  \nu_{0i} \\
+    \gamma_{1i} = \beta_{10} +  \nu_{1i}
+\end{aligned}
+\end{equation}
+```
+### Assumptions of the MLAR(1) model
+
+In this part, the assumptions of the MLAR(1) model and the way they were taken into account in the present simulation study will be explained.
+
+**Stationarity.** The MLAR(1) model is used to model stable processes in which no temporal trends are present. As such, it assumes weak stationarity: the (person-specific) process mean, innovation variance, and autoregressive parameter are assumed to not change through the time series [@rovine2006]. For this reason, the person-specific autoregressive effects $\gamma_{1i}$ are assumed to be bounded by -1 and 1, as autoregressive effects larger than 1 (or lower than -1) cause a change in the process mean [@krone2016].
+
+**Exogeneity.** TODO (see word file)
+
+**Equally spaced measurements.** TODO (see word file again)
+
+### Estimation procedures for the MLAR(1) model
+
+**Initial conditions problem.** TODO (see Word)
+
+### Multilevel AR(1) model and statistical power
+
+## Simulation study
+
+The goal of the present exploratory simulation study is to assess the effects of four different patterns of missing data (data missing completely random, data missing in blocks, and two patterns of data missing dependent on process value) on estimation performance/bias, standard error and statistical power for the estimation of the fixed autoregressive effect in the MLAR(1) model.
+
+### Simulation procedure
+
+The study followed the general principles of a Monte Carlo simulation procedure described by Lane & Hennes [-@lane2018].
+
+**Simulation conditions.** Two simulation studies, Simulation A and Simulation B, were carried out to investigate the research questions. In Simulation A, no random autoregressive effects were simulated and estimated (i.e., each subject's time-series in the simulation had the same simulated autoregressive effect, and only fixed autoregressive effects were estimated). In Simulation B, random autoregressive effects were simulated and estimated (with the random effects variance set to either 0.05 or 0.1). Both random and fixed intercepts were estimated in Simulations A and B.
+
+Simulation A followed a 4 × 2 × 3 × 4 × 3 factorial design (yielding 288 simulation conditions in total), and Simulation B followed a 4 × 2 × 2 × 4 × 2 × 2 design (256 conditions in total). Each of the conditions was simulated in 1,000 simulation runs. As such, 544,000 datasets were generated (and the same number of models was estimated) in this simulation study. The manipulated variables (as well as the other parameters that remained fixed throughout all simulation conditions) are listed in Table \ref{tab:tab_manipulated} and \ref{tab:tab_stable}.
+
+```{r tab_manipulated, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(kableExtra)
+
+r1 = c(
+"Missingness pattern", "MCAR, block, extreme-onesided, extreme-twosided", "MCAR, block, extreme-onesided, extreme-twosided", "Simulated fixed AR effect", "0.3, 0.5, 0.7", "0.3, 0.7", "Variance of random AR effects", "-", "0.05, 0.1", "Compliance", "0.4, 0.6, 0.8, 1", "0.4, 0.6, 0.8, 1", "Number of participants (N)", "20, 50", "20, 50","Timepoints per participant (T.obs)", "20, 50, 100", "50, 100")
+  
+df_manipulated = matrix(r1, ncol = 3, byrow = TRUE)
+
+kable(df_manipulated, booktabs = TRUE, align = "ccc", caption = "Values of the manipulated parameters used in the two simulation studies") %>% column_spec(c(1,2,3), width = "15em") %>% add_header_above(c("Manipulated parameter" = 1, "Simulation A" = 1, "Simulation B" = 1))
+```
+
+```{r tab_stable, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+r2 = c("Fixed intercept", "0", "0","Variance of random intercepts", "3", "3", "Innovation variance", "3", "3","Correlation between random intercepts and random slopes", "0", "0","Significance threshold", "0.05", "0.05","Simulation runs per condition", "1000", "1000")
+
+df_stable = matrix(r2, ncol = 3, byrow = TRUE)
+
+kable(df_stable, booktabs = TRUE, align = "ccc", caption = "Parameters used for the two simulation studies.") %>% column_spec(c(1,2,3), width = "15em") %>% add_header_above(c("Simulation parameter" = 1, "Simulation A" = 1, "Simulation B" = 1))
+```
+
+**Data generation.** First, for each of the simulation conditions (i.e., combination of the parameters listed below), 1000 synthetic datasets were generated. Each dataset contained observations from *N* participants. A temporally dependent time-series of length *T.obs* was generated as nested within each simulated participant via a recursive equation. Additionally, for each time-series, a burn-in period with 1,000 observation was generated. The within-person error (innovation) vector $\epsilon_i$ was generated from a N(0, $\sigma$) distribution with $\sigma$ set to 3 in all simulations. The fixed intercept $\beta_{00}$ was set to 0 across all conditions. The random intercepts $\nu_{0i}$ for each simulated time-series were sampled from a *N*(0, 3) distribution in both studies. In Simulation A, only fixed autoregressive effects $\beta_{10}$ were simulated and manipulated, while both fixed and random autoregressive effects $\nu_1i$ were included in Simulation B. For an overview of the values of all manipulated simulation parameters, please refer to Table \ref{tab:tab_manipulated}.
+
+Each time-series was then generated using Equation \eqref{eq:level1}. The initial value was generated as a sum of the person-specific intercept $\gamma_{0i}$ and the innovation $\epsilon_{ij}$, and the following observations were calculated by multiplying the value of the time-series at *t-1* by the person-specific autoregressive effect $\gamma_{1i}$ and adding the person-specific intercept $\gamma_{0i}$ and the innovation $\epsilon_{ij}$. Subsequently, after removing the burn-in datapoints, the first-order lagged version of the time-series was generated, setting the first lagged value as missing.
+
+The non-manipulated simulation parameters ($\beta_{00}, \sigma_{\nu 0}, \sigma, \rho_\nu$) were set following a simulation design from Hamaker & Grasman [-@hamaker2015].
+
+**Introduction of missing values.** Secondly, missing data were introduced to each of the generated datasets according to the missing data pattern and compliance of the given simulation condition. Four different missingness patterns were introduced to the data: a) data missing completely at random (MCAR); b) data missing in blocks of consecutive observations; c) lowest (100%-compliance) observations set as missing, and d) highest and lowest (100%-compliance)/2 observations set as missing.
+
+Each of these missingness patterns correspond to a hypothetical scenario in an ESM study. The MCAR pattern assumes that the participants miss responding to beeps randomly, and each beep has the same probability of being missed, regardless on any other factors (e.g., whether the previous beep was missed, or the intensity of the emotion measured by ESM). When there is a block of missing data present, all missing observations follow each other, there is a block of non-missing values and missing values. The start and the endpoint of the missing block do not depend on the intensity of the emotion. This can correspond to a situation where a participant misses a series of beeps because they are attending a social event. For patterns c) and d), the missingness is dependent on the value of the process itself. Pattern c) represent a situation in which a participant does not respond to an ESM measure of a positive mood because they are not feeling well, while pattern d) represents a situation where a participant misses an ESM beep when they either do not feel well enough, or they feel too good to respond to their phone beeping.
+
+It can be expected that the different missingness patterns will differ in their effects on the simulation outcomes (estimation bias, standard error, power etc.). This is because with identical proportion in missing data, datasets with different missingness patterns will have different proportions of effective observation-pairs (i.e., proportion of timepoints for which both the observation at t and the observation at t-1 are not missing) used to estimate the autoregressive effect. Figure \ref{fig:fig_miss_comparison} illustrates the four different missingness patterns on the same ESM time-series.
+
+```{r fig_miss_comparison, cache = TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_miss_comparison}Illustration of the four different missingness pattern used in the simulation study. The blue dots represent observed datapoints, while the light gray dots represent the missing values.", fig.height=6 }
+library(dplyr)
+library(missMethods)
+
+# Create the time-series 
+arsim = function(N = 100, beta_0 = 0, beta_1 = 0.5, sigma = 0.5){
+  set.seed(1)
+  N_burning = 1000
+  N_tot = N + N_burning
+  error = rnorm(N_tot, 0, sigma)   
+  mu = beta_0 / (1-beta_1)
+  
+  Y = rep(0, N_tot)  #[0 for i in 1:N_tot]
+  
+  Y[1]= mu + error[1]  # Initial value
+  
+  for (n in 2:N_tot){
+    Y[n] = beta_0 + beta_1 * Y[n-1] + error[n]   # Simulate Dependent Variables
+  }
+  Y[(N_burning + 1):N_tot]
+}
+
+series = as.data.frame(arsim())
+
+# 1) MCAR, compliance = 0.7 
+
+# introduce MCAR to data 
+tm = c(1:100)
+series_mcar = delete_MCAR(ds = series, cols_mis = 1, p = 0.3)
+
+data_mcar = data.frame(tm, series, series_mcar)
+colnames(data_mcar) = c("time", "full_series", "series_mcar")
+plot_MCAR = ggplot(data_mcar, aes(x = tm)) + 
+                        
+                        geom_line(aes(y = series_mcar),
+                                  color = "blue",
+                                  size = 1,
+                                  alpha = 0.7) +
+                        geom_point(aes(y = series_mcar),
+                                   color = "blue",
+                                   size = 1) + 
+                        
+                        geom_line(aes(y = full_series,
+                                      alpha = 0.3),
+                                  show.legend = FALSE) +
+                        geom_point(aes(y = full_series,
+                                       alpha = 0.25),
+                                   show.legend = FALSE) +
+                        ggtitle("a) Data missing completely at random") +
+                        xlab("") +
+                        ylab("Process value") + 
+                        theme_minimal()
+
+
+# 2) missing in blocks, compliance = 0.7
+block_full = data_mcar$full_series
+block_missing = data_mcar$full_series
+df_block = data.frame(tm, block_full, block_missing)
+df_block$block_missing[5:(5+(30))] = NA
+
+plot_block = ggplot(df_block, aes(x = tm)) + 
+    
+    geom_line(aes(y = block_missing),
+              color = "blue",
+              size = 1,
+              alpha = 0.7) +
+    geom_point(aes(y = block_missing),
+               color = "blue",
+               size = 1) + 
+    
+    geom_line(aes(y = block_full,
+                  alpha = 0.3),
+              show.legend = FALSE) +
+    geom_point(aes(y = block_full,
+                   alpha = 0.25),
+               show.legend = FALSE) +
+    ggtitle("b) Block of consecutive missing datapoints") +
+    xlab("") +
+    ylab("Process value") + 
+    theme_minimal()
+
+
+
+# 3) extreme - onesided, compliance = 0.7 
+
+threshold_quantile = quantile(data_mcar$full_series, 0.3)
+
+oneside_full = data_mcar$full_series
+oneside_missing = data_mcar$full_series
+df_oneside = data.frame(tm, oneside_full, oneside_missing)
+df_oneside$oneside_missing[df_oneside$oneside_missing < threshold_quantile] = NA
+
+plot_oneside = ggplot(df_oneside, aes(x = tm)) + 
+    
+    geom_line(aes(y = oneside_missing),
+              color = "blue",
+              size = 1,
+              alpha = 0.7) +
+    geom_point(aes(y = oneside_missing),
+               color = "blue",
+               size = 1) + 
+    
+    geom_line(aes(y = oneside_full,
+                  alpha = 0.3),
+              show.legend = FALSE) +
+    geom_point(aes(y = oneside_full,
+                   alpha = 0.25),
+               show.legend = FALSE) +
+    geom_hline(yintercept = threshold_quantile, 
+               linetype = "dashed", 
+               color = "red") + 
+    ggtitle("c) (1 - compliance) lowest values missing") +
+    xlab("") +
+    ylab("Process value") + 
+    theme_minimal()
+
+
+
+
+# 4) extreme - twosided, compliance = 0.7 
+threshold_quantile_upper = quantile(data_mcar$full_series, 0.85)
+threshold_quantile_lower = quantile(data_mcar$full_series, 0.15)
+
+
+twoside_full = data_mcar$full_series
+twoside_missing = data_mcar$full_series
+df_twoside = data.frame(tm, twoside_full, twoside_missing)
+df_twoside$twoside_missing[df_twoside$twoside_missing < threshold_quantile_lower] = NA
+df_twoside$twoside_missing[df_twoside$twoside_missing > threshold_quantile_upper] = NA
+
+
+plot_twoside = ggplot(df_twoside, aes(x = tm)) + 
+    
+    geom_line(aes(y = twoside_missing),
+              color = "blue",
+              size = 1,
+              alpha = 0.7) +
+    geom_point(aes(y = twoside_missing),
+               color = "blue",
+               size = 1) + 
+    
+    geom_line(aes(y = twoside_full,
+                  alpha = 0.3),
+              show.legend = FALSE) +
+    geom_point(aes(y = twoside_full,
+                   alpha = 0.25),
+               show.legend = FALSE) +
+    geom_hline(yintercept = threshold_quantile_lower, 
+               linetype = "dashed", 
+               color = "red") + 
+    geom_hline(yintercept = threshold_quantile_upper, 
+               linetype = "dashed", 
+               color = "red") + 
+    ggtitle("d) (1 - compliance)/2 lowest and highest values missing") +
+    xlab("Beep") +
+    ylab("Process value") + 
+    theme_minimal()
+
+
+
+(ggarrange(plot_MCAR, plot_block, plot_oneside, plot_twoside,
+                 nrow = 4))
+```
+
+**Fitting a multilevel autoregressive model.** After missing values were introduced to the data, a MLAR(1) model was fitted to each of the simulated datasets using the *lme* function from the *nlme* R package [@pinheiro2022] with the value of the time-series at *t* as the outcome, the lagged *(t-1)* value of the time-series as the predictor, and the participant number as the grouping variable. We then extracted relevant parameters from the models that converged successfully. Missing values were treated by list-wise deletion. The restricted maximum log-likelihood method was used to estimate the model.
+
+The predictor (lagged) variable was person-mean centered. Although person-mean centering results in an underestimation of the autoregressive effect [@hamaker2015], it allows for a clearer interpretation of the within-person effects in multilevel models [@enders2007, @hamaker2020].
+
+TODO: Describe person-mean centering more in detail
+
+**Simulation outcomes.** Estimation bias (MSE), the standard error of the estimation, and the statistical power to estimate the fixed autoregressive effect $\beta_{10}$ were the focal outcomes of the study. Additionally, we examined the effect of the manipulated variables on the proportion of models that successfully converged and the bias in the estimation of the person-mean used for centering of the predictor (lagged) variable.
+
+Estimation bias was computed as the difference between the real (simulated) fixed autoregressive effect $\beta_{10}$ and the estimated fixed autoregressive effect $\hat{\beta_{10}}$ in each simulation run. As such, the dataset with estimation bias contained 1,000 rows per simulation condition.
+
+Standard error (SE) and statistical power were calculated for each simulation condition (i.e., 1 row per condition). TODO: Describe how SE was calculated. Statistical power was calculated as the proportion of simulation runs (within the given simulation condition) in which the p-value for the estimated fixed autoregressive effect $\hat{\beta_{10}}$ was below the significance threshold ($\alpha$ = 0.05) and the number of simulation runs that converged successfully.
+
+The bias in the estimation of the person-mean of the time-series was computed as the average difference between the real process mean $\mu_i$ \eqref{eq:meanbias} and the observed person-mean $\hat{\mu_i}$ (computed after the missing data were introduced).
+
+```{=tex}
+\begin{equation}\label{eq:meanbias}
+\begin{aligned}
+    \mu_i = \beta_{00}+\nu_{0i} / 1-(\beta_{10}+\nu{1i})
+\end{aligned}
+\end{equation}
+```
+**Manipulated simulation parameters.** Apart from the four different missingness patterns (described above), the following parameters were manipulated in bothSimulation A and Simulation B: The number of participants of each simulated study (N), the number of ESM observations within each participant (T.obs), the compliance rate (i.e., the proportion of timepoints that are not missing for each participant), and the simulated autoregressive effect.
+
+Furthermore, in Simulation B, the variance of the random autoregressive effects was varied. The values of the manipulated variables were set considering realistic research questions in psychological research. The values of the manipulated variables for both studies are reported in Table \ref{tab:tab_manipulated}.
+
+### Reproducibility and code/data availability
+
+The simulations were conducted in R version 4.2.1 [@rcoreteam2021] . The study was conducted with emphasis on reproducibility of the results [@pawel2022]. As such, we provide all data used for the reported analyses, as well as the full reproducible R code for the simulations, (including the custom functions created for the purposes of the study), and the code used to generate the plots and result tables (available at [https://github.com/benjsimsa/AR-missing-simulations).](https://github.com/benjsimsa/AR-missing-simulations).) The repository also includes a *sessionInfo* document that lists the versions of the packages used for the study. The present thesis was written using R Markdown [@allaire2022].
+
+Additionally, the *renv* R package [@ushey2022] was used to set up a reproducible R environment and improve reproducibility by creating a project-local package library. For reproducible file referencing, the R package *here* [@müller2020] was used. For more information about the custom functions, simulation code, and the structure of the GitHub repository itself, please refer to the file README.md in the repository.
