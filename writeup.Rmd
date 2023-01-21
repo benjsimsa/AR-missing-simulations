@@ -2,7 +2,7 @@
     bibliography: references.bib
     output: pdf_document
     geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm
-    fontsize: 11pt
+    fontsize: 10pt
     csl: apa.csl
     indent: true
     header-includes:
@@ -61,7 +61,7 @@ degree of Master of Science in \linebreak
 Master of Psychology: Theory and \linebreak 
 Research by \linebreak 
 \linebreak 
-{\bf Benjamin Simsa} \linebreak 
+{\bf Benjamín Šimsa} \linebreak 
 \linebreak 
 \linebreak 
 Supervisor: Prof. Dr. Eva Ceulemans \linebreak 
@@ -87,9 +87,8 @@ Co-supervisors: Dr. Ginette Lafit, Jordan Revol
 \tableofcontents
 
 \setlength\parindent{24pt}
-```
 \pagenumbering{arabic}
-
+```
 \newpage
 
 ```{r introduction, child = 'intro.Rmd'}

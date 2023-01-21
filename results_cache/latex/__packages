@@ -15,3 +15,7 @@ tinylabels
 papaja
 pander
 effectsize
+gridExtra
+ggpubr
+ggdist
+reshape2

@@ -8,7 +8,15 @@ bibliography: references.bib
 
 # Discussion
 
+-   we did this and that ....
+
+-   confirmed the evidence about high T being important (and especially so when there are weird missing data patterns)
+
+```{=html}
+<!-- -->
+```
 -   The effect of compliance on all 3 outcomes is quite high, and it largely depends on the missingness pattern.
+-   observed the opposite of Krone 2016: the estimation bias actually got higher, not smaller, as the real fixed AR effect gets larger
 
 <!-- -->
 
