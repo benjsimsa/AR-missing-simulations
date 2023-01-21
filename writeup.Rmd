@@ -1,22 +1,24 @@
 ---
-    bibliography: references.bib
-    output: pdf_document
-    geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm
-    fontsize: 10pt
-    csl: apa.csl
-    indent: true
-    header-includes:
-    - \usepackage{float}
-    - \usepackage{sectsty}
-    - \usepackage{paralist}
-    - \usepackage{setspace}\spacing{1.5}
-    - \usepackage{fancyhdr}
-    - \usepackage{lastpage}
-    - \usepackage{dcolumn}
-    - \usepackage{natbib}\bibliographystyle{agsm}
-    - \usepackage[nottoc, numbib]{tocbibind}
-    - \usepackage{indentfirst}
-    - \usepackage{amsmath}
+bibliography: references.bib
+output:
+  pdf_document: default
+  word_document: default
+geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm
+fontsize: 10pt
+csl: apa.csl
+indent: yes
+header-includes:
+- \usepackage{float}
+- \usepackage{sectsty}
+- \usepackage{paralist}
+- \usepackage{setspace}\spacing{1.5}
+- \usepackage{fancyhdr}
+- \usepackage{lastpage}
+- \usepackage{dcolumn}
+- \usepackage{natbib}\bibliographystyle{agsm}
+- \usepackage[nottoc, numbib]{tocbibind}
+- \usepackage{indentfirst}
+- \usepackage{amsmath}
 ---
 
 ```{r setup, include=FALSE}
