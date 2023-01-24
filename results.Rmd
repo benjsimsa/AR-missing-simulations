@@ -108,7 +108,7 @@ cbPalette_other = c("#0072B2", "#D55E00", "#CC79A7", "#000000")
 
 Figure \ref{fig:fig_prec_type} shows that while the underestimation of the fixed slopes is fairly low (although still considerable) when the observations are missing completely at random or in block, it becomes severe when only the most extreme values (both at one side and at both sides) are missing. SOMETHING ABOUT JANNE'S PAPER! Additionally, the underestimation of the fixed slopes becomes more severe as the compliance gets lower.
 
-The average estimation bias when compliance is 0.8 (which is very close to the average compliance of ESM studies in psychology) is `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.8]), 2)`. As a consequence, many estimates of inertia in psychological research could be seriously downward biased. Furthermore, the estimates are slightly biased even when compliance is 1 (i. e., there are no missing data; average bias: `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 1]), 2)`). This is in line with the findings about estimation biased caused by person-mean centering in multilevel autoregressive models [@hamaker2015].
+The average estimation bias when compliance is 0.8 (which is very close to the average compliance of ESM studies in psychology) is `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.8]), 2)`. As a consequence, many estimates of inertia in psychological research could be seriously downward biased. Furthermore, the estimates are slightly biased even when compliance is 1 (i. e., there are no missing data; average bias: `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 1]), 2)`). This is in line with the findings about estimation bias caused by person-mean centering in multilevel autoregressive models [@hamaker2015].
 
 Zooming in on the interaction between compliance and missingness type (Figure \ref{fig:fig_prec_interaction}) suggests that the effect of compliance on estimation bias is dramatically more severe for the two conditions in which the most extreme values of the process were set as missing (as compared to the other two conditions, i. e., data MCAR and missing in blocks). In the worst-case scenario (low compliance of 0.4; the most extreme values at both sides missing), the average estimation bias was `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.4 & anova_bias_df$miss_type == "extreme_twosided"]), 2)`). Given that the average simulated fixed slope was 0.5, these results imply that even rather large autocorrelations can be estimated as close to 0 in studies with the combination of low compliance and a non-random missingness pattern. At the same time, the results about data MCAR and missing in blocks are encouraging. Even in a low-compliance (0.4) condition, the average estimation bias was `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.4 & anova_bias_df$miss_type == "mcar"]), 2)` for the former and `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.4 & anova_bias_df$miss_type == "block"]), 2)` for the latter.
 
@@ -266,7 +266,7 @@ kable(table_xc,
   collapse_rows(columns = 1)
 ```
 
-**ANOVA.** To examine the effect of the manipulated parameters on the standard error of the estimation of the fixed slopes, we combined the results for each condition (1,000 simulation runs) into a single row. As such, the dataset used for the following analyses had one row per simulation condition (288 rows in total). A a 4 × 2 × 3 × 4 × 3 factorial Type I ANOVA was used to analyse the data. The full ANOVA results and effect sizes are reported in Table DS.
+**ANOVA.** To examine the effect of the manipulated parameters on the standard error of the estimation of the fixed slopes, we combined the results for each condition (1,000 simulation runs) into a single row. As such, the dataset used for the following analyses had one row per simulation condition (288 rows in total). A a 4 × 2 × 3 × 4 × 3 factorial Type I ANOVA was used to analyse the data. The full ANOVA results and effect sizes are reported in Table \ref{tab:anova_se}.
 
 The main effects of the number of participants ($\omega^{2}_p$ = `r round(anova_table_se[1, 6], 2)`), number of timepoints per participant ($\omega^{2}_p$ = `r round(anova_table_se[2, 6], 2)`) and compliance ($\omega^{2}_p$ = `r round(anova_table_se[4, 6], 2)`) crossed the cut-off for effect size.
 
@@ -274,7 +274,7 @@ Additionally, the interaction between the number of timepoints per participant a
 
 Figure \ref{fig:fig_se_interaction} depicts the interaction between the number of timepoints per participant and compliance, while Figure \ref{fig:fig_se_compliance} shows the interaction between the number of participants and compliance.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r anova_se, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 # table XC
 
@@ -317,7 +317,7 @@ kable(anova_table_se,
 
 ### Outcome: Statistical power
 
-**Descriptive statistics.** The statistical power for each combination of the manupulated parameters is reported in Table (BIG TABLE TODO). As an illustration, the effect of compliance, missingness type, the number of participants and the number of timepoints per participant when the simulated fixed slope is 0.3 are visualised in Figure \ref{fig:fig_power}. Consistent with the results about estimation bias, statistical power is the lowest in the two conditions with the most extreme datapoints missing. For the conditions with data missing completely at random and data missing in consecutive blocks, power is very high even when the compliance is low for most conditions (except for the two conditions with T = 20).
+**Descriptive statistics.** The statistical power for each combination of the manipulated parameters is reported in Table (BIG TABLE TODO). As an illustration, the effect of compliance, missingness type, the number of participants and the number of timepoints per participant when the simulated fixed slope is 0.3 are visualised in Figure \ref{fig:fig_power}. Consistent with the results about estimation bias, statistical power is the lowest in the two conditions with the most extreme datapoints missing. For the conditions with data missing completely at random and data missing in consecutive blocks, power is very high even when the compliance is low for most conditions (except for the two conditions with T = 20).
 
 A peculiar pattern is worth pointing out in the plot: in the two conditions with T = 20 and the most extreme data missing at both sides (green dashed line), the statistical power is higher when compliance is 0.4 compared to when compliance is 0.6. This counterintuitive result is likely due to the fact that the underestimation is the most severe when the most extreme values at both sides. As such, some of the estimates of the fixed slope will be negative, and their magnitude will be large enough for them to reach statistical significance.
 
@@ -506,9 +506,10 @@ kable(anova_table_pwr,
   kable_styling(full_width = F)
 ```
 
+```{=tex}
 \newpage
 \newpage
-
+```
 ## Simulation B
 
 In Simulation B, the random AR effects were included both in the data generating procedure and in the estimated models. The variance of random AR effects ($\sigma^2_{\nu1}$) was manipulated as an additional simulation factor (2 values: 0.05 and 0.1). For an overview of all manipulated and fixed simulation parameters, please refer to Table \\ref{tab:tab_manipulated}. The descriptive results for all 256 simulation conditions are reported in the appendix (TODO). For the sake of clarity, only the results for the $\sigma^2_{\nu1}$ = 0.05 simulation condition will be reported in the following sections (and then briefly compared to the condition in which $\sigma^2_{\nu1}$ = 0.1.
@@ -565,9 +566,7 @@ anova_table_sim2$`p-value` = format.pval(anova_table_sim2$`p-value`, digits = 2,
 
 To evaluate the effect of the number of participants, number of timepoints per participant, missingness type, compliance, the variance of random AR effects, and the simulated fixed autoregressive effect on the bias in the estimation of the fixed AR effect in Simulation B, a 4 × 2 × 2 × 4 × 2 × 2 factorial Type I ANOVA was used. The results from every simulation run (256 conditions \* 1000 runs per condition) were combined into a single dataset. An identical inference criterion ($\omega^2_p$ $\ge$ 0.14) as in the analysis of Simulation A was used. The results are listed in Table \ref{tab:table_anova_bias_sim2}.
 
-Interestingly, compared to the results from Simulation A (see Table \ref{tab:table_anova_bias}), the effect of *T.obs* on estimation bias ($\omega^{2}$ = `r round(anova_table_sim2[2, 6], 2)`) is much smaller and does not reach the effect size threshold. The three main effects that do reach the cut-off in Simulation B are the effect of missingness type ($\omega^{2}$ = `r round(anova_table_sim2[3, 6], 2)`), compliance ($\omega^{2}$ = `r round(anova_table_sim2[4, 6], 2)`), and the real fixed AR effect ($\omega^{2}$ = `r round(anova_table_sim2[6, 6], 2)`). Only the interaction between missingness type and compliance ($\omega^{2}$ = `r round(anova_table_sim2[12, 6], 2)`) reached the cut-off. The interaction is visualised in Figure \ref{fig:fig_prec_interaction_sim2}). The pattern of the interaction is very similar to the pattern of the interaction between missingness type and compliance in Simulation A (see Figure \ref{fig:fig_prec_interaction}). Interestingly, compared to Simulation A, the average estimation bias is slightly worse for the MCAR and block missingness types and slightly less severe for the two conditions with the extreme values missing (compare Table \ref{tab:table_bias_sim2} and Table \ref{fig:fig_prec_interaction}). However, the overall conclusion remains the same as in Simulation A: there is a considerable downward estimation bias that becomes more severe the smaller the compliance rate is, and it is most severe for the condition in which the most extreme data at both sides are missing.
-
-TODO: values of bias for each compliance/missingness interaction.
+Interestingly, compared to the results from Simulation A (see Table \ref{tab:table_anova_bias}), the effect of *T.obs* on estimation bias ($\omega^{2}$ = `r round(anova_table_sim2[2, 6], 2)`) is much smaller and does not reach the effect size threshold. The three main effects that do reach the cut-off in Simulation B are the effect of missingness type ($\omega^{2}$ = `r round(anova_table_sim2[3, 6], 2)`), compliance ($\omega^{2}$ = `r round(anova_table_sim2[4, 6], 2)`), and the real fixed AR effect ($\omega^{2}$ = `r round(anova_table_sim2[6, 6], 2)`). Only the interaction between missingness type and compliance ($\omega^{2}$ = `r round(anova_table_sim2[12, 6], 2)`) reached the cut-off. The interaction is visualised in Figure \ref{fig:fig_prec_interaction_sim2}). The pattern of the interaction is very similar to the pattern of the interaction between missingness type and compliance in Simulation A (see Figure \ref{fig:fig_prec_interaction}). Interestingly, when compared to the results of Simulation A, the average estimation bias is slightly worse for the MCAR and block missingness types and slightly less severe for the two conditions with the extreme values missing (compare Table \ref{tab:table_bias_sim2} and Table \ref{fig:fig_prec_interaction}). However, the overall conclusion remains the same as in Simulation A: there is a considerable downward estimation bias that becomes more severe the smaller the compliance rate is, and it is most severe for the condition in which the most extreme data at both sides are missing.
 
 ```{r table_anova_bias_sim2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 options(knitr.kable.NA = '')
@@ -608,3 +607,273 @@ kable(table_bias_sim2,
   add_header_above(c(" " = 1, "Missingness type" = 4)) %>% 
   column_spec(1, border_right = TRUE)
 ```
+
+### Outcome: Standard error
+
+```{r cache = TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+
+
+  
+overall_df_sim2 = data.frame(matrix(ncol = 16)) # prepare the data frame 
+names_sim2 = c("B0_est",
+          "B1_est",
+          "B0_pow",
+          "B1_pow",
+          "B0_se",
+          "B1_se",
+          "conv",
+          "N",
+          "T.obs",
+          "compliance",
+          "miss_type",
+          "bias_mean",
+          "model_observations",
+          "B1_sim",
+          "B1_bias",
+          "sigma_v1")
+colnames(overall_df_sim2) = names_sim2
+
+
+
+for (i in length(rdslist_sim2):1){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_b_randomslopes", rdslist_sim2[i]))
+  overall_df_sim2[i, 1] = as.numeric(res$beta.hat.lme[1])
+  overall_df_sim2[i, 2] = as.numeric(res$beta.hat.lme[2])
+  overall_df_sim2[i, 3] = as.numeric(res$power.hat.lme[1])
+  overall_df_sim2[i, 4] = as.numeric(res$power.hat.lme[2])
+  overall_df_sim2[i, 5] = as.numeric(res$StdError.beta.hat.lme[1])
+  overall_df_sim2[i, 6] = as.numeric(res$StdError.beta.hat.lme[2])
+  overall_df_sim2[i, 7] = as.numeric(res$n.R)
+  overall_df_sim2[i, 8] = as.numeric(res$N)
+  overall_df_sim2[i, 9] = as.numeric(res$T.obs)
+  overall_df_sim2[i, 10] = as.numeric(res$comp_mean)
+  overall_df_sim2[i, 11] = (res$missing_type)
+  overall_df_sim2[i, 12] = as.numeric(res$bias_mean)
+  overall_df_sim2[i, 13] = as.numeric(res$model_observations)
+  overall_df_sim2[i, 14] = as.numeric(res$b10)
+  overall_df_sim2[i, 15] = as.numeric(res$beta.hat.lme[2] - res$b10)
+  overall_df_sim2[i, 16] = as.numeric(res$sigma.v1)
+}
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+anova_se_sim2 = lm(formula = B1_se ~ N + T.obs + miss_type + sigma_v1 + compliance + B1_sim + N:T.obs + N:miss_type + T.obs:miss_type + N:compliance + T.obs:compliance + miss_type:compliance + N:B1_sim + T.obs:B1_sim + miss_type:B1_sim + compliance:B1_sim, data = overall_df_sim2, type = 1)
+
+
+omegasq_se_sim2 = data.frame(omega_squared(anova_se_sim2, partial = TRUE)) %>%
+  select(Omega2_partial) %>%
+  rename("Partial omega-squared" = "Omega2_partial")
+omegasq_se_sim2[17, ] = NA # add omega-squared of 0 for residuals
+
+anova_table_se_sim2 = as.data.frame(anova(anova_se_sim2))
+
+# Kable reports extremely small p-values as 0.000, while APA-7 requires them to be reported as <.001 . Let's transform the dataframe
+
+
+anova_table_se_sim2 = cbind(anova_table_se_sim2, omegasq_se_sim2) %>% 
+  rename("p-value" = "Pr(>F)") 
+
+anova_table_se_sim2$`p-value` = format.pval(anova_table_se_sim2$`p-value`, digits = 2, eps = .001)
+
+options(knitr.kable.NA = '')
+
+```
+
+**ANOVA.** The results of the 4 × 2 × 2 × 4 × 2 × 2 factorial ANOVA used to assess the influence of the manipulated factor on the standard error are reported in table \ref{tab:tab_aov_se_sim2}. Compared to Simulation A, more main effects of the manipulated factors crossed the effect-size cut-off: the effect of number of participants ($\omega^{2}_p$ = `r round(anova_table_se_sim2[1, 6], 2)`), compliance ($\omega^{2}_p$ = `r round(anova_table_se_sim2[5, 6], 2)`), number of timepoints per participant ($\omega^{2}_p$ = `r round(anova_table_se_sim2[2, 6], 2)`), and the value of the simulated fixed AR effect ($\omega^{2}_p$ = `r round(anova_table_se_sim2[6, 6], 2)`). Additionally, the interaction between compliance and the number of timepoints per participant ($\omega^{2}_p$ = `r round(anova_table_se_sim2[11, 6], 2)`) crossed the threshold.
+
+Figure \ref{fig:fig_se_N_sim2} illustrates the main effect of *N* (as the most important factor) on standard error, while Figure \ref{fig:fig_se_compliance_T_sim2} shows the interaction between compliance and *T.obs*. While the results are comparable to Simulation A, the SE is slightly higher for the same *N/T.obs* combination for Simulation B.
+
+```{r anova_se_sim2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# table XC
+
+kable(anova_table_se_sim2, 
+      format = "latex", 
+      booktabs = TRUE,  
+      digits = 4,
+      caption = "ANOVA results, simulation B. Outcome: Standard error") %>% 
+  kable_styling(full_width = F)
+
+```
+
+```{r tab_aov_se_sim2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+table_xc_sim2 = overall_df_sim2 %>% 
+  group_by(N, T.obs, compliance) %>% 
+  summarise(round(mean(B1_se), 2)) %>% 
+  rename("SE" = "round(mean(B1_se), 2)") %>% 
+  dcast(N + T.obs ~ compliance, value.var = "SE")
+
+
+kable(table_xc_sim2, 
+      format = "latex", 
+      booktabs = TRUE,  
+      digits = 2,
+      caption = "Simulation B. Average standard error in the estimation of the fixed slope for each combination of number of participants, number of timepoints/participant, and compliance.") %>% 
+  kable_styling(full_width = F) %>% 
+  add_header_above(c(" " = 2, "Compliance" = 4)) %>% 
+  column_spec(3, border_left = TRUE) %>% 
+  collapse_rows(columns = 1)
+```
+
+```{r fig_se_N_sim2, echo=FALSE, fig.height=3.4, fig.width=6.4, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_se_N_sim2}The effect of the number of participants on the standard error of estimation of the fixed slopes. Simulation B."}
+
+(figure_ad_sim2 = overall_df_sim2 %>% 
+  ggplot(aes(x = as.factor(N), y = B1_se)) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_apa() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Standard error") + 
+  xlab("Number of participants") + 
+  geom_hline(yintercept = 0, linetype = "dashed"))
+```
+
+```{r fig_se_compliance_T_sim2, echo=FALSE, fig.height=3.4, fig.width=6.4, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_se_compliance_T_sim2}The effect of the interaction between number of timepoints per participant and compliance on standard error of estimation of the fixed slopes. Simulation B."}
+# Figure AF 
+(figure_af_sim2 = overall_df_sim2 %>% 
+  ggplot(aes(x = as.factor(compliance), y = B1_se, fill = as.factor(T.obs))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_apa() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Standard error") + 
+  xlab("Compliance") + 
+  geom_hline(yintercept = 0, linetype = "dashed")) + 
+  labs(fill = "Number of timepoints per participant")
+```
+
+### Outcome: Statistical power
+
+**Descriptive statistics.** The statistical power for each combination of the manipulated parameters in Simulation B is reported in Table (BIG TABLE TODO SIM2). The effects of compliance, missingness type, the number of participants and the number of timepoints per participant when the simulated fixed slope is 0.3 are shown in Figure \ref{fig:fig_power_sim2}. For clarity, only the results for simulation conditions in which the $\sigma^2_{\nu1} = 0.1$ are visualised.
+
+A peculiar pattern is worth pointing out in the plot: in the two conditions with T = 20 and the most extreme data missing at both sides (green dashed line), the statistical power is higher when compliance is 0.4 compared to when compliance is 0.6. This counterintuitive result is likely due to the fact that the underestimation is the most severe when the most extreme values at both sides. As such, some of the estimates of the fixed slope will be negative, and their magnitude will be large enough for them to reach statistical significance.
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+
+overall_df_sim2_010 = overall_df_sim2 %>% mutate(sigma_v1 = round(sigma_v1, 1)) %>% filter(sigma_v1 == 0.3)
+
+pwr_03_20_50_sim2 = ggplot(data = filter(overall_df_sim2_010, N == 20, T.obs == 50, B1_sim == 0.3), 
+                        mapping = aes(x = compliance,
+                                      y = B1_pow, 
+                                      group = miss_type)) +
+                  geom_line(aes(linetype = miss_type,
+                                  colour = miss_type)) + 
+                  theme_apa() +
+                  scale_color_manual(values = cbPalette) + 
+  
+                  geom_point(aes(colour = miss_type)) +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) +
+                  theme(axis.title.x = element_blank(), 
+                        axis.title.y = element_blank(),
+                        legend.position = "none") + 
+                  ylim(0, 1) + 
+                  annotate("text", x = 0.8, y = 0.05, label = "N=20, T=50", size = 5)
+
+pwr_03_20_100_sim2 = ggplot( data = filter(overall_df_sim2_010, N == 20, T.obs == 100, B1_sim == 0.3), 
+                        mapping = aes(x = compliance,
+                                      y = B1_pow, 
+                                      group = miss_type)) +
+                  geom_line(aes(linetype = miss_type,
+                                  colour = miss_type)) + 
+                  theme_apa() +
+                  scale_color_manual(values = cbPalette) + 
+                  geom_point(aes(colour = miss_type)) +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  theme(axis.title.x = element_blank(), 
+                        axis.title.y = element_blank(),
+                        legend.position = "none",
+                        legend.title = element_text("Missingness type")) + 
+                  ylim(0, 1) + 
+                  annotate("text", x = 0.8, y = 0.05, label = "N=20, T=100", size = 5)
+
+pwr_03_100_50_sim2 = ggplot( data = filter(overall_df_sim2_010, N == 100, T.obs == 50, B1_sim == 0.3), 
+                        mapping = aes(x = compliance,
+                                      y = B1_pow, 
+                                      group = miss_type)) +
+                  geom_line(aes(linetype = miss_type,
+                                  colour = miss_type)) + 
+                  scale_color_manual(values = cbPalette) + 
+                  theme_apa() +
+                  geom_point(aes(colour = miss_type)) +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) + 
+                  theme(axis.title.x = element_blank(), 
+                        axis.title.y = element_blank(),
+                        legend.position = "none",
+                        legend.title = element_text("Missingness type")) + 
+                  ylim(0, 1) +
+                  annotate("text", x = 0.8, y = 0.05, label = "N=100, T=50", size = 5)
+
+pwr_03_100_100_sim2 = ggplot( data = filter(overall_df_sim2_010, N == 100, T.obs == 100, B1_sim == 0.3), 
+                        mapping = aes(x = compliance,
+                                      y = B1_pow, 
+                                      group = miss_type)) +
+                  geom_line(aes(linetype = miss_type,
+                                  colour = miss_type)) + 
+                  theme_apa() +
+                  scale_color_manual(values = cbPalette) + 
+                  geom_point(aes(colour = miss_type)) +
+                  scale_x_continuous(breaks = c(0.4, 0.6, 0.8, 1)) +
+                  theme(axis.title.x = element_blank(), 
+                        axis.title.y = element_blank(),
+                      legend.position = "none") + 
+                  ylim(0, 1) + 
+                  annotate("text", x = 0.8, y = 0.05, label = "N=100, T=100", size = 5)
+
+
+pwr_03_arranged_sim2 = ggarrange(pwr_03_20_50_sim2,pwr_03_20_100_sim2,
+                            pwr_03_100_50_sim2, pwr_03_100_100_sim2,
+                            common.legend = TRUE)
+
+```
+
+```{r fig_power_sim2, fig.cap = "\\label{fig:fig_power}Simulation B. Statistical power to detect the fixed AR effect for the 4 combinations of compliance, missingness type, number of participants and timepoints per participant when the simulated fixed slope is 0.3 and the variance of random AR effects is 0.1.", echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.width = 8, fig.height = 5}
+
+(pwr_03_arranged_annotated_sim2 = annotate_figure(pwr_03_arranged_sim2,
+                bottom = text_grob("Compliance"),
+                left = text_grob("Power to detect the fixed AR effect", rot = 90)))
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+anova_pwr_sim2 = lm(formula = B1_pow ~ N + T.obs + as.factor(sigma_v1) + miss_type + compliance + B1_sim + N:T.obs + N:miss_type + T.obs:miss_type + N:compliance + T.obs:compliance + miss_type:compliance + N:B1_sim + T.obs:B1_sim + miss_type:B1_sim + compliance:B1_sim, data = overall_df_sim2, type = 1)
+
+omegasq_pwr_sim2 = data.frame(omega_squared(anova_pwr_sim2, partial = TRUE)) %>%
+  select(Omega2_partial) %>%
+  rename("Partial omega-squared" = "Omega2_partial")
+omegasq_pwr_sim2[17, ] = NA # add omega-squared of 0 for residuals
+
+anova_table_pwr_sim2 = as.data.frame(anova(anova_pwr_sim2))
+
+# Kable reports extremely small p-values as 0.000, while APA-7 requires them to be reported as <.001 . Let's transform the dataframe
+
+
+anova_table_pwr_sim2 = cbind(anova_table_pwr_sim2, omegasq_pwr_sim2) %>% 
+  rename("p-value" = "Pr(>F)") 
+
+anova_table_pwr_sim2$`p-value` = format.pval(anova_table_pwr_sim2$`p-value`, digits = 2, eps = .001)
+
+options(knitr.kable.NA = '')
+
+
+```
+
+**ANOVA.** A 4 × 2 × 2 × 4 × 2 × 2 factorial Type I ANOVA was used to analyse the effect of the manipulated parameters on statistical power. The results are reported in Table \ref{tab:tab_aov_pwr_sim2}.
+
+Missignness type ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[4, 6], 2)`) together with compliance ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[5, 6], 2)`) were the two main effects with the largest influence on the statistical power to detect the fixed AR effect. The value of the simulated AR effect has a large effect ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[6, 6], 2)`) as well. Three interactions crossed the effect size threshold: *missingness type\*compliance* ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[12, 6], 2)`), *missingness type\*simulated fixed AR* ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[15, 6], 2)`), and *compliance\*simulated fixed AR* ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[16, 6], 2)`).
+
+```{r tab_aov_pwr_sim2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+kable(anova_table_pwr_sim2, 
+      format = "latex", 
+      booktabs = TRUE,  
+      digits = 2,
+      caption = "ANOVA results, simulation B. Outcome: Power to detect the fixed AR effect") %>% 
+  kable_styling(full_width = F)
+```
+
+### Outcome: Bias in person-mean estimation
+
+TODO.

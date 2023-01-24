@@ -8,19 +8,21 @@ bibliography: references.bib
 
 # Discussion
 
--   we did this and that ....
+We conducted two Monte Carlo simulation studies to address a knowledge gap about the influence of missing data on the estimation performance of the multilevel autoregressive model. Three outcomes were evaluated in both simulations: the estimation bias, standard error of the simulations, and statistical power. Four values of compliance and four missingness patterns (data MCAR, data missing in a block of consecutive observations, the highest values missing, and the highest and lowest values missing) were varied across the simulations. The other manipulated factors included the number of participants, number of timepoints per participant, the simulated value of the fixed AR effect, and the variance of the random AR effects.
 
--   confirmed the evidence about high T being important (and especially so when there are weird missing data patterns)
+Importantly, both variables related to missingness (compliance and missingness type) emerged as very important factors influencing all three outcomes.
 
-```{=html}
+confirmed the evidence about high T being important (and especially so when there are weird missing data patterns) and N not being too important for the estimation performance
+
 <!-- -->
-```
+
 -   The effect of compliance on all 3 outcomes is quite high, and it largely depends on the missingness pattern.
 -   observed the opposite of Krone 2016: the estimation bias actually got higher, not smaller, as the real fixed AR effect gets larger
 
 <!-- -->
 
 -   while the previous research suggested that increasing T is very effective (and this is true), it is very important to keep compliance as high as possible
+-   also, for power, compliance and the type of missingness have a very large effect, much larger than the negligible effect of *N* (likely because of the underestimation).
 -   consequences of misestimation: could this be one of the reasons why the inertia of NA/PA does not predict psychopathology/well-being [@dejonckheere2019]?
 -   in studies estimating inertia, there might be some individual differences in inertia estimates that are due to different missingness patterns, not due to changes in real inertia (i. e., two participants with the same real inertia but different missingness patterns could have different inertia estimates)
 -   also, this makes computing power a bit less straightforward (ideally, to get realistic estimates of power, one should have an idea about what the average compliance could be and what missingness patterns might be present in the data - of course, in real life, we can expect there to be a mix of missing data patterns in every dataset).
