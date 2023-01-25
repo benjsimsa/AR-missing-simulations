@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.6)  23 JAN 2023 23:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.6)  25 JAN 2023 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,11 +696,11 @@ File: writeup_files/figure-latex/fig_power_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_power_sim2-1.pdf>
 Package pdftex.def Info: writeup_files/figure-latex/fig_power_sim2-1.pdf  used on input line 1292.
 (pdftex.def)             Requested size: 472.02992pt x 295.0187pt.
-[21 <./writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>] [22] [23 <./writeup_files/figure-latex/fig_se_N_sim2-1.pdf> <./writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf>] [24 <./writeup_files/figure-latex/fig_power_sim2-1.pdf>] [25] [26]
+[21 <./writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>] [22] [23 <./writeup_files/figure-latex/fig_se_N_sim2-1.pdf> <./writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf>] [24 <./writeup_files/figure-latex/fig_power_sim2-1.pdf>] [25] [26] [27]
 No file writeup.bbl.
-[27] [28] [29] 
+[28] [29] [30] 
 AED: lastpage setting LastPage
-[30] (./writeup.aux)
+[31] (./writeup.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -716,17 +716,17 @@ Package rerunfilecheck Info: File `writeup.out' has not changed.
 ### bottom level 
 Here is how much of TeX's memory you used:
  13643 strings out of 478053
- 219188 string characters out of 5840129
+ 219182 string characters out of 5840129
  1872793 words of memory out of 5000000
- 33334 multiletter control sequences out of 15000+600000
+ 33333 multiletter control sequences out of 15000+600000
  547255 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,11n,77p,404b,9695s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,11n,77p,404b,9648s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on writeup.pdf (31 pages, 1061087 bytes).
+Output written on writeup.pdf (32 pages, 1063529 bytes).
 PDF statistics:
- 636 PDF objects out of 1000 (max. 8388607)
- 555 compressed objects within 6 object streams
- 158 named destinations out of 1000 (max. 500000)
+ 641 PDF objects out of 1000 (max. 8388607)
+ 559 compressed objects within 6 object streams
+ 159 named destinations out of 1000 (max. 500000)
  264 words of extra memory for PDF output out of 10000 (max. 10000000)
 
