@@ -12,13 +12,13 @@ header-includes:
 - \usepackage{sectsty}
 - \usepackage{paralist}
 - \usepackage{setspace}\spacing{1.5}
-- \usepackage{fancyhdr}
 - \usepackage{lastpage}
 - \usepackage{dcolumn}
-- \usepackage{natbib}\bibliographystyle{agsm}
 - \usepackage[nottoc, numbib]{tocbibind}
 - \usepackage{indentfirst}
 - \usepackage{amsmath}
+
+
 ---
 
 ```{r setup, include=FALSE}
@@ -91,6 +91,7 @@ Co-supervisors: Dr. Ginette Lafit, Jordan Revol
 \setlength\parindent{24pt}
 \pagenumbering{arabic}
 ```
+
 \newpage
 
 ```{r introduction, child = 'intro.Rmd'}

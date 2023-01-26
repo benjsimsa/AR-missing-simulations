@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.6)  25 JAN 2023 20:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.26)  26 JAN 2023 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **writeup.tex
 (./writeup.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2022-12-17> (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2023-01-16> (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
@@ -233,17 +233,6 @@ Package: paralist 2017/01/22 v2.7 Extended list environments
 \pl@lab=\toks27
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
-\f@nch@headwidth=\skip63
-\f@nch@O@elh=\skip64
-\f@nch@O@erh=\skip65
-\f@nch@O@olh=\skip66
-\f@nch@O@orh=\skip67
-\f@nch@O@elf=\skip68
-\f@nch@O@erf=\skip69
-\f@nch@O@olf=\skip70
-\f@nch@O@orf=\skip71
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2021/09/03 v1.2n Refers to last page's name (HMM; JPG)
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty
@@ -254,16 +243,10 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \ar@mcellbox=\box55
 \extrarowheight=\dimen163
 \NC@list=\toks28
-\extratabsurround=\skip72
-\backup@length=\skip73
+\extratabsurround=\skip63
+\backup@length=\skip64
 \ar@cellbox=\box56
-)) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip74
-\bibsep=\skip75
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count278
-) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+)) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/tocbibind/tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has section divisions on input line 50.
 
@@ -283,49 +266,49 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen171
 \cmidrulekern=\dimen172
 \defaultaddspace=\dimen173
-\@cmidla=\count279
-\@cmidlb=\count280
+\@cmidla=\count278
+\@cmidlb=\count279
 \@aboverulesep=\dimen174
 \@belowrulesep=\dimen175
-\@thisruleclass=\count281
-\@lastruleclass=\count282
+\@thisruleclass=\count280
+\@lastruleclass=\count281
 \@thisrulewidth=\dimen176
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip76
-\LTright=\skip77
-\LTpre=\skip78
-\LTpost=\skip79
-\LTchunksize=\count283
+\LTleft=\skip65
+\LTright=\skip66
+\LTpre=\skip67
+\LTpost=\skip68
+\LTchunksize=\count282
 \LTcapwidth=\dimen177
 \LT@head=\box57
 \LT@firsthead=\box58
 \LT@foot=\box59
 \LT@lastfoot=\box60
 \LT@gbox=\box61
-\LT@cols=\count284
-\LT@rows=\count285
-\c@LT@tables=\count286
-\c@LT@chunks=\count287
+\LT@cols=\count283
+\LT@rows=\count284
+\c@LT@tables=\count285
+\c@LT@chunks=\count286
 \LT@p@ftn=\toks29
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip80
-\multirow@cntb=\count288
-\multirow@dima=\skip81
+\multirow@colwidth=\skip69
+\multirow@cntb=\count287
+\multirow@dima=\skip70
 \bigstrutjot=\dimen178
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen179
 \WF@size=\dimen180
-\c@WF@wrappedlines=\count289
+\c@WF@wrappedlines=\count288
 \WF@box=\box62
 \WF@everypar=\toks30
 Package: wrapfig 2003/01/31  v 3.6
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
 \everycr=\toks31
-\minrowclearance=\skip82
-\rownum=\count290
+\minrowclearance=\skip71
+\rownum=\count289
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -339,16 +322,16 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box63
-\sift@deathcycles=\count291
+\sift@deathcycles=\count290
 \@vwid@loff=\dimen181
 \@vwid@roff=\dimen182
 )
-\c@taburow=\count292
-\tabu@nbcols=\count293
-\tabu@cnt=\count294
-\tabu@Xcol=\count295
-\tabu@alloc=\count296
-\tabu@nested=\count297
+\c@taburow=\count291
+\tabu@nbcols=\count292
+\tabu@cnt=\count293
+\tabu@Xcol=\count294
+\tabu@alloc=\count295
+\tabu@nested=\count296
 \tabu@target=\dimen183
 \tabu@spreadtarget=\dimen184
 \tabu@naturalX=\dimen185
@@ -364,7 +347,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@arstrutbox=\box65
 \tabu@hleads=\box66
 \tabu@vleads=\box67
-\tabu@cellskip=\skip83
+\tabu@cellskip=\skip72
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box68
@@ -375,14 +358,14 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip84
+\TPTL@width=\skip73
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box69
 \UL@hyphenbox=\box70
-\UL@skip=\skip85
+\UL@skip=\skip74
 \UL@hook=\toks34
 \UL@height=\dimen192
-\UL@pe=\count298
+\UL@pe=\count297
 \UL@pixel=\dimen193
 \ULC@box=\box71
 Package: ulem 2019/11/18
@@ -390,7 +373,7 @@ Package: ulem 2019/11/18
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen195
-\c@nlinenum=\count299
+\c@nlinenum=\count298
 \TeXr@lab=\toks35
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
@@ -425,11 +408,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count300
+\c@section@level=\count299
 )
 \@linkdim=\dimen196
-\Hy@linkcounter=\count301
-\Hy@pagecounter=\count302
+\Hy@linkcounter=\count300
+\Hy@pagecounter=\count301
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -439,7 +422,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count303
+\Hy@SavedSpaceFactor=\count302
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -453,7 +436,7 @@ Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count304
+\c@Hy@tempcnt=\count303
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -465,7 +448,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count305
+\Fld@menulength=\count304
 \Field@Width=\dimen198
 \Fld@charsize=\dimen199
 Package hyperref Info: Hyper figures OFF on input line 6027.
@@ -479,9 +462,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6057.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count306
-\c@Item=\count307
-\c@Hfootnote=\count308
+\Hy@abspage=\count305
+\c@Item=\count306
+\c@Hfootnote=\count307
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -490,8 +473,8 @@ File: hpdftex.def 2022-11-13 v7.00u Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count309
-\c@bookmark@seq@number=\count310
+\Fld@listcount=\count308
+\c@bookmark@seq@number=\count309
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -499,36 +482,32 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip86
+\Hy@SectionHShift=\skip75
 ) (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count311
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count310
 \l__pdf_internal_box=\box72
-) (./writeup.aux
-
-LaTeX Warning: Label `fig:fig_power' multiply defined.
-
-)
+) (./writeup.aux)
 \openout1 = `writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -571,8 +550,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 107.
-Package hyperref Info: Link coloring OFF on input line 107.
+(lastpage)             ! on input line 105.
+Package hyperref Info: Link coloring OFF on input line 105.
 (./writeup.out) (./writeup.out)
 \@outlinefile=\write3
 \openout3 = `writeup.out'.
@@ -616,117 +595,114 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 222.
+(hyperref)                than one, level fixed on input line 221.
 
 [2] [3] [4] [5] [6]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 518.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 514.
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (13.96877pt too wide) in paragraph at lines 531--544
+Overfull \hbox (13.96877pt too wide) in paragraph at lines 528--541
  [][] 
  []
 
 
-Overfull \hbox (13.96877pt too wide) in paragraph at lines 550--563
+Overfull \hbox (13.96877pt too wide) in paragraph at lines 547--560
  [][] 
  []
 
 [7] [8]
-<writeup_files/figure-latex/fig_miss_comparison-1.pdf, id=208, 469.755pt x 433.62pt>
+<writeup_files/figure-latex/fig_miss_comparison-1.pdf, id=196, 469.755pt x 433.62pt>
 File: writeup_files/figure-latex/fig_miss_comparison-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_miss_comparison-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_miss_comparison-1.pdf  used on input line 636.
+Package pdftex.def Info: writeup_files/figure-latex/fig_miss_comparison-1.pdf  used on input line 632.
 (pdftex.def)             Requested size: 469.75386pt x 433.61894pt.
 [9] [10 <./writeup_files/figure-latex/fig_miss_comparison-1.pdf>] [11]
-<writeup_files/figure-latex/fig_prec_type-1.pdf, id=241, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_prec_type-1.pdf, id=229, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_type-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_type-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_type-1.pdf  used on input line 778.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_type-1.pdf  used on input line 776.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
 [12]
-<writeup_files/figure-latex/fig_prec_comp-1.pdf, id=257, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_prec_comp-1.pdf, id=245, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_comp-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_comp-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_comp-1.pdf  used on input line 822.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_comp-1.pdf  used on input line 819.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_prec_interaction-1.pdf, id=258, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_prec_interaction-1.pdf, id=246, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_interaction-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_interaction-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction-1.pdf  used on input line 829.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction-1.pdf  used on input line 826.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
 [13 <./writeup_files/figure-latex/fig_prec_type-1.pdf>] [14 <./writeup_files/figure-latex/fig_prec_comp-1.pdf> <./writeup_files/figure-latex/fig_prec_interaction-1.pdf>] [15]
-<writeup_files/figure-latex/fig_se_interaction-1.pdf, id=310, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_se_interaction-1.pdf, id=299, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_interaction-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_interaction-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_interaction-1.pdf  used on input line 974.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_interaction-1.pdf  used on input line 970.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_se_compliance-1.pdf, id=311, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_se_compliance-1.pdf, id=300, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_compliance-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_compliance-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance-1.pdf  used on input line 982.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance-1.pdf  used on input line 978.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_power-1.pdf, id=313, 578.16pt x 361.35pt>
+<writeup_files/figure-latex/fig_power-1.pdf, id=302, 578.16pt x 361.35pt>
 File: writeup_files/figure-latex/fig_power-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_power-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_power-1.pdf  used on input line 1018.
+Package pdftex.def Info: writeup_files/figure-latex/fig_power-1.pdf  used on input line 1011.
 (pdftex.def)             Requested size: 472.02992pt x 295.0187pt.
 [16] [17 <./writeup_files/figure-latex/fig_se_interaction-1.pdf> <./writeup_files/figure-latex/fig_se_compliance-1.pdf>] [18 <./writeup_files/figure-latex/fig_power-1.pdf>] [19]
-<writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf, id=368, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf, id=354, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf  used on input line 1154.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf  used on input line 1144.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-[20]
-<writeup_files/figure-latex/fig_se_N_sim2-1.pdf, id=380, 461.725pt x 244.915pt>
+[20] [21 <./writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>]
+<writeup_files/figure-latex/fig_se_N_sim2-1.pdf, id=384, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_N_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_N_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_N_sim2-1.pdf  used on input line 1255.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_N_sim2-1.pdf  used on input line 1245.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf, id=381, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf, id=385, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf  used on input line 1263.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf  used on input line 1253.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-
-LaTeX Warning: Reference `fig:fig_power_sim2' on page 21 undefined on input line 1278.
-
-<writeup_files/figure-latex/fig_power_sim2-1.pdf, id=382, 578.16pt x 361.35pt>
+[22] [23 <./writeup_files/figure-latex/fig_se_N_sim2-1.pdf>]
+<writeup_files/figure-latex/fig_power_sim2-1.pdf, id=408, 578.16pt x 361.35pt>
 File: writeup_files/figure-latex/fig_power_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_power_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_power_sim2-1.pdf  used on input line 1292.
+Package pdftex.def Info: writeup_files/figure-latex/fig_power_sim2-1.pdf  used on input line 1282.
 (pdftex.def)             Requested size: 472.02992pt x 295.0187pt.
-[21 <./writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>] [22] [23 <./writeup_files/figure-latex/fig_se_N_sim2-1.pdf> <./writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf>] [24 <./writeup_files/figure-latex/fig_power_sim2-1.pdf>] [25] [26] [27]
+[24 <./writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf>] [25 <./writeup_files/figure-latex/fig_power_sim2-1.pdf>] [26] [27]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1468.
+
+[28]
 No file writeup.bbl.
-[28] [29] [30] 
+[29] [30] [31] 
 AED: lastpage setting LastPage
-[31] (./writeup.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
+[32] (./writeup.aux)
 Package rerunfilecheck Info: File `writeup.out' has not changed.
-(rerunfilecheck)             Checksum: FE8A4FD8CB882F61D12C9DB14A5E7C49;4855.
+(rerunfilecheck)             Checksum: 517B702247C20953C8491464EC973646;4051.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 72 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13643 strings out of 478053
- 219182 string characters out of 5840129
- 1872793 words of memory out of 5000000
- 33333 multiletter control sequences out of 15000+600000
+ 13121 strings out of 478051
+ 212015 string characters out of 5840085
+ 1875330 words of memory out of 5000000
+ 32822 multiletter control sequences out of 15000+600000
  547255 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,11n,77p,404b,9648s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,76p,404b,9170s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on writeup.pdf (32 pages, 1063529 bytes).
+Output written on writeup.pdf (33 pages, 1064014 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 559 compressed objects within 6 object streams
- 159 named destinations out of 1000 (max. 500000)
- 264 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 640 PDF objects out of 1000 (max. 8388607)
+ 557 compressed objects within 6 object streams
+ 158 named destinations out of 1000 (max. 500000)
+ 248 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,29 @@
+---
+title: "abbreviations"
+output: pdf_document
+date: "`r Sys.Date()`"
+header-includes:
+      - \usepackage{caption}
+
+---
+\captionsetup[table]{labelformat=empty}
+
+
+## List of abbreviations 
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(kableExtra)
+
+abbrev = c("AR"="Autoregressive", "ESM"="Experience Sampling Method", "MLAR(1)"="Multilevel first-order autoregressive", "NA" = "Negative affect", "PA" = "Positive affect", "SD" = "Standard deviation", "N" = "Number of participants", "T.obs" = "Number of observations (timepoints) per participant")
+
+abbreviation_list = data.frame(abbrev) 
+colnames(abbreviation_list) = " "
+
+kable(abbreviation_list, 
+      format = "latex", 
+      booktabs = TRUE,  
+      digits = 2,
+      caption = "ANOVA results, simulation A. Outcome: Estimation bias")
+```
+
+
+## List of symbols 
