@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.26)  26 JAN 2023 16:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.26)  30 JAN 2023 09:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -597,112 +597,111 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 221.
 
-[2] [3] [4] [5] [6]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 514.
+[2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 516.
 (/Users/benjs/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (13.96877pt too wide) in paragraph at lines 528--541
+Overfull \hbox (13.96877pt too wide) in paragraph at lines 530--543
  [][] 
  []
 
 
-Overfull \hbox (13.96877pt too wide) in paragraph at lines 547--560
+Overfull \hbox (13.96877pt too wide) in paragraph at lines 549--562
  [][] 
  []
 
-[7] [8]
-<writeup_files/figure-latex/fig_miss_comparison-1.pdf, id=196, 469.755pt x 433.62pt>
+[8] [9]
+<writeup_files/figure-latex/fig_miss_comparison-1.pdf, id=205, 469.755pt x 433.62pt>
 File: writeup_files/figure-latex/fig_miss_comparison-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_miss_comparison-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_miss_comparison-1.pdf  used on input line 632.
+Package pdftex.def Info: writeup_files/figure-latex/fig_miss_comparison-1.pdf  used on input line 635.
 (pdftex.def)             Requested size: 469.75386pt x 433.61894pt.
-[9] [10 <./writeup_files/figure-latex/fig_miss_comparison-1.pdf>] [11]
-<writeup_files/figure-latex/fig_prec_type-1.pdf, id=229, 461.725pt x 244.915pt>
+[10] [11 <./writeup_files/figure-latex/fig_miss_comparison-1.pdf>] [12]
+<writeup_files/figure-latex/fig_prec_type-1.pdf, id=239, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_type-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_type-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_type-1.pdf  used on input line 776.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_type-1.pdf  used on input line 779.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-[12]
-<writeup_files/figure-latex/fig_prec_comp-1.pdf, id=245, 461.725pt x 244.915pt>
+[13]
+<writeup_files/figure-latex/fig_prec_comp-1.pdf, id=254, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_comp-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_comp-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_comp-1.pdf  used on input line 819.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_comp-1.pdf  used on input line 822.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_prec_interaction-1.pdf, id=246, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_prec_interaction-1.pdf, id=255, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_interaction-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_interaction-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction-1.pdf  used on input line 826.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction-1.pdf  used on input line 829.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-[13 <./writeup_files/figure-latex/fig_prec_type-1.pdf>] [14 <./writeup_files/figure-latex/fig_prec_comp-1.pdf> <./writeup_files/figure-latex/fig_prec_interaction-1.pdf>] [15]
-<writeup_files/figure-latex/fig_se_interaction-1.pdf, id=299, 461.725pt x 244.915pt>
+[14 <./writeup_files/figure-latex/fig_prec_type-1.pdf>] [15 <./writeup_files/figure-latex/fig_prec_comp-1.pdf> <./writeup_files/figure-latex/fig_prec_interaction-1.pdf>] [16]
+<writeup_files/figure-latex/fig_se_interaction-1.pdf, id=308, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_interaction-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_interaction-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_interaction-1.pdf  used on input line 970.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_interaction-1.pdf  used on input line 973.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_se_compliance-1.pdf, id=300, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_se_compliance-1.pdf, id=309, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_compliance-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_compliance-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance-1.pdf  used on input line 978.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance-1.pdf  used on input line 981.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_power-1.pdf, id=302, 578.16pt x 361.35pt>
+<writeup_files/figure-latex/fig_power-1.pdf, id=311, 578.16pt x 361.35pt>
 File: writeup_files/figure-latex/fig_power-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_power-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_power-1.pdf  used on input line 1011.
+Package pdftex.def Info: writeup_files/figure-latex/fig_power-1.pdf  used on input line 1014.
 (pdftex.def)             Requested size: 472.02992pt x 295.0187pt.
-[16] [17 <./writeup_files/figure-latex/fig_se_interaction-1.pdf> <./writeup_files/figure-latex/fig_se_compliance-1.pdf>] [18 <./writeup_files/figure-latex/fig_power-1.pdf>] [19]
-<writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf, id=354, 461.725pt x 244.915pt>
+[17] [18 <./writeup_files/figure-latex/fig_se_interaction-1.pdf> <./writeup_files/figure-latex/fig_se_compliance-1.pdf>] [19 <./writeup_files/figure-latex/fig_power-1.pdf>] [20]
+<writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf, id=363, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf  used on input line 1144.
+Package pdftex.def Info: writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf  used on input line 1146.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-[20] [21 <./writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>]
-<writeup_files/figure-latex/fig_se_N_sim2-1.pdf, id=384, 461.725pt x 244.915pt>
+[21] [22 <./writeup_files/figure-latex/fig_prec_interaction_sim2-1.pdf>]
+<writeup_files/figure-latex/fig_se_N_sim2-1.pdf, id=393, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_N_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_N_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_N_sim2-1.pdf  used on input line 1245.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_N_sim2-1.pdf  used on input line 1246.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-<writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf, id=385, 461.725pt x 244.915pt>
+<writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf, id=394, 461.725pt x 244.915pt>
 File: writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf  used on input line 1253.
+Package pdftex.def Info: writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf  used on input line 1254.
 (pdftex.def)             Requested size: 461.72388pt x 244.91438pt.
-[22] [23 <./writeup_files/figure-latex/fig_se_N_sim2-1.pdf>]
-<writeup_files/figure-latex/fig_power_sim2-1.pdf, id=408, 578.16pt x 361.35pt>
+<writeup_files/figure-latex/fig_power_sim2-1.pdf, id=396, 578.16pt x 361.35pt>
 File: writeup_files/figure-latex/fig_power_sim2-1.pdf Graphic file (type pdf)
 <use writeup_files/figure-latex/fig_power_sim2-1.pdf>
-Package pdftex.def Info: writeup_files/figure-latex/fig_power_sim2-1.pdf  used on input line 1282.
+Package pdftex.def Info: writeup_files/figure-latex/fig_power_sim2-1.pdf  used on input line 1275.
 (pdftex.def)             Requested size: 472.02992pt x 295.0187pt.
-[24 <./writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf>] [25 <./writeup_files/figure-latex/fig_power_sim2-1.pdf>] [26] [27]
+[23] [24 <./writeup_files/figure-latex/fig_se_N_sim2-1.pdf>] [25 <./writeup_files/figure-latex/fig_se_compliance_T_sim2-1.pdf> <./writeup_files/figure-latex/fig_power_sim2-1.pdf>] [26] [27]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1468.
+(hyperref)                than one, level fixed on input line 1431.
 
-[28]
+[28] [29]
 No file writeup.bbl.
-[29] [30] [31] 
+[30] [31] [32] 
 AED: lastpage setting LastPage
-[32] (./writeup.aux)
+[33] (./writeup.aux)
 Package rerunfilecheck Info: File `writeup.out' has not changed.
-(rerunfilecheck)             Checksum: 517B702247C20953C8491464EC973646;4051.
+(rerunfilecheck)             Checksum: 0F75C6BFFC608EDAD96C2256A25DCA6E;4267.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 72 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13121 strings out of 478051
- 212015 string characters out of 5840085
+ 13127 strings out of 478051
+ 212121 string characters out of 5840085
  1875330 words of memory out of 5000000
- 32822 multiletter control sequences out of 15000+600000
+ 32824 multiletter control sequences out of 15000+600000
  547255 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,11n,76p,404b,9170s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,76p,405b,9170s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/benjs/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/benjs/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on writeup.pdf (33 pages, 1064014 bytes).
+Output written on writeup.pdf (34 pages, 1064920 bytes).
 PDF statistics:
- 640 PDF objects out of 1000 (max. 8388607)
- 557 compressed objects within 6 object streams
- 158 named destinations out of 1000 (max. 500000)
- 248 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 651 PDF objects out of 1000 (max. 8388607)
+ 567 compressed objects within 6 object streams
+ 162 named destinations out of 1000 (max. 500000)
+ 256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
