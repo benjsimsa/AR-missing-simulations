@@ -51,6 +51,7 @@ Simulation A followed a 4 × 2 × 3 × 4 × 3 factorial design (yielding 288 sim
 
 ```{r tab_manipulated, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(kableExtra)
+library(ggpubr)
 
 r1 = c(
 "Missingness pattern", "MCAR, block, extreme-onesided, extreme-twosided", "MCAR, block, extreme-onesided, extreme-twosided", "Simulated fixed AR effect", "0.3, 0.5, 0.7", "0.3, 0.7", "Variance of random AR effects", "-", "0.05, 0.1", "Compliance", "0.4, 0.6, 0.8, 1", "0.4, 0.6, 0.8, 1", "Number of participants (N)", "20, 50", "20, 50","Timepoints per participant (T.obs)", "20, 50, 100", "50, 100")
@@ -83,6 +84,7 @@ It can be expected that the different missingness patterns will differ in their 
 ```{r fig_miss_comparison, cache = TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_miss_comparison}Illustration of the four different missingness pattern used in the simulation study. The blue dots represent observed datapoints, while the light gray dots represent missing values.", fig.height=6 }
 library(dplyr)
 library(missMethods)
+library(ggplot2)
 
 # Create the time-series 
 arsim = function(N = 100, beta_0 = 0, beta_1 = 0.5, sigma = 0.5){

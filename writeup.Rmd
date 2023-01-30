@@ -1,11 +1,12 @@
 ---
 bibliography: references.bib
 output:
-  pdf_document: default
   word_document: default
+  pdf_document: default
 geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm
 fontsize: 10pt
 csl: apa.csl
+always_allow_html: true
 indent: yes
 header-includes:
 - \usepackage{float}
@@ -17,8 +18,6 @@ header-includes:
 - \usepackage[nottoc, numbib]{tocbibind}
 - \usepackage{indentfirst}
 - \usepackage{amsmath}
-
-
 ---
 
 ```{r setup, include=FALSE}
