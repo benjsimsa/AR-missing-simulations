@@ -6,7 +6,6 @@ output:
 geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm
 fontsize: 10pt
 csl: apa.csl
-always_allow_html: true
 indent: yes
 header-includes:
 - \usepackage{float}
