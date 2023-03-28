@@ -1,12 +1,12 @@
 ---
 bibliography: references.bib
 output:
-  word_document: default
-  pdf_document: default
+  pdf_document
 geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm
 fontsize: 10pt
 csl: apa.csl
 indent: yes
+always_allow_html: true
 header-includes:
 - \usepackage{float}
 - \usepackage{sectsty}
@@ -113,4 +113,9 @@ Co-supervisors: Dr. Ginette Lafit, Jordan Revol
 \newpage
 
 ```{r biblio, child = 'references.Rmd'}
+```
+
+\newpage
+
+```{r supplementary, child = 'supplementary.Rmd'}
 ```

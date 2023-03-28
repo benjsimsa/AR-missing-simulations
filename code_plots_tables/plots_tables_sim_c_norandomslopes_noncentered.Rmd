@@ -1,0 +1,278 @@
+---
+title: 'Supplementary material, plots and tables: Study C (no random slopes, no person-mean centering)'
+author: "Benjamin Simsa (benjsimsa@gmail.com)"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: readable
+---
+
+The following document is a part of the supplementary materials for my Master's thesis "The Effect of Missing Data on the Estimation Bias, Variance, and Statistical Power in Multilevel Autoregressive(1) Models" at KU Leuven (submitted in 2023, supervisors: Prof. Eva Ceulemans, Dr. Ginette Lafit, Jordan Revol).
+
+The main text of the thesis only reports the results obtained using person-mean centering. The present document reports and discusses the results of Simulation C (which had identical parameters to Simulation A reported in the thesis, except for NOT having used person-mean centering).
+
+```{r include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(gridExtra)
+library(patchwork)
+library(DT)
+library(here)
+library(grid)
+library(sjPlot)
+library(kableExtra)
+library(effectsize)
+library(ggdist)
+library(RColorBrewer)
+library(papaja)
+
+# set a colorblind-friendly color pallete 
+cbPalette = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+cbPalette_other = c("#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+```
+
+# Descriptive plots and tables
+
+```{r Preprocessing results, include=FALSE}
+
+rdslist_simC = list.files(path = here::here("results", "sim_c_norandomslopes_noncentered"), pattern='*.rds') # get all the data files in a list
+  
+overall_df_simC = data.frame(matrix(ncol = 15)) # prepare the data frame 
+names = c("B0_est",
+          "B1_est",
+          "B0_pow",
+          "B1_pow",
+          "B0_se",
+          "B1_se",
+          "conv",
+          "N",
+          "T.obs",
+          "comp_mean",
+          "miss_type",
+          "bias_mean",
+          "model_observations",
+          "B1_sim",
+          "B1_bias")
+colnames(overall_df_simC) = names
+
+
+
+for (i in length(rdslist_simC):1){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_c_norandomslopes_noncentered", rdslist_simC[i]))
+  overall_df_simC[i, 1] = as.numeric(res$beta.hat.lme[1])
+  overall_df_simC[i, 2] = as.numeric(res$beta.hat.lme[2])
+  overall_df_simC[i, 3] = as.numeric(res$power.hat.lme[1])
+  overall_df_simC[i, 4] = as.numeric(res$power.hat.lme[2])
+  overall_df_simC[i, 5] = as.numeric(res$StdError.beta.hat.lme[1])
+  overall_df_simC[i, 6] = as.numeric(res$StdError.beta.hat.lme[2])
+  overall_df_simC[i, 7] = as.numeric(res$n.R)
+  overall_df_simC[i, 8] = as.numeric(res$N)
+  overall_df_simC[i, 9] = as.numeric(res$T.obs)
+  overall_df_simC[i, 10] = as.numeric(res$comp_mean)
+  overall_df_simC[i, 11] = (res$missing_type)
+  overall_df_simC[i, 12] = as.numeric(res$bias_mean)
+  overall_df_simC[i, 13] = as.numeric(res$model_observations)
+  overall_df_simC[i, 14] = as.numeric(res$b10)
+  overall_df_simC[i, 15] = as.numeric(res$beta.hat.lme[2] - res$b10)
+}
+# reorder the rows and columns  
+overall_df_simC = overall_df_simC %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
+
+overall_df_reordered_simC= overall_df_simC[, c(11, 14, 10, 8, 9, 2, 4, 6, 15)] # reordering the dataframe so that the order of columns makes more sense 
+
+table_all_simC = overall_df_reordered_simC %>% 
+  mutate(across(!miss_type, round, 3)) # round the reordered dataframe, so that it makes a nice table 
+```
+
+## All results
+
+```{r table_all, echo=FALSE}
+(table_all_simC_DT = datatable(table_all_simC, 
+                      options = list(searching = FALSE,
+               lengthChange = FALSE,
+               paging = FALSE)))
+```
+
+### Outcome: Estimation bias (MSE)
+
+#### ANOVA with Estimation bias as the outcome:
+
+```{r echo=FALSE}
+anova_bias_df_simC = data.frame(matrix(ncol = 7))
+colnames(anova_bias_df_simC) = c("B1_bias", "B1_sim", "N", "T.obs", "miss_type", "compliance", "model_observations")
+                  
+for (i in 1:length(rdslist_simC)){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_c_norandomslopes_noncentered", rdslist_simC[i]))
+  B1_bias = res$beta.hat.lme.list[, 2] - res$b10
+  B1_sim = res$b10
+  N = res$N
+  T.obs = res$T.obs
+  miss_type = res$missing_type
+  compliance = res$comp_mean 
+  model_observations = res$model_observations
+  results = data.frame(B1_bias, B1_sim, N, T.obs, miss_type, compliance, model_observations)
+  
+  anova_bias_df_simC = rbind(anova_bias_df_simC, results)
+}
+
+# for some reason, the first row is only NAs, remove it: 
+anova_bias_df_simC = anova_bias_df_simC[-1, ]
+
+
+anova_bias_simC = lm(formula = B1_bias ~ N + T.obs + miss_type + compliance + B1_sim + N:T.obs + N:miss_type + T.obs:miss_type + N:compliance + T.obs:compliance + miss_type:compliance + N:B1_sim + T.obs:B1_sim + miss_type:B1_sim + compliance:B1_sim, data = anova_bias_df_simC, type = 1)
+
+
+omegasq_bias_simC = data.frame(omega_squared(anova_bias_simC, partial = TRUE)) %>%
+  select(Omega2_partial) %>%
+  rename("Partial omega-squared" = "Omega2_partial")
+omegasq_bias_simC[16, ] = NA # add omega-squared of 0 for residuals
+
+anova_table_simC = as.data.frame(anova(anova_bias_simC))
+
+# Kable reports extremely small p-values as 0.000, while APA-7 requires them to be reported as <.001 . Let's transform the dataframe
+
+
+anova_table_simC = cbind(anova_table_simC, omegasq_bias_simC) %>% 
+  rename("p-value" = "Pr(>F)") 
+
+anova_table_simC$`p-value` = format.pval(anova_table_simC$`p-value`, digits = 2, eps = .001)
+
+kable(anova_table_simC, 
+      format = "html", 
+      booktabs = TRUE,  
+      digits = 2,
+      caption = "ANOVA results, supplementary analysis (no person-mean centering of the predictor). Outcome: Estimation bias") %>% 
+  kable_styling(full_width = F)
+```
+
+The number of beeps per participant, missingness type, and the interaction between missingness type and compliance have $\omega^{2}_p$ \> 0.14 (the effect size cut-off used for the results reported in the thesis).
+
+#### Effect of the number of timepoints on estimation bias
+
+```{r echo=FALSE}
+
+(boxplot_precision_type = anova_bias_df_simC %>% 
+  ggplot(aes(x = as.factor(T.obs), y = B1_bias, fill = as.factor(T.obs), group = as.factor(T.obs))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_apa() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Timepoints per participant") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  theme(axis.text.x = element_text(size = 10))
+  )
+```
+
+#### Effect of missingness type on estimation bias
+
+```{r echo=FALSE}
+
+(boxplot_precision_timepoints = anova_bias_df_simC %>% 
+  ggplot(aes(x = as.factor(miss_type), y = B1_bias, fill = as.factor(miss_type), group = as.factor(miss_type))) + 
+  stat_halfeye(justification = -0.2, alpha = 0.7, outlier.size = 1) + 
+  geom_boxplot(width = 0.3, alpha = 0.9) + 
+  theme_apa() + 
+  scale_fill_manual(values = cbPalette) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Missingness type") + 
+  theme(legend.position = "none") + 
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  theme(axis.text.x = element_text(size = 10))
+  )
+```
+
+#### Effect of the interaction between compliance and number of timepoints per participant on estimation bias
+
+```{r echo=FALSE}
+(boxplot_precision_compliance_timepoints = anova_bias_df_simC %>% 
+  ggplot(aes(x = as.factor(compliance), y = B1_bias, fill = as.factor(T.obs))) + 
+  geom_boxplot(width = 0.8, alpha = 0.8, outlier.size = 1) +
+  theme_apa() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Bias in estimation of fixed AR effect") + 
+  xlab("Compliance") + 
+  labs(fill='Timepoints per participant') +
+  geom_hline(yintercept = 0, linetype = "dashed"))
+```
+
+In contrast to the results of Simulation A, the effect of the manipulated factors on estimation bias is much smaller. Moreover, while there is still slight underestimation when the most extreme values are missing, the magnitude of the underestimation is much smaller than in Simulation A. Additionally, when the observations are missing completely at random or in blocks, a slight overestimation of the fixed autoregressive effect occurs. The estimation becomes very precise as compliance gets higher.
+
+### Outcome: Standard Error
+
+```{r include=FALSE}
+anova_se = lm(formula = B1_se ~ N + T.obs + miss_type + comp_mean + B1_sim + N:T.obs + N:miss_type + T.obs:miss_type + N:comp_mean + T.obs:comp_mean + miss_type:comp_mean + N:B1_sim + T.obs:B1_sim + miss_type:B1_sim + comp_mean:B1_sim, data = overall_df_simC, type = 1)
+
+
+omegasq_se = data.frame(omega_squared(anova_se, partial = TRUE)) %>%
+  select(Omega2_partial) %>%
+  rename("Partial omega-squared" = "Omega2_partial")
+omegasq_se[16, ] = NA # add omega-squared of 0 for residuals
+
+anova_table_se = as.data.frame(anova(anova_se))
+
+# Kable reports extremely small p-values as 0.000, while APA-7 requires them to be reported as <.001 . Let's transform the dataframe
+
+
+anova_table_se = cbind(anova_table_se, omegasq_se) %>% 
+  rename("p-value" = "Pr(>F)") 
+
+anova_table_se$`p-value` = format.pval(anova_table_se$`p-value`, digits = 2, eps = .001)
+
+options(knitr.kable.NA = '')
+```
+
+### The average standard errors for the different combinations of number of participants, time points per participant and compliance
+
+```{r tab_se_supp}
+library(reshape2)
+table_se_supplementary = overall_df_simC %>% 
+  group_by(N, T.obs, comp_mean) %>% 
+  summarise(round(mean(B1_se), 2)) %>% 
+  rename("SE" = "round(mean(B1_se), 2)") %>% 
+  dcast(N + T.obs ~ comp_mean, value.var = "SE")
+
+
+kable(table_xc, 
+      format = "html", 
+      booktabs = TRUE,  
+      digits = 2,
+      caption = "Supplementary analysis, no person-mean centering. Average standard error in the estimation of the fixed slope for each combination of number of participants, number of time points/participant, and compliance.") %>% 
+  kable_styling(full_width = F) %>% 
+  add_header_above(c(" " = 2, "Compliance" = 4)) %>% 
+  column_spec(3, border_left = TRUE) %>% 
+  collapse_rows(columns = 1)
+```
+
+The standard errors in the estimation of fixed AR effect are considerably smaller in when person-mean centering is used (Table) compared to Simulation A (Table 5).
+
+#### ANOVA
+
+```{r echo=FALSE}
+kable(anova_table_se, 
+      format = "html", 
+      booktabs = TRUE,  
+      digits = 2,
+      caption = "ANOVA results, simulation A. Outcome: Standard error") %>% 
+  kable_styling(full_width = F)
+```
+
+#### Effect of compliance on SE
+
+```{r echo=FALSE}
+(compliance_se_supp = overall_df_simC %>% 
+  ggplot(aes(x = as.factor(comp_mean), y = B1_se, fill = as.factor(comp_mean)))) + 
+  geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
+  theme_apa() + 
+  scale_fill_manual(values = cbPalette_other) + 
+  ylab("Standard error") + 
+  xlab("Compliance") + 
+  geom_hline(yintercept = 0, linetype = "dashed") 
+```

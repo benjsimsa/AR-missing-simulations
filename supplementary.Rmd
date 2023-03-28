@@ -1,0 +1,142 @@
+---
+title: "Appendix"
+output: pdf_document
+bibliography: references.bib
+header-includes: \usepackage[figuresright]{rotating}
+---
+
+```{r include=FALSE}
+library(kableExtra)
+library(dplyr)
+
+rdslist = list.files(path = here::here("results", "sim_a_norandomslopes"), pattern='*.rds') # get all the data files in a list
+  
+overall_df = data.frame(matrix(ncol = 15)) # prepare the data frame 
+names = c("B0_est",
+          "B1_est",
+          "B0_pow",
+          "B1_pow",
+          "B0_se",
+          "B1_se",
+          "conv",
+          "N",
+          "T.obs",
+          "comp_mean",
+          "miss_type",
+          "bias_mean",
+          "model_observations",
+          "B1_sim",
+          "B1_bias")
+colnames(overall_df) = names
+
+
+
+for (i in length(rdslist):1){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_a_norandomslopes", rdslist[i]))
+  overall_df[i, 1] = as.numeric(res$beta.hat.lme[1])
+  overall_df[i, 2] = as.numeric(res$beta.hat.lme[2])
+  overall_df[i, 3] = as.numeric(res$power.hat.lme[1])
+  overall_df[i, 4] = as.numeric(res$power.hat.lme[2])
+  overall_df[i, 5] = as.numeric(res$StdError.beta.hat.lme[1])
+  overall_df[i, 6] = as.numeric(res$StdError.beta.hat.lme[2])
+  overall_df[i, 7] = as.numeric(res$n.R)
+  overall_df[i, 8] = as.numeric(res$N)
+  overall_df[i, 9] = as.numeric(res$T.obs)
+  overall_df[i, 10] = as.numeric(res$comp_mean)
+  overall_df[i, 11] = (res$missing_type)
+  overall_df[i, 12] = as.numeric(res$bias_mean)
+  overall_df[i, 13] = as.numeric(res$model_observations)
+  overall_df[i, 14] = as.numeric(res$b10)
+  overall_df[i, 15] = as.numeric(res$beta.hat.lme[2] - res$b10)
+}
+# reorder the rows and columns  
+overall_df = overall_df %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
+
+overall_df_reordered = overall_df[, c(11, 14, 10, 8, 9, 2, 4, 6, 15)] # reordering the dataframe so that the order of columns makes more sense 
+
+table_all_simA = overall_df_reordered %>% 
+  mutate(across(!miss_type, round, 3)) # round the reordered dataframe, so that it makes a nice table 
+```
+
+# Appendix 1: Full results from Simulation A
+
+```{r tab_simA_all, echo=FALSE}
+kable(table_all_simA, 
+      format = "latex", 
+      booktabs = TRUE,  
+      digits = 3,
+      caption = "Simulation A. Full results.", 
+      longtable = T,
+      col.names=c("Missingness pattern", "Simulated fixed AR", "Compliance",  "N participants", "Beeps per participant", "Estimated fixed AR", "Power to detect fixed AR", "Fixed AR SE", "Fixed AR estimation bias")) %>% 
+  kable_styling(full_width = F,
+                font_size = 7,
+                latex_options = c("striped",  "hold_position", "repeat_header")) %>% landscape()
+
+
+```
+```{r include=FALSE}
+rdslist_simB = list.files(path = here::here("results", "sim_b_randomslopes"), pattern='*.rds') # get all the data files in a list
+  
+overall_df_simB = data.frame(matrix(ncol = 15)) # prepare the data frame 
+names = c("B0_est",
+          "B1_est",
+          "B0_pow",
+          "B1_pow",
+          "B0_se",
+          "B1_se",
+          "conv",
+          "N",
+          "T.obs",
+          "comp_mean",
+          "miss_type",
+          "bias_mean",
+          "model_observations",
+          "B1_sim",
+          "B1_bias")
+colnames(overall_df_simB) = names
+
+
+
+for (i in length(rdslist_simB):1){ # for-loop that connects all files from rdslist into one file 
+  res = readRDS(here::here("results", "sim_b_randomslopes", rdslist_simB[i]))
+  overall_df_simB[i, 1] = as.numeric(res$beta.hat.lme[1])
+  overall_df_simB[i, 2] = as.numeric(res$beta.hat.lme[2])
+  overall_df_simB[i, 3] = as.numeric(res$power.hat.lme[1])
+  overall_df_simB[i, 4] = as.numeric(res$power.hat.lme[2])
+  overall_df_simB[i, 5] = as.numeric(res$StdError.beta.hat.lme[1])
+  overall_df_simB[i, 6] = as.numeric(res$StdError.beta.hat.lme[2])
+  overall_df_simB[i, 7] = as.numeric(res$n.R)
+  overall_df_simB[i, 8] = as.numeric(res$N)
+  overall_df_simB[i, 9] = as.numeric(res$T.obs)
+  overall_df_simB[i, 10] = as.numeric(res$comp_mean)
+  overall_df_simB[i, 11] = (res$missing_type)
+  overall_df_simB[i, 12] = as.numeric(res$bias_mean)
+  overall_df_simB[i, 13] = as.numeric(res$model_observations)
+  overall_df_simB[i, 14] = as.numeric(res$b10)
+  overall_df_simB[i, 15] = as.numeric(res$beta.hat.lme[2] - res$b10)
+}
+# reorder the rows and columns  
+overall_df_simB = overall_df_simB %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
+
+overall_df_reordered_simB = overall_df_simB[, c(11, 14, 10, 8, 9, 2, 4, 6, 15)] # reordering the dataframe so that the order of columns makes more sense 
+
+table_all_simB = overall_df_reordered_simB %>% 
+  mutate(across(!miss_type, round, 3)) # round the reordered dataframe, so that it makes a nice table 
+```
+
+# Appendix 2: Full results from Simulation B
+
+```{r tab_simB_all, echo=FALSE}
+kable(table_all_simB, 
+      format = "latex", 
+      booktabs = TRUE,  
+      digits = 3,
+      caption = "Simulation B. Full results.", 
+      longtable = T,
+      col.names=c("Missingness pattern", "Simulated fixed AR", "Compliance",  "N participants", "Beeps per participant", "Estimated fixed AR", "Power to detect fixed AR", "Fixed AR SE", "Fixed AR estimation bias")) %>% 
+  kable_styling(full_width = F,
+                font_size = 7,
+                latex_options = c("striped",  "hold_position", "repeat_header")) %>% landscape()
+
+
+```

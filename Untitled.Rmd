@@ -1,6 +1,0 @@
----
-title: "Methods"
-output: pdf_document
----
-
-# Methods
