@@ -313,7 +313,7 @@ kable(anova_table_se,
 
 ### Outcome: Statistical power
 
-**Descriptive statistics.** The statistical power for each combination of the manipulated parameters is reported in Table (BIG TABLE TODO). As an illustration, the effects of compliance, missingness type, the number of participants and the number of time points per participant when the simulated fixed slope is 0.3 are visualised in Figure \ref{fig:fig_power}. Consistent with the results about estimation bias, statistical power is the lowest in the two conditions with the most extreme datapoints missing. For the conditions with data missing completely at random and data missing in consecutive blocks, power is very high even when the compliance is low for most conditions (except for the two conditions with T = 20).
+**Descriptive statistics.** The statistical power for each combination of the manipulated parameters is reported in Table \ref{tab:tab_simA_all}. As an illustration, the effects of compliance, missingness type, the number of participants and the number of time points per participant when the simulated fixed slope is 0.3 are visualised in Figure \ref{fig:fig_power}. Consistent with the results about estimation bias, statistical power is the lowest in the two conditions with the most extreme datapoints missing. For the conditions with data missing completely at random and data missing in consecutive blocks, power is very high even when the compliance is low for most conditions (except for the two conditions with T = 20).
 
 A peculiar pattern is worth pointing out in the plot: in the two conditions with T = 20 and the most extreme data missing at both sides (green dashed line), the statistical power is higher when compliance is 0.4 compared to when compliance is 0.6. This counterintuitive result is likely due to the fact that the underestimation is the most severe when the most extreme values at both sides are missing. As such, some of the estimates of the fixed slope will be negative, and their magnitude will be large enough for them to reach statistical significance.
 
@@ -510,7 +510,7 @@ kable(anova_table_pwr,
 
 In Simulation B, random AR effects were included both in the data generating procedure and in the estimated models. The variance of random AR effects ($\sigma^2_{\nu1}$) was manipulated as an additional simulation factor (2 values: 0.05 and 0.1). For an overview of all manipulated and fixed simulation parameters, please refer to Table \ref{tab:tab_manipulated}. The descriptive results for all 256 simulation conditions are reported in Table \ref{tab:tab_simB_all} in the Appendix.
 
-### Outcome: Estimation bias
+### Outcome: Estimation bias (MSE f)
 
 ```{r  cache = TRUE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 # prepare the dataset for MSE, sim2 
@@ -742,7 +742,7 @@ kable(table_xc_sim2,
 
 ### Outcome: Statistical power
 
-**Descriptive statistics.** The statistical power for each combination of the manipulated parameters in Simulation B is reported in Table (BIG TABLE TODO SIM2). The effects of compliance, missingness type, the number of participants and the number of time points per participant when the simulated fixed slope is 0.3 are shown in Figure \ref{fig:fig_power_sim2}. For the sake of clarity, only the results for simulation conditions in which the $\sigma^2_{\nu1} = 0.1$ are visualised.
+**Descriptive statistics.** The statistical power for each combination of the manipulated parameters in Simulation B is reported in Table \ref{tab:tab_simB_all} (in the Appendix). The effects of compliance, missingness type, the number of participants and the number of time points per participant when the simulated fixed slope is 0.3 are shown in Figure \ref{fig:fig_power_sim2}. For the sake of clarity, only the results for simulation conditions in which the $\sigma^2_{\nu1} = 0.1$ are visualised.
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 
