@@ -1,5 +1,5 @@
 
-This repository contains the simulation code, full simulation results, as well as the RMarkdown files used for my Master's thesis at KU Leuven (topic: The effect of missing data on the estimation bias, variance, and statistical power in multilevel autoregressive(1) models; supervisor: Prof. Eva Ceulemans; co-supervisors: Prof. Ginette Lafit, Jordan Revol; 6/2023)
+This repository contains the simulation code, full simulation results, as well as the RMarkdown files used for the writeup of my Master's thesis at KU Leuven (topic: **The effect of missing data on the estimation bias, variance, and statistical power in multilevel autoregressive(1) models**; supervisor: Prof. Eva Ceulemans; co-supervisors: Prof. Ginette Lafit, Jordan Revol; 6/2023)
 
 # Folder structure 
 
