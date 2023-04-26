@@ -318,9 +318,8 @@ kable(anova_table_se,
 A peculiar pattern is worth pointing out in the plot: in the two conditions with T = 20 and the most extreme data missing at both sides (green dashed line), the statistical power is higher when compliance is 0.4 compared to when compliance is 0.6. This counterintuitive result is likely due to the fact that the underestimation is the most severe when the most extreme values at both sides are missing. As such, some of the estimates of the fixed slope will be negative, and their magnitude will be large enough for them to reach statistical significance.
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
-
 viz_NT_pow = function(B1 = 0.3, N_select, T.obs_select, data = overall_df, x_axis){
-  # Get subset of the data that has the particulaR N/T combination 
+  # Get subset of the data that has the particular N/T combination 
   d = data %>% 
    filter(data$N == N_select & data$T.obs == T.obs_select & data$B1_sim == B1)
 
