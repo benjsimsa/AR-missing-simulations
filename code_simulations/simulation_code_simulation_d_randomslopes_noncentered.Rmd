@@ -1,5 +1,5 @@
 ---
-title: "Code for the simulation B - random slopes"
+title: "Code for the simulation D - random slopes, noncentered"
 author: "benjamin simsa (benjamin.imsa@student.kuleuven.be)"
 date: "`r Sys.Date()`"
 output: html_document
