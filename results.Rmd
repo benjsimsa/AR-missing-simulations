@@ -52,7 +52,7 @@ anova_bias_df = anova_bias_df[-1, ]
 
 The descriptive results for all 288 conditions included in Simulation A are reported in Table \ref{tab:tab_simA_all} (see Appendix).
 
-### Outcome: Estimation bias (MSE)
+### Outcome: Estimation bias
 
 ```{r  echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 anova_bias = lm(formula = B1_bias ~ N + T.obs + miss_type + compliance + B1_sim + N:T.obs + N:miss_type + T.obs:miss_type + N:compliance + T.obs:compliance + miss_type:compliance + N:B1_sim + T.obs:B1_sim + miss_type:B1_sim + compliance:B1_sim, data = anova_bias_df, type = 1)
@@ -856,7 +856,7 @@ options(knitr.kable.NA = '')
 
 **ANOVA.** A 4 × 2 × 2 × 4 × 2 × 2 factorial Type I ANOVA was used to analyse the effect of the manipulated parameters on statistical power. The results are reported in Table \ref{tab:tab_aov_pwr_sim2}.
 
-Missignness type ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[4, 6], 2)`) together with compliance ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[5, 6], 2)`) were the two main effects with the largest influence on the statistical power to detect the fixed AR effect. The value of the simulated AR effect has a large effect ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[6, 6], 2)`) as well. Three interactions crossed the effect size threshold: *missingness type\*compliance* ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[12, 6], 2)`), *missingness type\*simulated fixed AR* ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[15, 6], 2)`), and *compliance\*simulated fixed AR* ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[16, 6], 2)`).
+Missignness type ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[4, 6], 2)`) together with compliance ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[5, 6], 2)`) were the two main effects with the largest influence on the statistical power to detect the fixed AR effect. The value of the simulated AR effect has a large effect ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[6, 6], 2)`) as well. Three interactions crossed the effect size threshold: missingness type\*compliance ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[12, 6], 2)`), missingness type\*simulated fixed AR ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[15, 6], 2)`), and compliance\*simulated fixed AR ($\omega^{2}_p$ = `r round(anova_table_pwr_sim2[16, 6], 2)`).
 
 ```{r tab_aov_pwr_sim2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
@@ -963,7 +963,7 @@ kable(anova_table_simC,
 
 **Standard error.** The results from ANOVA with Standard error of estimation (when estimating the fixed autoregressive effect) are reported in Table \ref{tab:tab_suppl_anova_se}. The main effects of the number of timepoints per participants and missingness type, as well as the interaction between compliance and the number of timepoints, crossed the effect size cut-off ($\omega^{2}_p$ \> 0.14).
 
-The standard errors in the estimation of fixed AR effect are considerably smaller when person-mean centering is used (Table \ref{tab:tab_se_supp}) compared to Simulation A (Table 5). Figure \ref{fig:fig_compl_tobs_se_supp} illustrates the interaction between compliance and the number of timepoints.
+The standard errors in the estimation of fixed AR effect are considerably smaller when person-mean centering is not used (Table \ref{tab:tab_se_supp}) compared to Simulation A (Table 5). Figure \ref{fig:fig_compl_tobs_se_supp} illustrates the interaction between compliance and the number of timepoints.
 
 ```{r fig_miss_se_supp, echo=FALSE}
 overall_df_simC = data.frame(matrix(ncol = 15)) # prepare the data frame 
@@ -1008,7 +1008,7 @@ for (i in length(rdslist_simC):1){ # for-loop that connects all files from rdsli
 overall_df_simC = overall_df_simC %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
 ```
 
-```{r fig_compl_tobs_se_supp, echo=FALSE}
+```{r fig_compl_tobs_se_supp, echo=FALSE, fig.cap = "\\label{fig:fig_compl_tobs_se_supp}"}}
 (misstype_se_supp = overall_df_simC %>% 
   ggplot(aes(x = as.factor(comp_mean), y = B1_se, fill = as.factor(T.obs)))) + 
   geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
