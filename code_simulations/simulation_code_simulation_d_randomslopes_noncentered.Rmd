@@ -3163,7 +3163,7 @@ randslopes_mcar_10_03_04_100_100 = AR_simulate_missing_mcar(N = 100,
                     compliance_mean = 0.4)
 
 
-saveRDS(randslopes_mcar_10_03_04_100_100, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_mcar_10_03_06_100_100.rds"))
+saveRDS(randslopes_mcar_10_03_04_100_100, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_mcar_10_03_04_100_100.rds"))
 ```
 
 #### Compliance = 0.6
@@ -3883,7 +3883,7 @@ saveRDS(randslopes_block_10_03_04_20_100, file = here::here("results", "sim_d_ra
 ```{r}
 set.seed(4)
 
-randslopes_block_10_03_06_100_50 = AR_simulate_missing_block(N = 100,
+randslopes_block_10_03_04_100_50 = AR_simulate_missing_block(N = 100,
                     T.obs = 50,
                     Ylag.center = FALSE,
                     b00 = 0, estimate_randomslopes = TRUE,
@@ -3898,7 +3898,7 @@ randslopes_block_10_03_06_100_50 = AR_simulate_missing_block(N = 100,
                     compliance_mean = 0.4)
 
 
-saveRDS(randslopes_block_10_03_06_100_50, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_block_10_03_06_100_50.rds"))
+saveRDS(randslopes_block_10_03_04_100_50, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_block_10_03_04_100_50.rds"))
 ```
 
 ##### N = 100, T = 100
@@ -3906,7 +3906,7 @@ saveRDS(randslopes_block_10_03_06_100_50, file = here::here("results", "sim_d_ra
 ```{r}
 set.seed(4)
 
-randslopes_block_10_03_06_100_100 = AR_simulate_missing_block(N = 100,
+randslopes_block_10_03_04_100_100 = AR_simulate_missing_block(N = 100,
                     T.obs = 100,
                     Ylag.center = FALSE,
                     b00 = 0, estimate_randomslopes = TRUE,
@@ -3921,7 +3921,7 @@ randslopes_block_10_03_06_100_100 = AR_simulate_missing_block(N = 100,
                     compliance_mean = 0.4)
 
 
-saveRDS(randslopes_block_10_03_06_100_100, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_block_10_03_06_100_100.rds"))
+saveRDS(randslopes_block_10_03_04_100_100, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_block_10_03_04_100_100.rds"))
 ```
 
 #### Compliance = 0.6
@@ -4664,7 +4664,7 @@ saveRDS(randslopes_extreme_oneside_10_03_04_100_50, file = here::here("results",
 ```{r}
 set.seed(4)
 
-randslopes_extreme_oneside_10_03_06_100_100 = AR_simulate_missing_extreme_onesided(N = 100,
+randslopes_extreme_oneside_10_03_04_100_100 = AR_simulate_missing_extreme_onesided(N = 100,
                     T.obs = 100,
                     Ylag.center = FALSE,
                     b00 = 0, estimate_randomslopes = TRUE,
@@ -4679,7 +4679,7 @@ randslopes_extreme_oneside_10_03_06_100_100 = AR_simulate_missing_extreme_onesid
                     compliance_mean = 0.4)
 
 
-saveRDS(randslopes_extreme_oneside_10_03_06_100_100, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_extreme_oneside_10_03_06_100_100.rds"))
+saveRDS(randslopes_extreme_oneside_10_03_04_100_100, file = here::here("results", "sim_d_randomslopes_noncentered", "randslopes_extreme_oneside_10_03_04_100_100.rds"))
 ```
 
 #### Compliance = 0.6

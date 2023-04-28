@@ -1007,7 +1007,7 @@ for (i in length(rdslist_simC):1){ # for-loop that connects all files from rdsli
 overall_df_simC = overall_df_simC %>% arrange(miss_type, B1_sim, comp_mean, N, T.obs)
 ```
 
-```{r fig_compl_tobs_se_supp, echo=FALSE, fig.cap = "\\label{fig:fig_compl_tobs_se_supp}"}}
+```{r fig_compl_tobs_se_supp, echo=FALSE, fig.cap = "\\label{fig:fig_compl_tobs_se_supp}"}
 (misstype_se_supp = overall_df_simC %>% 
   ggplot(aes(x = as.factor(comp_mean), y = B1_se, fill = as.factor(T.obs)))) + 
   geom_boxplot(width = 0.7, alpha = 0.9, outlier.size = 1) +
