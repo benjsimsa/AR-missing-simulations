@@ -27,6 +27,12 @@ In the multilevel AR(1) model, the person-specific autoregressive effects $\gamm
 \end{aligned}
 \end{equation}
 ```
+To illustrate the process of estimating a multilevel autoregressive model, let us imagine a researcher who, similarly to Houben and Kuppens [-@houben2020], is interested in whether the inertia of negative affect is associated with borderline personality disorder features. To do so, she collects ESM data from 100 participants, obtaining self-reported values 10 times a day for 7 days via a mobile app.
+
+The inertia of negative affect for each participant is operationalized as the person-specific autoregressive effect $\gamma_{1i}$, i.e., to what degree the intensity of negative affect at time *t* is influenced by the intensity at the previous timepoint, *t-1*. However, given the fluctuating nature of human affect, the magnitude of negative affect can almost never be perfectly predicted from its previous value. For example, the participant can be made feel worse by an external event, or actively use emotion regulation techniques to manage their negative feelings. This variability in negative affect that cannot be predicted from the previous affect magnitude is included in the innovation parameter $\epsilon_{it}$ [@jongerling2015].
+
+Each participant's person-specific autoregressive effect $\gamma_{1i}$ consists of two components: the fixed effect $\beta_{10}$, which is identical across all participants, and the random effect $\nu_{1i}$, which is estimated for each participant individually. As such, the person-specific effects are assumed to differ while also being assumed to come from the same distribution. The estimates can then be used in a correlation analysis.
+
 ### Assumptions of the MLAR(1) model
 
 In this part, the assumptions of the MLAR(1) model will be explained.
@@ -43,14 +49,13 @@ In the following subchapter, I will present two most-used approaches to estimati
 
 **Bayesian estimation.** Bayesian MCMC is a flexible way of estimating the MLAR(1) model [@krone2016]. When either the outcome or the lagged predictor is missing, it allows avoiding list-wise deletion of observation-pairs when either the outcome or the predictor are missing by using the estimated autoregressive parameter to estimate the value of the missing observations [@krone2016].
 
-
 ### Evidence from simulation studies
 
 Multiple simulation studies about the statistical properties of the MLAR(1) model have been published in recent years. In this subchapter, I will summarise the most important findings.
 
-Jongerling et al. [-@jongerling2015] found that modelling innovation variance as fixed (i.e., identical for all participants) instead of random when it actually differs across participants  leads to a considerable bias in the estimation of the fixed AR effect. There is an upward bias (overestimation) present when the correlation between the individual AR effects and individual innovation variances is positive, and vice versa. Additionally, Jongerling et al. point out that using the person-means to center the lagged predictor variable leads to a downward bias in the estimation of the fixed AR effect. The effect of person-mean centering the predictor on the estimation performance of the MLAR model was further studied by Hamaker & Grasman [-@hamaker2015]. Their simulation study confirmed that person-mean centering leads to an underestimation of the fixed autoregressive effect, especially when the number of time points per participant *(T.obs)* is low. Still, they recommend using person-mean centering when one is interested in the effect of a between-person predictor on inertia.
+Jongerling et al. [-@jongerling2015] found that modelling innovation variance as fixed (i.e., identical for all participants) instead of random when it actually differs across participants leads to a considerable bias in the estimation of the fixed AR effect. There is an upward bias (overestimation) present when the correlation between the individual AR effects and individual innovation variances is positive, and vice versa. Additionally, Jongerling et al. point out that using the person-means to center the lagged predictor variable leads to a downward bias in the estimation of the fixed AR effect. The effect of person-mean centering the predictor on the estimation performance of the MLAR model was further studied by Hamaker & Grasman [-@hamaker2015]. Their simulation study confirmed that person-mean centering leads to an underestimation of the fixed autoregressive effect, especially when the number of time points per participant *(T.obs)* is low. Still, they recommend using person-mean centering when one is interested in the effect of a between-person predictor on inertia.
 
-In their simulation study comparing the maximum likelihood and Bayesian approaches to estimating the MLAR model, Krone et al. [-@krone2016] show that the two estimation procedures have a comparable performance. Furthermore, a higher number of time points per participant leads to more precise estimates, while the effect of the number of participants on the estimation performance is small. They also show that a higher variance of the random AR effects leads to a worse estimation precision and that the estimation bias gets smaller when the real fixed AR effect increases. 
+In their simulation study comparing the maximum likelihood and Bayesian approaches to estimating the MLAR model, Krone et al. [-@krone2016] show that the two estimation procedures have a comparable performance. Furthermore, a higher number of time points per participant leads to more precise estimates, while the effect of the number of participants on the estimation performance is small. They also show that a higher variance of the random AR effects leads to a worse estimation precision and that the estimation bias gets smaller when the real fixed AR effect increases.
 
 Liu [-@liu2017] assessed how violating the normality of the random AR effect distribution influences the estimation performance of the MLAR model. The different distributions of the random AR effects were found to only have a small effect on the estimation performance.
 
@@ -114,11 +119,18 @@ Each time-series was then generated using Equation \eqref{eq:level1}. The initia
 
 The non-manipulated simulation parameters ($\beta_{00}, \sigma_{\nu 0}, \sigma, \rho_\nu$) were set following a simulation design from Hamaker & Grasman [-@hamaker2015].
 
-**Introduction of missing values.** After generating the time-series, missing data were introduced to each of the generated datasets according to the missing data pattern and compliance of the given simulation condition. Four different missingness patterns (corresponding to the hypothetical ESM study scenarios described in the Introduction) were introduced to the data: a) data missing completely at random (MCAR); b) data missing in blocks of consecutive observations; c) all observations below the (100%-compliance) percentile set as missing (e.g., with compliance set to 0.6, all observations below the 40th percentile were set as missing), and d) highest and lowest (100%-compliance)/2 observations set as missing (e.g., with compliance set to 0.6, all observations below the 20th and above the 80th percentile are set as missing). For an illustration of the different missing data patterns, see Figure 1.
+**Introduction of missing values.** After generating the time-series, missing data were introduced to each of the generated datasets according to the missing data pattern and compliance of the given simulation condition. Four different missingness patterns (corresponding to the hypothetical ESM study scenarios described in the Introduction) were introduced to the data:
 
-It can be expected that the different missingness patterns will differ in their effects on the simulation outcomes (estimation bias, standard error, power). Even with an identical proportion of missing data, datasets with different missingness patterns will have different proportions of effective observation-pairs (i.e., proportion of time points for which both the observation at t and the observation at t-1 are not missing) used to estimate the autoregressive effect. 
+*a) Data missing completely at random (MCAR)*. In the simulation conditions with data MCAR, (1-compliance) observations were set at missing using the *delete_MCAR* function from the *missMethods R* package [@rockel2022]. Each observation had an identical probability of being set as missing. For example, in the conditions with compliance of 0.6, each observation had probability of 0.4 of being set as missing. \
+*b) Data missing in blocks of consecutive observations.* This missingness patterns corresponds to a simplified situation in which the participant misses multiple consecutive observations, for example because they cannot respond to ESM beeps during work or social occassions. One block of missing observations was introduced in each individual time-series. For each simulated participant, the block started with the 5th observation of their time-series, and its length was directly proportional to compliance. For example, in a condition with compliance of 0.6 an 100 timepoints per participant, 40 (100 × 0.4) observations were set as missing, from beep number 5 to beep number 45. \
+*c) Most extreme observations, one side.* In missing patterns c) and d), missingness was directly dependent on the process value. In missing pattern c), all observations below the (100%-compliance) percentile were set as missing. For example, with compliance set to 0.6, all observations below the 40th percentile were set as missing. The value of the threshold quantile was computed individually for each time-series. \
+*d)* *Most extreme observations set as missing, two sides.* In condition d), the highest and lowest (100%-compliance)/2 observations were set as missing. For example, with compliance set to 0.6, all observations below the 20th and above the 80th percentile were set as missing.
 
-```{r fig_miss_comparison, cache = TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_miss_comparison}Illustration of the four different missingness pattern used in the simulation study. The blue dots represent observed datapoints, while the light gray dots represent missing values. Compliance is 0.7 in all four patterns.", fig.height=6 }
+For an illustration of the different missing data patterns, see Figure 1.
+
+It can be expected that the different missingness patterns will differ in their effects on the simulation outcomes (estimation bias, standard error, power). Even with an identical proportion of missing data, datasets with different missingness patterns will have different proportions of effective observation-pairs (i.e., proportion of time points for which both the observation at t and the observation at t-1 are not missing) used to estimate the autoregressive effect.
+
+```{r fig_miss_comparison, cache = TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_miss_comparison}Illustration of the four different missingness pattern used in the simulation study. The blue dots represent observed datapoints, while the light gray dots represent missing values. Compliance is 0.7 in all four patterns. The total number of observations in each time-series is 100. There are 30 missing values in each time-series. The dashed red lines in plots c) and d) represent the threshold percentiles.", fig.height=6 }
 library(dplyr)
 library(missMethods)
 library(ggplot2)
@@ -177,7 +189,7 @@ plot_MCAR = ggplot(data_mcar, aes(x = tm)) +
 block_full = data_mcar$full_series
 block_missing = data_mcar$full_series
 df_block = data.frame(tm, block_full, block_missing)
-df_block$block_missing[5:(5+(30))] = NA
+df_block$block_missing[5:(5+(29))] = NA
 
 plot_block = ggplot(df_block, aes(x = tm)) + 
     
@@ -289,7 +301,7 @@ Following the recommendations by Hamaker & Grasman [-@hamaker2015], the predicto
 
 **Simulation outcomes.** Estimation bias, the standard error of the estimation, and the statistical power to estimate the fixed autoregressive effect $\beta_{10}$ were the focal outcomes of the study. Additionally, we examined the effect of the manipulated variables on the proportion of models that successfully converged and the bias in the estimation of the person-mean used for centering of the predictor (lagged) variable.
 
-Estimation bias was computed as the difference between the estimated fixed autoregressive effect $\hat{\beta_{10}}$ and the real (simulated) fixed autoregressive effect $\beta_{10}$ in each simulation replicate. As such, the dataset with estimation bias contained 1,000 rows per simulation condition (the reported values are the average of the 1,000 results per conditions). 
+Estimation bias was computed as the difference between the estimated fixed autoregressive effect $\hat{\beta_{10}}$ and the real (simulated) fixed autoregressive effect $\beta_{10}$ in each simulation replicate. As such, the dataset with estimation bias contained 1,000 rows per simulation condition (the reported values are the average of the 1,000 results per conditions).
 
 Standard error (SE) of the fixed autoregressive effect and statistical power were calculated for each simulation condition (i.e., 1 row per condition). Statistical power was computed as the proportion of simulation replicates (within the given simulation condition) in which the p-value for the estimated fixed autoregressive effect $\hat{\beta_{10}}$ was below the significance threshold ($\alpha$ = 0.05) and the number of simulation replicates that converged successfully.
 
@@ -302,7 +314,6 @@ The bias in the estimation of the person-mean of the time-series was computed as
 \end{aligned}
 \end{equation}
 ```
-
 ### Reproducibility and code/data availability
 
 The simulations were conducted in R version 4.2.1 [@rcoreteam2021]. The study was conducted with emphasis on reproducibility of the results [@pawel2022]. As such, we provide all data (simulation results) used for the reported analyses, as well as the full reproducible R code for the simulations (including the custom functions created for the purposes of the study), and the code used to generate the plots and result tables (available at [https://github.com/benjsimsa/AR-missing-simulations)](https://github.com/benjsimsa/AR-missing-simulations) The repository also includes a *sessionInfo* document that lists the versions of the packages used for the study. The thesis was written using dynamic reporting in R Markdown [@allaire2022].

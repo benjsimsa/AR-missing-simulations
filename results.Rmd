@@ -510,7 +510,7 @@ kable(anova_table_pwr,
 
 In Simulation B, random AR effects were included both in the data generating procedure and in the estimated models. The variance of random AR effects ($\sigma^2_{\nu1}$) was manipulated as an additional simulation factor (2 values: 0.05 and 0.1). The correlation between the random slopes and intercepts was set to 0. For an overview of all manipulated and fixed simulation parameters, please refer to Table \ref{tab:tab_manipulated}. The descriptive results for all 256 simulation conditions are reported in Table \ref{tab:tab_simB_all} in the Appendix.
 
-### Outcome: Estimation bias (MSE)
+### Outcome: Estimation bias 
 
 ```{r  cache = TRUE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 # prepare the dataset for MSE, sim2 
