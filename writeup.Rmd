@@ -91,6 +91,11 @@ Co-supervisors: Dr. Ginette Lafit, Jordan Revol
 
 \newpage
 
+```{r abbrev, child = 'abbreviations.Rmd'}
+```
+
+\newpage
+
 ```{r introduction, child = 'intro.Rmd'}
 ```
 
