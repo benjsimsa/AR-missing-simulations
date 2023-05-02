@@ -12,7 +12,7 @@ header-includes:
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(kableExtra)
 
-abbrev = c("ANOVA" = "Analysis of variance", "AR" = "Autoregressive", "ESM" = "Experience Sampling Method", "MAR" = "Missing at random", "MCAR" = "Missing completely at random", "MCMC" = "Markov Chain Monte Carlo", "MLE" = "Maximum likelihood estimation", "MLAR(1)" = "Multilevel first-order autoregressive", "N" = "Number of participants", "NA" = "Negative affect", "PA" = "Positive affect", "SD" = "Standard deviation", "SE" = "Standard error", "T.obs" = "Number of observations (timepoints) per participant")
+abbrev = c("ANOVA" = "Analysis of variance", "AR" = "Autoregressive", "ESM" = "Experience Sampling Method", "MAR" = "Missing at random", "MCAR" = "Missing completely at random", "MCMC" = "Markov Chain Monte Carlo", "MLE" = "Maximum likelihood estimation", "MLAR(1)" = "Multilevel first-order autoregressive", "MNAR" = "Missing not at random", "N" = "Number of participants", "NA" = "Negative affect", "PA" = "Positive affect", "SD" = "Standard deviation", "SE" = "Standard error", "T.obs" = "Number of observations (timepoints) per participant")
 
 abbreviation_list = data.frame(abbrev) 
 colnames(abbreviation_list) = " "
