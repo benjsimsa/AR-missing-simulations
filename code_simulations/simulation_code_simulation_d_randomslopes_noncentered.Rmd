@@ -5182,7 +5182,7 @@ saveRDS(randslopes_extreme_oneside_10_07_08_20_50, file = here::here("results", 
 ##### N = 20, T = 100
 
 ```{r}
-set.seed(4)
+set.seed(42)
 
 randslopes_extreme_oneside_10_07_08_20_100 = AR_simulate_missing_extreme_onesided(N = 20,
                     T.obs = 100,
@@ -5940,7 +5940,7 @@ saveRDS(randslopes_extreme_twosided_10_07_08_20_50, file = here::here("results",
 ##### N = 20, T = 100
 
 ```{r}
-set.seed(4)
+set.seed(44443)
 
 randslopes_extreme_twosided_10_07_08_20_100 = AR_simulate_missing_extreme_twosided(N = 20,
                     T.obs = 100,

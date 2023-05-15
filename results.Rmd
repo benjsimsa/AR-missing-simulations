@@ -74,7 +74,7 @@ anova_table = cbind(anova_table, omegasq_bias) %>%
 anova_table$`p-value` = format.pval(anova_table$`p-value`, digits = 2, eps = .001)
 ```
 
-**ANOVA.** We used a 4 × 2 × 3 × 4 × 3 factorial Type I ANOVA (with estimation bias as an outcome and number of participants, number of time points per participant, missingness type, compliance, and the simulated fixed autoregressive effect, as well as their two-ways interactions, as predictors) to assess which of the manipulated factors had a considerable influence on estimation bias. The results from every simulation run (i.e., 1,000 results per condition = 288,000 rows) were combined into a single dataset for the analysis. Given the very large sample size (which would make even negligible differences statistically significant) and the exploratory character of the analysis, *p*-values and significance thresholds were not used make inferences. Instead, we used a threshold of 0.14 for the partial $\omega^2$, indicating a large effect size [@field2012discovering]. This cutoff will be used for all ANOVA results throughout the Results section. The partial $\omega^2$ was chosen as the less biased alternative to partial $\eta^2$ [@okada2013omega]. The results and effect sizes are reported in Table \ref{tab:table_anova_bias}.
+**ANOVA.** We used a 4 × 2 × 3 × 4 × 3 factorial Type I ANOVA (with estimation bias for the fixed autoregressive effect as an outcome and number of participants, number of time points per participant, missingness type, compliance, and the simulated fixed autoregressive effect, as well as their two-ways interactions, as predictors) to assess which of the manipulated factors had a considerable influence on estimation bias. The results from every simulation run (i.e., 1,000 results per condition = 288,000 rows) were combined into a single dataset for the analysis. Given the very large sample size (which would make even negligible differences statistically significant) and the exploratory character of the analysis, *p*-values and significance thresholds were not used make inferences. Instead, we used a threshold of 0.14 for the partial $\omega^2$, indicating a large effect size [@field2012discovering]. This cutoff will be used for all ANOVA results throughout the Results section. The partial $\omega^2$ was chosen as the less biased alternative to partial $\eta^2$ [@okada2013omega]. The results and effect sizes are reported in Table \ref{tab:table_anova_bias}.
 
 Four main effects above the effect size threshold of 0.14 were found: the main effect of missingness type ($\omega^{2}$ = `r round(anova_table[3, 6], 2)`), compliance ($\omega^{2}_p$ = `r round(anova_table[4, 6], 2)`), the number of time points per participant ($\omega^{2}_p$ = `r round(anova_table[2, 6], 2)`), and the simulated fixed slope ($\omega^{2}_p$ = `r round(anova_table[5, 6], 2)`). Furthermore, the interaction between the missingness type and compliance ($\omega^{2}_p$ = `r round(anova_table[11, 6], 2)`) had an effect size above the cut-off.
 
@@ -104,12 +104,9 @@ cbPalette_other = c("#0072B2", "#D55E00", "#CC79A7", "#000000")
   )
 ```
 
-Figure \ref{fig:fig_prec_type} shows that while the underestimation of the fixed slopes is fairly low (although still considerable) when the observations are missing completely at random or in block, it becomes more severe when only the most extreme values (both at one side and at both sides) are missing. Additionally, the underestimation of the fixed slopes becomes more severe as the compliance gets lower.
+Figure \ref{fig:fig_prec_type} shows that while the underestimation of the fixed slopes is fairly low (although still considerable) when the observations are missing completely at random or in block, it becomes more severe when only the most extreme values (both at one side and at both sides) are missing. Additionally, the underestimation of the fixed slopes becomes more severe as the compliance gets lower. 
 
-The average estimation bias when compliance is 0.8, which roughly corresponds to the average compliance of ESM studies in psychology [@wrzus2022] is `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.8]), 2)`. This suggests that some of the estimates of emotional inertia in psychological research could be seriously downward biased. Furthermore, the estimates are slightly biased even when compliance is 1 (i.e., there are no missing data; average bias: `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 1]), 2)`). This is in line with the findings about the downward estimation bias caused by person-mean centering in multilevel autoregressive models [@hamaker2015].
-
-Zooming in on the interaction between compliance and missingness type (Figure \ref{fig:fig_prec_interaction}) suggests that the effect of compliance on estimation bias is dramatically more severe for the two conditions in which the most extreme values of the process were set as missing (as compared to the other two conditions, i.e., data MCAR and missing in blocks). In the worst-case scenario (low compliance of 0.4; the most extreme values on both sides missing), the average estimation bias was `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.4 & anova_bias_df$miss_type == "extreme_twosided"]), 2)`. Given that the average simulated fixed slope was 0.5, these results imply that even rather large autocorrelations can be estimated as close to 0 in studies in which the compliance is low and the missingness pattern is non-random. At the same time, the results concerning data MCAR and missing in blocks are encouraging. Even in the conditions with a very low compliance (0.4), the average estimation bias was `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.4 & anova_bias_df$miss_type == "mcar"]), 2)` for the former and `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.4 & anova_bias_df$miss_type == "block"]), 2)` for the latter missingness pattern.
-
+Zooming in on the interaction between compliance and missingness type (Figure \ref{fig:fig_prec_interaction}) suggests that the effect of compliance on estimation bias is dramatically more severe for the two conditions in which the most extreme values of the process were set as missing (as compared to the other two conditions, i.e., data MCAR and missing in blocks). In the worst-case scenario (low compliance of 0.4; the most extreme values on both sides missing), the average estimation bias was `r round(mean(anova_bias_df$B1_bias[anova_bias_df$compliance == 0.4 & anova_bias_df$miss_type == "extreme_twosided"]), 2)`.
 The average estimation bias for all combinations of missingness type and compliance (averaged over the different values of the number of participants, time points per participant and simulated fixed slope) is reported in Table \ref{tab:table_bias}.
 
 ```{r fig_prec_comp, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_prec_comp}The effect of compliance on the bias in estimation of the fixed slopes.", fig.width=6.4, fig.height=3.4}
@@ -1073,13 +1070,14 @@ kable(table_se_supplementary,
 
 In Simulation D, all simulation parameters were identical to Simulation B, except for the absence of person-mean centering of the lagged predictor. 
 
-**Estimation bias.** Interestingly, none of the main effects nor the two-way interactions reached the effect size threshold in supplementary Simulation D (see Table \ref{tab:tab_suppl_bias_simD}). For illustratory purposes, the average estimation bias for each combination of compliance and missingness type is included in Table \ref{tab:table_bias_simD_} and visualised in Figure \ref{fig:fig_prec_interaction_simD}. 
+**Estimation bias.** Interestingly, none of the main effects nor the two-way interactions reached the effect size threshold in supplementary Simulation D (see Table \ref{tab:tab_suppl_bias_simD}). For illustratory purposes, the average estimation bias for each combination of compliance and missingness type is included in Table \ref{tab:table_bias_simD_average} and visualised in Figure \ref{fig:fig_prec_interaction_simD}. 
 
 
-```{r  message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 # prepare the dataset for MSE, sim2 
 
 rdslist_simD = list.files(path = here::here("results", "sim_d_randomslopes_noncentered"), pattern='*.rds') # put all the data files with results in a list
+
 
 
 anova_bias_df_simD = data.frame(matrix(ncol = 8))
@@ -1108,10 +1106,10 @@ anova_bias_df_simD = anova_bias_df_simD[-1, ]
 anova_bias_simD = lm(formula = B1_bias ~ N + T.obs + miss_type + compliance + sigma_v1 +   B1_sim + N:T.obs + N:miss_type + T.obs:miss_type + N:compliance + T.obs:compliance + miss_type:compliance + N:B1_sim + T.obs:B1_sim + miss_type:B1_sim + compliance:B1_sim, data = anova_bias_df_simD, type = 1)
 
 
-omegasq_bias_simD = data.frame(omega_squared(anova_bias_simD, partial = TRUE))[,2] 
-omegasq_bias_simD[17] = 0 # no omega-squared for the residuals
-
-
+omegasq_bias_simD = data.frame(omega_squared(anova_bias_simD, partial = TRUE)) %>% 
+  select(Omega2_partial) %>%
+  rename("Partial omega-squared" = "Omega2_partial")
+omegasq_bias_simD[17, ] = NA # add omega-squared of 0 for residuals
 
 anova_table_simD = as.data.frame(anova(anova_bias_simD))
 
@@ -1122,9 +1120,6 @@ anova_table_simD = cbind(anova_table_simD, omegasq_bias_simD) %>%
   rename("p-value" = "Pr(>F)") 
 
 anova_table_simD$`p-value` = format.pval(anova_table_simD$`p-value`, digits = 2, eps = .001)
-
-anova_table_simD %>%
-  rename("Partial omega-squared" = "omegasq_bias_simD")
 
 ```
 
@@ -1139,22 +1134,28 @@ kable(anova_table_simD,
   kable_styling(full_width = F)
 ```
 
-```{r table_bias_simD_, warning=FALSE, include=FALSE}
-table_bias_simD = anova_bias_df_simD %>% 
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+table_bias_simD_ = anova_bias_df_simD %>% 
   group_by(miss_type, compliance) %>% 
   summarise(round(mean(B1_bias),2)) %>% 
   rename("bias" = "round(mean(B1_bias), 2)") %>% 
   dcast(compliance ~ miss_type, value.var = "bias")
+  
+```
 
-kable(table_bias_simD, 
+```{r table_bias_simD_average, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+
+kable(table_bias_simD_, 
       format = "latex", 
       booktabs = TRUE,  
       digits = 2,
       caption = "Simulation D. Average bias in estimation of the fixed slope for each combination of missingness type and compliance.") %>% 
   kable_styling(full_width = F) %>% 
   add_header_above(c(" " = 1, "Missingness type" = 4)) %>% 
-  column_spec(1, border_right = TRUE)
+  column_spec(1, border_right = TRUE) 
 ```
+
 
 ```{r fig_prec_interaction_simD, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.cap = "\\label{fig:fig_prec_interaction_simD}Supplementary Simulation D: The effect of the interaction between missingness type and compliance on the bias in estimation of the fixed slopes.", fig.width=6.4, fig.height=3.4}
 (boxplot_precision_compliance_misstype_simD = anova_bias_df_simD %>% 
