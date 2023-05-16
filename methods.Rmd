@@ -1,5 +1,4 @@
 ---
----
 title: "Methods"
 output: pdf_document
 bibliography: references.bib
