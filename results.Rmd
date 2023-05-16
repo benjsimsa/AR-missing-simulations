@@ -863,7 +863,7 @@ kable(anova_table_pwr_sim2,
 
 ## Supplementary simulation C
 
-To investigate whether the results presented above hold when the lagged predictor is not person-mean centered, we conducted two supplementary simulation studies. All parameters were identical to Simulation A and B (respectively), except for the fact that the predictor was not person-mean centered in the supplementary simulations. We found that both the standard error and the bias in the estimation of the fixed autoregressive effect is considerably smaller when the predictor is not person-mean centered.
+To investigate whether the results presented above hold when the lagged predictor is not person-mean centered, we conducted two supplementary simulation studies -- Simulation C and D. All parameters were identical to Simulation A and B (respectively), except for the fact that the predictor was not person-mean centered in the supplementary simulations. We found that both the standard error and the bias in the estimation of the fixed autoregressive effect is considerably smaller when the predictor is not person-mean centered.
 
 **Estimation bias.** In an ANOVA with the bias in the estimation of the fixed autoregressive effect as the outcome (Table \ref{tab:tab_suppl_bias}), only the effect of the number of beeps per participant, missingness type, and the interaction between missingness type and compliance exceeded the effect size cut-off.
 
@@ -954,7 +954,7 @@ kable(anova_table_simC,
   geom_hline(yintercept = 0, linetype = "dashed"))
 ```
 
-**Standard error.** The results from ANOVA with Standard error of estimation (when estimating the fixed autoregressive effect) are reported in Table \ref{tab:tab_suppl_anova_se}. The main effects of the number of time points per participants and missingness type, as well as the interaction between compliance and the number of time points, crossed the effect size cut-off ($\omega^{2}_p$ \> 0.14).
+**Standard error.** The results from ANOVA with Standard error of estimation as the outcome (when estimating the fixed autoregressive effect) are reported in Table \ref{tab:tab_suppl_anova_se}. The main effects of the number of time points per participants and missingness type, as well as the interaction between compliance and the number of time points, crossed the effect size cut-off ($\omega^{2}_p$ \> 0.14).
 
 The standard errors in the estimation of fixed AR effect are considerably smaller when person-mean centering is not used (Table \ref{tab:tab_se_supp}) compared to Simulation A (Table 5). Figure \ref{fig:fig_compl_tobs_se_supp} illustrates the interaction between compliance and the number of time points.
 
