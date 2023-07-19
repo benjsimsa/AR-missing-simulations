@@ -1,0 +1,14 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Contribution and approach {.unlisted .unnumbered}
+
+The work on the present thesis, written in the form of a scientific article, entailed three main aspects: I learned the concepts of and reviewed the literature about autoregressive models and their use in psychological research, familiarized myself with the methodology of Monte Carlo simulation studies in R, and I learned about the different ways of ensuring maximum computational reproducibility and transparency of the results. As such, apart from gaining substantive knowledge about time-series data analysis in psychology, I also obtained a number of transferable skills, including dynamic reporting (the thesis was written using R Markdown), version control and reproducible simulation research workflows. 
+
+In the first year, I had several meetings with my supervisors, Eva Ceulemans, Ginette Lafit and Jordan Revol. In the initial phases of the process, I have read through the available literature about the statistical properties of multilevel autoregressive models. I adapted the code that my supervisors provided to explore how violating different assumptions of the model influences the estimation. At the end of the first year, we have converged on a plan to focus on the effect of missing observations on estimation bias, variance, and statistical power of the multilevel autoregressive model. We brainstormed several different missingness patterns that correspond to simplified situations arising in Experience sampling method research. The main outcome of the course *Master's Thesis Part 1: Project* was a thesis proposal, in which I outlined the plan for the simulation studies.
+
+During the summer break between the first and second year, I adapted and extended the code for simulating the data and estimating the model, provided by Ginette and Jordan, to introduce the different missingness patterns in the simulated datasets. I conducted a set of preliminary simulation studies and met with Ginette and Jordan to discuss the results.
+
+In the autumn of the second year, we held meetings to finalize the simulation study design, including the different simulation conditions and simulation parameters. I also drafted the introduction section of the thesis for which Ginette provided feedback. After the research design was finalized, I started conducting the final simulations while also writing the first draft of the thesis. The supervisors continuously provided advice and feedback about the R functions used to simulate the datasets, fit the model and extract relevant parameters. In February, I sent the supervisors the first full draft of the thesis, for which they provided a detailed feedback. In the following months, we iteratively improved the draft and decided to include two supplementary simulation studies to provide more insight into the mechanisms behind the results.

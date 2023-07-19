@@ -1,0 +1,41 @@
+---
+title: "abbreviations"
+output: pdf_document
+date: "`r Sys.Date()`"
+header-includes:
+      - \usepackage{caption}
+
+---
+
+
+## List of abbreviations 
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(kableExtra)
+
+abbrev = c("ANOVA" = "Analysis of variance", "AR" = "Autoregressive", "ESM" = "Experience Sampling Method", "MAR" = "Missing at random", "MCAR" = "Missing completely at random", "MCMC" = "Markov Chain Monte Carlo", "MLE" = "Maximum likelihood estimation", "MLAR(1)" = "Multilevel first-order autoregressive", "MNAR" = "Missing not at random", "N" = "Number of participants", "NA" = "Negative affect", "PA" = "Positive affect", "SD" = "Standard deviation", "SE" = "Standard error", "T.obs" = "Number of observations (timepoints) per participant")
+
+abbreviation_list = data.frame(abbrev) 
+colnames(abbreviation_list) = " "
+
+kable(abbreviation_list, 
+      format = "latex", 
+      booktabs = TRUE)
+```
+
+
+## List of symbols 
+
+```{r echo=FALSE}
+library(knitr)
+
+symbols <- data.frame(
+  Symbol = c("$\\beta_{00}$", "$\\beta_{10}$", "$\\epsilon_{it}$", "$esm_{it}$", "$esm_{i, t-1}$", "$\\gamma_{0i}$", "$\\gamma_{1i}$", "$\\nu_{0i}$", "$\\nu_{1i}$", "$\\sigma^2_{\\epsilon}$", "$\\sigma_{\\nu_0}^2$", "$\\sigma_{\\nu_1}^2$", "$\\sigma_{\\nu_{01}}$"),
+  Definition = c("Fixed intercept", "Fixed autoregressive parameter", "Innovation / residuals", "Process value of participant i at time t", "Lagged process value of participant i", "Person-specific intercept", "Person-specific autoregressive parameter", "Random intercept", "Random autoregressive parameter", "Innovation variance", "Variance of the random intercepts", "Variance of the random autoregressive effects", "Correlation between the random intercepts and random autoregressive effects")
+)
+
+kable(symbols, format = "latex", booktabs = TRUE, escape = FALSE)
+```
+
+
+
+
